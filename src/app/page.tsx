@@ -363,19 +363,13 @@ export default function Home() {
 
   const pricingPlans = [
     {
-      name: "Free",
-      price: "$0",
-      period: "forever",
-      features: ["2 documents per month", "Basic chatbot access", "Summarizer with word limit", "USA & Canada compliance", "Email support"],
-      buttonText: "Get Started Free",
-      popular: false,
-      restrictions: ["Limited to 2 documents", "Basic AI features", "Standard support"]
-    },
-    {
       name: "Pro",
-      price: "$50",
+      price: "$20",
       period: "per month",
       yearlyPrice: "$510",
+      introPrice: "$20",
+      introPeriod: "first 3 months",
+      regularPrice: "$50",
       features: [
         "Unlimited document generations",
         "Unlimited chatbot conversations with memory",
@@ -386,7 +380,7 @@ export default function Home() {
       ],
       buttonText: "Start Pro Trial",
       popular: true,
-      restrictions: ["7-day free trial", "Monthly or yearly billing", "Cancel anytime"]
+      restrictions: ["7-day free trial", "First 3 months at $20", "Then $50/month", "Cancel anytime"]
     },
     {
       name: "Enterprise",
@@ -1167,34 +1161,38 @@ export default function Home() {
             </p>
             
             {/* Billing Toggle */}
-            <div className="mt-8 flex items-center justify-center space-x-4">
-              <span className={`text-sm font-medium ${!isYearlyBilling ? 'text-gray-900' : 'text-gray-500'}`}>
-                Monthly
-              </span>
-              <button
-                onClick={() => setIsYearlyBilling(!isYearlyBilling)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 ${
-                  isYearlyBilling ? 'bg-gray-900' : 'bg-gray-200'
-                }`}
-              >
-                <span
-                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                    isYearlyBilling ? 'translate-x-6' : 'translate-x-1'
+            <div className="mt-8 mb-4 flex items-center justify-center">
+              <div className="bg-gray-100 rounded-full p-1 flex items-center space-x-1">
+                <button
+                  onClick={() => setIsYearlyBilling(false)}
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    !isYearlyBilling 
+                      ? 'bg-white text-gray-900 shadow-sm' 
+                      : 'text-gray-600 hover:text-gray-900'
                   }`}
-                />
-              </button>
-              <span className={`text-sm font-medium ${isYearlyBilling ? 'text-gray-900' : 'text-gray-500'}`}>
-                Yearly
-                {isYearlyBilling && (
-                  <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                    Save 15%
-                  </span>
-                )}
-              </span>
+                >
+                  Monthly
+                </button>
+                <button
+                  onClick={() => setIsYearlyBilling(true)}
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    isYearlyBilling 
+                      ? 'bg-white text-gray-900 shadow-sm' 
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  Yearly
+                  {isYearlyBilling && (
+                    <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                      Save 15%
+                    </span>
+                  )}
+                </button>
+              </div>
             </div>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {pricingPlans.map((plan, index) => (
               <Card key={index} className={`border-gray-200 transition-all duration-300 transform hover:-translate-y-2 ${
                 plan.popular ? 'ring-2 ring-black bg-gradient-to-br from-gray-50 to-gray-100 shadow-strong' : 'bg-white shadow-medium'
@@ -1208,21 +1206,43 @@ export default function Home() {
                 )}
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl text-gray-900">{plan.name}</CardTitle>
-                  <div className="flex items-baseline justify-center space-x-1">
-                    <span className="text-4xl font-bold text-gray-900">
-                      {plan.name === "Pro" && isYearlyBilling ? plan.yearlyPrice : plan.price}
-                    </span>
-                    {plan.name === "Pro" && isYearlyBilling && (
-                      <span className="text-lg text-gray-500 line-through">$600</span>
-                    )}
-                  </div>
-                  <p className="text-gray-600">
-                    {plan.name === "Pro" && isYearlyBilling ? "per year" : plan.period}
-                  </p>
+                  
+                  {/* Introductory Pricing Display */}
+                  {plan.name === "Pro" && !isYearlyBilling && (
+                    <div className="mb-3">
+                      <div className="flex items-baseline justify-center space-x-2">
+                        <span className="text-4xl font-bold text-gray-900">{plan.introPrice}</span>
+                        <span className="text-lg text-gray-500 line-through">{plan.regularPrice}</span>
+                      </div>
+                      <p className="text-sm text-gray-600">{plan.introPeriod}</p>
+                      <p className="text-lg text-gray-600">Then {plan.regularPrice}/month</p>
+                    </div>
+                  )}
+                  
+                  {/* Regular Pricing Display */}
+                  {plan.name === "Pro" && isYearlyBilling && (
+                    <div className="mb-3">
+                      <div className="flex items-baseline justify-center space-x-2">
+                        <span className="text-4xl font-bold text-gray-900">{plan.yearlyPrice}</span>
+                        <span className="text-lg text-gray-500 line-through">$600</span>
+                      </div>
+                      <p className="text-lg text-gray-600">per year</p>
+                    </div>
+                  )}
+                  
+                  {/* Enterprise Pricing Display */}
+                  {plan.name === "Enterprise" && (
+                    <div className="mb-3">
+                      <div className="text-4xl font-bold text-gray-900">{plan.price}</div>
+                      <p className="text-lg text-gray-600">{plan.period}</p>
+                    </div>
+                  )}
+                  
+                  {/* Free Trial Badge */}
                   {plan.name === "Pro" && (
                     <div className="mt-2">
                       <Badge variant="outline" className="border-green-200 bg-green-50 text-green-700">
-                        {isYearlyBilling ? "7-day free trial" : "7-day free trial"}
+                        7-day free trial
                       </Badge>
                     </div>
                   )}
