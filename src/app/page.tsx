@@ -5,11 +5,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Twitter, Github, Linkedin, Sparkles, Bot, AlertCircle, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
+import HowItWorksGuide from "@/components/HowItWorksGuide";
+import PlatformDemo from "@/components/PlatformDemo";
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
+  const [showHowItWorks, setShowHowItWorks] = useState(false);
+  const [showPlatformDemo, setShowPlatformDemo] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -538,11 +542,18 @@ export default function Home() {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button className="bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-900 text-white px-8 py-4 text-lg font-semibold button-hover shadow-strong transform hover:scale-105 transition-all duration-300">
+                  <Button 
+                    onClick={() => setShowHowItWorks(true)}
+                    className="bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-900 text-white px-8 py-4 text-lg font-semibold button-hover shadow-strong transform hover:scale-105 transition-all duration-300"
+                  >
                     <Zap className="h-5 w-5 mr-2" />
                     See How It Works
                   </Button>
-                  <Button variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover hover:border-gray-600 hover:text-gray-800">
+                  <Button 
+                    onClick={() => setShowPlatformDemo(true)}
+                    variant="outline" 
+                    className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover hover:border-gray-600 hover:text-gray-800"
+                  >
                     <Play className="h-5 w-5 mr-2" />
                     Watch Demo
                   </Button>
@@ -868,6 +879,17 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Modal Components */}
+      <HowItWorksGuide 
+        isOpen={showHowItWorks} 
+        onClose={() => setShowHowItWorks(false)} 
+      />
+      
+      <PlatformDemo 
+        isOpen={showPlatformDemo} 
+        onClose={() => setShowPlatformDemo(false)} 
+      />
     </div>
   );
 }
