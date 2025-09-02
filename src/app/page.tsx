@@ -1118,7 +1118,7 @@ export default function Home() {
                           index === currentHowItWorksStep
                             ? 'bg-gray-800 scale-125'
                             : index < currentHowItWorksStep
-                            ? 'bg-gray-400'
+                            ? 'bg-gray-800'
                             : 'bg-gray-200'
                         }`}
                       ></div>
