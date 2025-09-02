@@ -31,23 +31,21 @@ export default function Home() {
   // Auto-play feature showcase
   useEffect(() => {
     if (isVisible) {
-      // Start feature showcase after a delay
+      // Show content immediately, then start auto-play after delay
+      setIsFeatureShowcasePlaying(true);
       setTimeout(() => {
-        setIsFeatureShowcasePlaying(true);
         startFeatureShowcase();
       }, 3000);
     }
   }, [isVisible]);
 
   const startFeatureShowcase = () => {
-    setIsFeatureShowcasePlaying(true);
     setCurrentShowcaseFeature(0);
     
     const showcaseInterval = setInterval(() => {
       setCurrentShowcaseFeature((prev) => {
         if (prev >= features.length - 1) {
           clearInterval(showcaseInterval);
-          setIsFeatureShowcasePlaying(false);
           return 0;
         }
         return prev + 1;
@@ -762,7 +760,7 @@ export default function Home() {
                         <div 
                           key={index}
                           className={`flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 transition-all duration-500 ${
-                            isFeatureShowcasePlaying ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+                            isFeatureShowcasePlaying ? 'opacity-100 translate-x-0' : 'opacity-100 translate-x-0'
                           }`}
                           style={{ transitionDelay: `${index * 200}ms` }}
                         >
@@ -784,7 +782,7 @@ export default function Home() {
                         <div 
                           key={index}
                           className={`flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 transition-all duration-500 ${
-                            isFeatureShowcasePlaying ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+                            isFeatureShowcasePlaying ? 'opacity-100 translate-x-0' : 'opacity-100 translate-x-0'
                           }`}
                           style={{ transitionDelay: `${index * 300}ms` }}
                         >
