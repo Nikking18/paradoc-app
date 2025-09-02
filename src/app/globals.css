@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+:root {
     --background: 0 0% 100%;
     --foreground: 0 0% 10%;
     --card: 0 0% 100%;
@@ -310,6 +310,20 @@
   }
 }
 
+/* AI Interface Keyframes */
+@keyframes contentLineSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    width: 100%;
+  }
+}
+
 @keyframes statusPulse {
   0%, 100% {
     opacity: 0.6;
@@ -318,15 +332,6 @@
   50% {
     opacity: 1;
     transform: scale(1.2);
-  }
-}
-
-@keyframes blink {
-  0%, 50% {
-    border-color: #000;
-  }
-  51%, 100% {
-    border-color: transparent;
   }
 }
 
@@ -341,19 +346,6 @@
   }
 }
 
-@keyframes contentLineSlide {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-    width: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    width: 100%;
-  }
-}
-
 @keyframes aiMessageFade {
   from {
     opacity: 0;
@@ -362,6 +354,26 @@
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
@@ -411,6 +423,36 @@
 
 .animate-pulse-glow-strong {
   animation: pulseGlowStrong 2s ease-in-out infinite alternate;
+}
+
+/* AI Interface Animations */
+.content-line-animate {
+  animation: contentLineSlide 0.8s ease-out forwards;
+}
+
+.status-pulse {
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.browser-dot-pulse {
+  animation: browserDotPulse 1.5s ease-in-out infinite;
+}
+
+.ai-message-fade {
+  animation: aiMessageFade 1s ease-out forwards;
+}
+
+.text-reveal {
+  animation: textReveal 1.2s ease-out forwards;
+}
+
+.gradient-text-animate {
+  background: linear-gradient(135deg, #000000 0%, #404040 50%, #666666 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
 }
 
 /* Custom scrollbar */
