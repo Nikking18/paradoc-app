@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, FileText, Search, Zap, Shield, MessageSquare, Download, Globe, Users, Star } from "lucide-react";
+import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -17,7 +17,8 @@ export default function Home() {
             <div className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-gray-600 hover:text-black transition-colors">Features</a>
               <a href="#pricing" className="text-gray-600 hover:text-black transition-colors">Pricing</a>
-              <a href="#about" className="text-gray-600 hover:text-black transition-colors">About</a>
+              <a href="#docs" className="text-gray-600 hover:text-black transition-colors">Docs</a>
+              <a href="#contact" className="text-gray-600 hover:text-black transition-colors">Contact</a>
               <Button variant="outline" className="border-black text-black hover:bg-black hover:text-white">
                 Sign In
               </Button>
@@ -41,184 +42,205 @@ export default function Home() {
             🚀 Now Available in USA & Canada
           </Badge>
           
-          <h1 className="text-6xl md:text-8xl font-bold text-black mb-8 leading-tight tracking-tight">
-            The Canva for
+          <h1 className="text-6xl md:text-7xl font-bold text-black mb-8 leading-tight tracking-tight">
+            Legal documents for the
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 mt-2">
-              Legal Documents
+              age of AI
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            Generate legally compliant documents, analyze contracts, and get AI-powered legal insights. 
-            Built specifically for <span className="font-semibold">USA & Canada jurisdiction compliance</span>.
+            ParaDoc.app helps legal professionals and businesses create compliant documents, analyze contracts, 
+            and get AI-powered insights in one unified platform.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <Button size="lg" className="bg-black text-white hover:bg-gray-800 px-10 py-6 text-lg font-semibold shadow-2xl hover:shadow-black/25 transition-all duration-300 transform hover:scale-105">
-              Start Creating Documents
+              Get started for free
             </Button>
             <Button variant="outline" size="lg" className="border-2 border-black text-black hover:bg-black hover:text-white px-10 py-6 text-lg font-semibold transition-all duration-300 transform hover:scale-105">
-              Watch Demo
+              Request a demo
             </Button>
           </div>
           
-          {/* Stats Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-16">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-black mb-2">50+</div>
-              <div className="text-gray-600 text-sm">Document Templates</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-black mb-2">100%</div>
-              <div className="text-gray-600 text-sm">Compliance Rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-black mb-2">24/7</div>
-              <div className="text-gray-600 text-sm">AI Support</div>
-            </div>
-          </div>
+          <p className="text-lg text-gray-500 mb-8">
+            Trusted by 10,000+ legal professionals at top firms and companies
+          </p>
           
-          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500">
-            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
-              <Check className="h-4 w-4 text-green-500 mr-2" />
-              No credit card required
-            </div>
-            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
-              <Check className="h-4 w-4 text-green-500 mr-2" />
-              Free plan available
-            </div>
-            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
-              <Check className="h-4 w-4 text-green-500 mr-2" />
-              USA & Canada compliant
-            </div>
+          {/* Customer Logos */}
+          <div className="flex justify-center items-center space-x-8 opacity-60">
+            <div className="text-2xl font-bold text-gray-400">Shopify</div>
+            <div className="text-2xl font-bold text-gray-400">Tecton</div>
+            <div className="text-2xl font-bold text-gray-400">Ramp</div>
+            <div className="text-2xl font-bold text-gray-400">Asana</div>
           </div>
         </div>
       </section>
 
-      {/* Problem Statement */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50"></div>
-        
-        <div className="max-w-7xl mx-auto relative">
+      {/* Core Features Grid */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <Badge variant="outline" className="mb-6 border-black text-black bg-white/80 backdrop-blur-sm">
-              The Problem
-            </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
-              Legal Documents Shouldn&apos;t Be This Hard
+              Ask, generate, analyze. All in one place.
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Traditional legal processes are expensive, complex, and slow. We&apos;re changing that.
+              Now you can chat with ParaDoc to get context on legal documents, fix compliance issues, 
+              resolve risks, and update your contracts, right in your workflow.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-3xl">💸</span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="border-gray-200 bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+              <CardHeader>
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <MessageSquare className="h-6 w-6 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl font-semibold">High Legal Costs</CardTitle>
+                <CardTitle className="text-xl">AI Legal Assistant</CardTitle>
               </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 text-lg">Lawyers charge hundreds for basic documents</p>
-                <div className="mt-4 text-3xl font-bold text-red-600">$500+</div>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Chat with ParaDoc to understand your contracts, get instant feedback, and make updates, 
+                  right where you&apos;re working.
+                </p>
+                <div className="flex items-center text-blue-600 font-medium group-hover:text-blue-700 transition-colors">
+                  Start chatting
+                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
               </CardContent>
             </Card>
-            
-            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-3xl">📚</span>
+
+            <Card className="border-gray-200 bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+              <CardHeader>
+                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <FileText className="h-6 w-6 text-green-600" />
                 </div>
-                <CardTitle className="text-xl font-semibold">Complex Legal Language</CardTitle>
+                <CardTitle className="text-xl">Smart Document Generation</CardTitle>
               </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 text-lg">Contracts full of confusing jargon</p>
-                <div className="mt-4 text-3xl font-bold text-yellow-600">80%</div>
-                <div className="text-sm text-gray-500">Don&apos;t understand</div>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Generate legally compliant documents tailored to your jurisdiction with AI-powered 
+                  templates and customizable clauses.
+                </p>
+                <div className="flex items-center text-green-600 font-medium group-hover:text-green-700 transition-colors">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
               </CardContent>
             </Card>
-            
-            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-3xl">🗺️</span>
+
+            <Card className="border-gray-200 bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+              <CardHeader>
+                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Shield className="h-6 w-6 text-purple-600" />
                 </div>
-                <CardTitle className="text-xl font-semibold">Jurisdiction Confusion</CardTitle>
+                <CardTitle className="text-xl">Risk Analysis & Compliance</CardTitle>
               </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 text-lg">Laws vary by state and province</p>
-                <div className="mt-4 text-3xl font-bold text-blue-600">60+</div>
-                <div className="text-sm text-gray-500">Different jurisdictions</div>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Get immediate, actionable feedback on every document with ParaDoc&apos;s compliance-aware AI 
+                  and risk scanning.
+                </p>
+                <div className="flex items-center text-purple-600 font-medium group-hover:text-purple-700 transition-colors">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
               </CardContent>
             </Card>
-            
-            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-3xl">⏰</span>
+
+            <Card className="border-gray-200 bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+              <CardHeader>
+                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Search className="h-6 w-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-xl font-semibold">Slow Processes</CardTitle>
+                <CardTitle className="text-xl">Legal Document Lookup</CardTitle>
               </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 text-lg">Days or weeks for simple documents</p>
-                <div className="mt-4 text-3xl font-bold text-purple-600">7-14</div>
-                <div className="text-sm text-gray-500">Days average</div>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Find compliance-ready templates by state or province with embedded jurisdiction-specific 
+                  clauses and official resources.
+                </p>
+                <div className="flex items-center text-orange-600 font-medium group-hover:text-orange-700 transition-colors">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-gray-200 bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+              <CardHeader>
+                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Download className="h-6 w-6 text-red-600" />
+                </div>
+                <CardTitle className="text-xl">Bulk Document Export</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Generate multiple documents at once and download them as a convenient ZIP file. 
+                  Perfect for businesses needing multiple legal documents.
+                </p>
+                <div className="flex items-center text-red-600 font-medium group-hover:text-red-700 transition-colors">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-gray-200 bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+              <CardHeader>
+                <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="h-6 w-6 text-indigo-600" />
+                </div>
+                <CardTitle className="text-xl">Instant Legal Insights</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Turn legal questions into suggested changes and get detailed explanations for every 
+                  modification with one click.
+                </p>
+                <div className="flex items-center text-indigo-600 font-medium group-hover:text-indigo-700 transition-colors">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Core Features */}
-      <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
-        
-        <div className="max-w-7xl mx-auto relative">
+      {/* Everything You Need Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <Badge variant="outline" className="mb-6 border-black text-black bg-white/80 backdrop-blur-sm">
-              Our Solutions
-            </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
-              AI-Powered Legal Solutions
+              Everything you need to work faster
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Everything you need to create, analyze, and manage legal documents in one platform.
+              One end-to-end tool to simplify and accelerate your legal document workflow
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-4">
-                  <FileText className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-black">AI Legal Document Generator</h3>
-              </div>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                Generate legally compliant documents tailored to your specific jurisdiction. 
-                Simply describe what you need, and our AI creates a professional document in seconds.
+              <h3 className="text-3xl font-bold text-black mb-6">
+                Stay compliant with AI-powered insights
+              </h3>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                AI-powered compliance checking allows you to build upon existing documents without waiting 
+                for legal review. ParaDoc&apos;s AI and VS Code extension enable users to effortlessly create 
+                compliant documents, among many other powerful legal features.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  USA & Canada jurisdiction compliance
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Customizable clauses and terms
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Export to PDF, Word, or Google Docs
-                </li>
-              </ul>
+              <div className="space-y-4">
+                <Button variant="outline" className="border-black text-black hover:bg-black hover:text-white">
+                  Start generating
+                </Button>
+                <div className="text-sm text-gray-500">
+                  Read more about our AI
+                </div>
+              </div>
             </div>
-            <div className="bg-gray-100 rounded-2xl p-8">
-              <div className="bg-white rounded-lg p-6 border border-gray-200">
+            <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-gray-100 rounded-lg p-6 border border-gray-200">
                 <div className="flex items-center mb-4">
                   <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
@@ -234,10 +256,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
             <div className="order-2 lg:order-1">
-              <div className="bg-gray-100 rounded-2xl p-8">
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
+              <div className="bg-white rounded-2xl p-8 shadow-xl">
+                <div className="bg-gray-100 rounded-lg p-6 border border-gray-200">
                   <div className="flex items-center mb-4">
                     <Search className="h-6 w-6 text-gray-400 mr-3" />
                     <span className="text-gray-600 font-medium">Legal Document Lookup</span>
@@ -251,174 +273,48 @@ export default function Home() {
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-4">
-                  <Search className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-black">Smart Legal Document Lookup</h3>
-              </div>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                Find compliance-ready templates by state or province. Access jurisdiction-specific 
-                clauses and direct links to official government resources.
+              <h3 className="text-3xl font-bold text-black mb-6">
+                A review experience built for legal teams
+              </h3>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                One unified inbox and review workflow for your team&apos;s legal documents. Get instant 
+                feedback, track changes, and maintain version control all in one place.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  State and province-specific templates
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Embedded compliance clauses
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Official government resource links
-                </li>
-              </ul>
+              <div className="space-y-4">
+                <Button variant="outline" className="border-black text-black hover:bg-black hover:text-white">
+                  Learn more
+                </Button>
+              </div>
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-4">
-                  <Download className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-black">Multi-Document ZIP Converter</h3>
-              </div>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                Generate multiple documents at once and download them as a convenient ZIP file. 
-                Perfect for businesses needing multiple legal documents.
+              <h3 className="text-3xl font-bold text-black mb-6">
+                Don&apos;t miss compliance deadlines
+              </h3>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Actionable notifications that meet you where you are. Get alerts for compliance 
+                deadlines, document updates, and legal requirements across all your platforms.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Bulk document generation
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  ZIP file download
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Enterprise bulk upload support
-                </li>
-              </ul>
-            </div>
-            <div className="bg-gray-100 rounded-2xl p-8">
-              <div className="bg-white rounded-lg p-6 border border-gray-200">
-                <div className="flex items-center mb-4">
-                  <Download className="h-6 w-6 text-gray-400 mr-3" />
-                  <span className="text-gray-600 font-medium">Bulk Export</span>
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="h-16 bg-gray-200 rounded border-2 border-dashed border-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Contract</span>
-                  </div>
-                  <div className="h-16 bg-gray-200 rounded border-2 border-dashed border-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">NDA</span>
-                  </div>
-                  <div className="h-16 bg-gray-200 rounded border-2 border-dashed border-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Policy</span>
-                  </div>
-                  <div className="h-16 bg-gray-200 rounded border-2 border-dashed border-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">+ More</span>
-                  </div>
-                </div>
+              <div className="space-y-4">
+                <Button variant="outline" className="border-black text-black hover:bg-black hover:text-white">
+                  Read the docs
+                </Button>
               </div>
             </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            <div className="order-2 lg:order-1">
-              <div className="bg-gray-100 rounded-2xl p-8">
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
-                  <div className="flex items-center mb-4">
-                    <Shield className="h-6 w-6 text-gray-400 mr-3" />
-                    <span className="text-gray-600 font-medium">Risk Analysis</span>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600">Risk Level</span>
-                      <Badge variant="destructive">High</Badge>
-                    </div>
-                    <div className="h-2 bg-gray-200 rounded-full">
-                      <div className="h-2 bg-red-500 rounded-full w-3/4"></div>
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      ⚠️ Unusual liability clause detected
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-4">
-                  <Shield className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-black">AI Legal Summarizer & Risk Scanner</h3>
-              </div>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                Upload existing contracts and get plain English summaries with risk analysis. 
-                Our AI flags dangerous clauses and provides actionable insights.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Plain English summaries
-                </li>
-                                 <li className="flex items-center text-gray-600">
-                   <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                   Risk scanning for dangerous clauses
-                 </li>
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Actionable legal insights
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-4">
-                  <MessageSquare className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-black">AI Legal Chatbot</h3>
-              </div>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                Ask legal questions in plain English and get instant AI-powered answers. 
-                Get suggestions for relevant templates and compliance resources.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Plain English legal Q&A
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  Template suggestions
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  USA & Canada specific guidance
-                </li>
-              </ul>
-            </div>
-            <div className="bg-gray-100 rounded-2xl p-8">
-              <div className="bg-white rounded-lg p-6 border border-gray-200">
+            <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-gray-100 rounded-lg p-6 border border-gray-200">
                 <div className="flex items-center mb-4">
                   <MessageSquare className="h-6 w-6 text-gray-400 mr-3" />
-                  <span className="text-gray-600 font-medium">Legal Assistant</span>
+                  <span className="text-gray-600 font-medium">Notifications</span>
                 </div>
                 <div className="space-y-3">
-                  <div className="bg-gray-100 rounded-lg p-3">
-                    <p className="text-sm text-gray-600">How do I create an NDA for my startup?</p>
+                  <div className="bg-blue-100 rounded-lg p-3">
+                    <p className="text-sm text-blue-800">Contract review due in 2 days</p>
                   </div>
-                  <div className="bg-black text-white rounded-lg p-3">
-                    <p className="text-sm">I&apos;ll help you create an NDA. First, let me ask a few questions about your jurisdiction and requirements...</p>
+                  <div className="bg-green-100 rounded-lg p-3">
+                    <p className="text-sm text-green-800">Compliance check passed</p>
                   </div>
                 </div>
               </div>
@@ -427,197 +323,104 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Target Audience */}
-      <section className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
+      {/* Unified Platform Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Built for Legal Professionals & Businesses
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
+              Your unified legal platform
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Whether you&apos;re a freelancer, startup, or law firm, we have solutions designed for your needs.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Supercharge your team with AI-powered insights, compliance tracking, automations, and analytics.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-gray-200 bg-white text-center">
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-300">
               <CardHeader>
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-blue-600" />
+                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-8 w-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl">Freelancers & Consultants</CardTitle>
+                <CardTitle className="text-xl">Compliance Tracking</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">Need contracts, NDAs, and service agreements</p>
-                <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• Freelance contracts</li>
-                  <li>• Non-disclosure agreements</li>
-                  <li>• Service agreements</li>
-                  <li>• Client onboarding docs</li>
-                </ul>
+                <p className="text-gray-600">Monitor compliance status across all documents and jurisdictions</p>
               </CardContent>
             </Card>
-            <Card className="border-gray-200 bg-white text-center">
+
+            <Card className="border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-300">
               <CardHeader>
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Zap className="h-8 w-8 text-green-600" />
+                <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <MessageSquare className="h-8 w-8 text-green-600" />
                 </div>
-                <CardTitle className="text-xl">Startups & SMBs</CardTitle>
+                <CardTitle className="text-xl">AI Chat</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">Require operating agreements and HR policies</p>
-                <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• Operating agreements</li>
-                  <li>• HR policies</li>
-                  <li>• Investor documents</li>
-                  <li>• Employment contracts</li>
-                </ul>
+                <p className="text-gray-600">Get instant legal advice and document analysis</p>
               </CardContent>
             </Card>
-            <Card className="border-gray-200 bg-white text-center">
+
+            <Card className="border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-300">
               <CardHeader>
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="h-8 w-8 text-purple-600" />
+                <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Zap className="h-8 w-8 text-purple-600" />
                 </div>
-                <CardTitle className="text-xl">Law Firms</CardTitle>
+                <CardTitle className="text-xl">Automations</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">Use as internal productivity tool</p>
-                <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• Document drafting</li>
-                  <li>• Client assistance</li>
-                  <li>• Template library</li>
-                  <li>• Risk assessment</li>
-                </ul>
+                <p className="text-gray-600">Automate repetitive legal tasks and workflows</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-300">
+              <CardHeader>
+                <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <FileText className="h-8 w-8 text-orange-600" />
+                </div>
+                <CardTitle className="text-xl">Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">Track document performance and team productivity</p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
-        
-        <div className="max-w-7xl mx-auto relative">
+      {/* Technology Integration */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <Badge variant="outline" className="mb-6 border-black text-black bg-white/80 backdrop-blur-sm">
-              Pricing Plans
-            </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
-              Simple, Transparent Pricing
+              Legal infrastructure built for your team
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Start free and scale as you grow. No hidden fees, no surprises.
+              ParaDoc works seamlessly with the technologies you already use
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Free Plan */}
-            <Card className="border-gray-200 bg-white">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Free</CardTitle>
-                <div className="text-4xl font-bold text-black">$0</div>
-                <CardDescription>Perfect for getting started</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-600">2 documents per month</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-600">Basic chatbot access</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-600">Summarizer with word limit</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-600">USA & Canada compliance</span>
-                  </li>
-                </ul>
-                <Button variant="outline" className="w-full border-black text-black hover:bg-black hover:text-white">
-                  Get Started Free
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Premium Plan */}
-            <Card className="border-black bg-black text-white relative">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <Badge className="bg-white text-black px-3 py-1">Most Popular</Badge>
-              </div>
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Premium</CardTitle>
-                <div className="text-4xl font-bold">$29</div>
-                <CardDescription className="text-gray-300">per month</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-400 mr-3" />
-                    <span className="text-gray-200">Unlimited document generation</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-400 mr-3" />
-                    <span className="text-gray-200">Full risk scanning</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-400 mr-3" />
-                    <span className="text-gray-200">Multi-document ZIP export</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-400 mr-3" />
-                    <span className="text-gray-200">Priority support</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-400 mr-3" />
-                    <span className="text-gray-200">Advanced AI features</span>
-                  </li>
-                </ul>
-                <Button className="w-full bg-white text-black hover:bg-gray-100">
-                  Start Premium Trial
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Enterprise Plan */}
-            <Card className="border-gray-200 bg-white">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Enterprise</CardTitle>
-                <div className="text-4xl font-bold text-black">Custom</div>
-                <CardDescription>For law firms & large teams</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-600">Bulk upload & generation</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-600">White-labeled chatbot</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-600">Team collaboration</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-600">Custom AI fine-tuning</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-600">Dedicated support</span>
-                  </li>
-                </ul>
-                <Button variant="outline" className="w-full border-black text-black hover:bg-black hover:text-white">
-                  Contact Sales
-                </Button>
-              </CardContent>
-            </Card>
+          
+          <div className="grid md:grid-cols-3 gap-12 text-center">
+            <div>
+              <h3 className="text-2xl font-bold text-black mb-4">Where change happens</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Organizations that adopt ParaDoc create more compliant documents with faster review cycles 
+                and reduced legal risks.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-black mb-4">Synced with your workflow</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Deep integration means your team is always on the same page with real-time updates 
+                and collaborative features.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-black mb-4">Built for modern teams</h3>
+              <p className="text-gray-600 leading-relaxed">
+                ParaDoc is designed to work with all your existing tools, scripts, and workflows 
+                for seamless integration.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -630,91 +433,63 @@ export default function Home() {
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
         
         <div className="relative max-w-4xl mx-auto text-center">
-          <Badge variant="outline" className="mb-8 border-white text-white bg-white/10 backdrop-blur-sm">
-            Get Started Today
-          </Badge>
-          
           <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            Ready to Transform Your Legal Document Process?
+            Built for the world&apos;s fastest legal teams, now available for everyone
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
-            Join thousands of professionals who trust ParaDoc.app for their legal document needs.
-          </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
             <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-6 text-lg font-semibold shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:scale-105">
-              Start Creating Documents
+              Request a demo
             </Button>
             <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-black px-10 py-6 text-lg font-semibold transition-all duration-300 transform hover:scale-105">
-              Schedule Demo
+              Start free trial
             </Button>
-          </div>
-          
-          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-400">
-            <div className="flex items-center">
-              <Check className="h-4 w-4 text-green-400 mr-2" />
-              No credit card required
-            </div>
-            <div className="flex items-center">
-              <Check className="h-4 w-4 text-green-400 mr-2" />
-              Free plan available
-            </div>
-            <div className="flex items-center">
-              <Check className="h-4 w-4 text-green-400 mr-2" />
-              USA & Canada compliant
-            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-gray-200 bg-white px-4 sm:px-6 lg:px-8">
+      <footer className="py-16 border-t border-gray-200 bg-white px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center mb-4">
                 <FileText className="h-8 w-8 text-black mr-3" />
                 <span className="text-xl font-bold text-black">ParaDoc.app</span>
               </div>
               <p className="text-gray-600 mb-4">
-                The Canva for Legal Documents. AI-powered, compliant, and accessible.
+                Legal documents for the age of AI. AI-powered, compliant, and accessible.
               </p>
-              <div className="flex space-x-4">
-                <Globe className="h-5 w-5 text-gray-400" />
-                <span className="text-sm text-gray-500">USA & Canada</span>
-              </div>
             </div>
             <div>
               <h3 className="font-semibold text-black mb-4">Product</h3>
               <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-black">Document Generator</a></li>
-                <li><a href="#" className="hover:text-black">Legal Lookup</a></li>
-                <li><a href="#" className="hover:text-black">Risk Scanner</a></li>
-                <li><a href="#" className="hover:text-black">AI Chatbot</a></li>
+                <li><a href="#" className="hover:text-black">Features</a></li>
+                <li><a href="#" className="hover:text-black">Pricing</a></li>
+                <li><a href="#" className="hover:text-black">Docs</a></li>
+                <li><a href="#" className="hover:text-black">Customers</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-black mb-4">Company</h3>
               <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-black">About</a></li>
                 <li><a href="#" className="hover:text-black">Blog</a></li>
                 <li><a href="#" className="hover:text-black">Careers</a></li>
-                <li><a href="#" className="hover:text-black">Contact</a></li>
+                <li><a href="#" className="hover:text-black">Contact us</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-black mb-4">Support</h3>
+              <h3 className="font-semibold text-black mb-4">Resources</h3>
               <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-black">Help Center</a></li>
-                <li><a href="#" className="hover:text-black">Documentation</a></li>
-                <li><a href="#" className="hover:text-black">API Reference</a></li>
-                <li><a href="#" className="hover:text-black">Status</a></li>
+                <li><a href="#" className="hover:text-black">Community</a></li>
+                <li><a href="#" className="hover:text-black">Privacy policy</a></li>
+                <li><a href="#" className="hover:text-black">Terms of service</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-200 mt-8 pt-8 text-center">
+          <div className="border-t border-gray-200 pt-8 text-center">
             <p className="text-gray-600">
-              © 2024 ParaDoc.app. All rights reserved. Built for USA & Canada legal compliance.
+              © 2025 ParaDoc.app. All rights reserved. Built for USA & Canada legal compliance.
             </p>
           </div>
         </div>
