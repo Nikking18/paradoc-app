@@ -3,15 +3,23 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Twitter, Github, Linkedin } from "lucide-react";
+import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Twitter, Github, Linkedin, Sparkles, Bot, AlertCircle, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeFeature, setActiveFeature] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Auto-cycle through features
+    const interval = setInterval(() => {
+      setActiveFeature((prev) => (prev + 1) % 5);
+    }, 5000);
+    
+    return () => clearInterval(interval);
   }, []);
 
   const faqs = [
@@ -44,7 +52,34 @@ export default function Home() {
       description: "Generate legally compliant documents tailored to your jurisdiction in minutes, not days.",
       color: "from-gray-700 to-gray-900",
       bgColor: "bg-gray-50",
-      borderColor: "border-gray-200"
+      borderColor: "border-gray-200",
+      demo: (
+        <div className="feature-demo p-6">
+          <div className="demo-screen">
+            <div className="demo-header">
+              <div className="demo-dot bg-red-500"></div>
+              <div className="demo-dot bg-yellow-500"></div>
+              <div className="demo-dot bg-green-500"></div>
+            </div>
+            <div className="demo-content">
+              <div className="demo-line w-3/4"></div>
+              <div className="demo-line w-1/2"></div>
+              <div className="demo-line w-5/6"></div>
+              <div className="demo-line w-2/3"></div>
+            </div>
+            <div className="mt-4 p-3 bg-yellow-400/20 border border-yellow-400/30 rounded">
+              <p className="text-sm text-yellow-200 font-medium">
+                Generating NDA for California...
+              </p>
+            </div>
+            <div className="mt-3 p-3 bg-green-400/20 border border-green-400/30 rounded">
+              <p className="text-sm text-green-200 font-medium">
+                ✓ Document ready! Includes CA-specific clauses
+              </p>
+            </div>
+          </div>
+        </div>
+      )
     },
     {
       icon: <Search className="h-8 w-8" />,
@@ -52,7 +87,35 @@ export default function Home() {
       description: "Find compliance-ready templates by state or province with embedded jurisdiction-specific clauses.",
       color: "from-gray-600 to-gray-800",
       bgColor: "bg-gray-50",
-      borderColor: "border-gray-200"
+      borderColor: "border-gray-200",
+      demo: (
+        <div className="feature-demo p-6">
+          <div className="demo-screen">
+            <div className="demo-header">
+              <div className="demo-dot bg-red-500"></div>
+              <div className="demo-dot bg-yellow-500"></div>
+              <div className="demo-dot bg-green-500"></div>
+            </div>
+            <div className="demo-content">
+              <div className="flex items-center space-x-2 mb-3">
+                <Search className="h-4 w-4 text-gray-400" />
+                <span className="text-gray-300 text-sm">Search: &ldquo;employment contract Ontario&rdquo;</span>
+              </div>
+              <div className="space-y-2">
+                <div className="p-2 bg-blue-400/20 border border-blue-400/30 rounded">
+                  <p className="text-sm text-blue-200">📄 Employment Agreement - Ontario</p>
+                </div>
+                <div className="p-2 bg-green-400/20 border border-green-400/30 rounded">
+                  <p className="text-sm text-green-200">✓ Includes Ontario Employment Standards</p>
+                </div>
+                <div className="p-2 bg-purple-400/20 border border-purple-400/30 rounded">
+                  <p className="text-sm text-purple-200">⚖️ Provincial compliance verified</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     },
     {
       icon: <Download className="h-8 w-8" />,
@@ -60,7 +123,42 @@ export default function Home() {
       description: "Generate multiple documents at once and download them as a convenient ZIP file.",
       color: "from-gray-800 to-black",
       bgColor: "bg-gray-50",
-      borderColor: "border-gray-200"
+      borderColor: "border-gray-200",
+      demo: (
+        <div className="feature-demo p-6">
+          <div className="demo-screen">
+            <div className="demo-header">
+              <div className="demo-dot bg-red-500"></div>
+              <div className="demo-dot bg-yellow-500"></div>
+              <div className="demo-dot bg-green-500"></div>
+            </div>
+            <div className="demo-content">
+              <div className="grid grid-cols-2 gap-2 mb-3">
+                <div className="p-2 bg-gray-700 rounded text-center">
+                  <FileText className="h-6 w-6 text-gray-400 mx-auto mb-1" />
+                  <p className="text-xs text-gray-300">NDA</p>
+                </div>
+                <div className="p-2 bg-gray-700 rounded text-center">
+                  <FileText className="h-6 w-6 text-gray-400 mx-auto mb-1" />
+                  <p className="text-xs text-gray-300">Contract</p>
+                </div>
+                <div className="p-2 bg-gray-700 rounded text-center">
+                  <FileText className="h-6 w-6 text-gray-400 mx-auto mb-1" />
+                  <p className="text-xs text-gray-300">Policy</p>
+                </div>
+                <div className="p-2 bg-gray-700 rounded text-center">
+                  <FileText className="h-6 w-6 text-gray-400 mx-auto mb-1" />
+                  <p className="text-xs text-gray-300">Terms</p>
+                </div>
+              </div>
+              <div className="p-2 bg-green-400/20 border border-green-400/30 rounded">
+                <Download className="h-4 w-4 text-green-400 inline mr-2" />
+                <span className="text-sm text-green-200">Download as ZIP (4 files)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     },
     {
       icon: <Shield className="h-8 w-8" />,
@@ -68,7 +166,37 @@ export default function Home() {
       description: "Upload existing contracts and get plain English summaries with risk analysis.",
       color: "from-gray-700 to-gray-900",
       bgColor: "bg-gray-50",
-      borderColor: "border-gray-200"
+      borderColor: "border-gray-200",
+      demo: (
+        <div className="feature-demo p-6">
+          <div className="demo-screen">
+            <div className="demo-header">
+              <div className="demo-dot bg-red-500"></div>
+              <div className="demo-dot bg-yellow-500"></div>
+              <div className="demo-dot bg-green-500"></div>
+            </div>
+            <div className="demo-content">
+              <div className="p-2 bg-blue-400/20 border border-blue-400/30 rounded mb-2">
+                <p className="text-sm text-blue-200">📄 Analyzing: Service Agreement.pdf</p>
+              </div>
+              <div className="space-y-2">
+                <div className="p-2 bg-green-400/20 border border-green-400/30 rounded">
+                  <CheckCircle2 className="h-4 w-4 text-green-400 inline mr-2" />
+                  <span className="text-sm text-green-200">Standard terms - Low risk</span>
+                </div>
+                <div className="p-2 bg-yellow-400/20 border border-yellow-400/30 rounded">
+                  <AlertCircle className="h-4 w-4 text-yellow-400 inline mr-2" />
+                  <span className="text-sm text-yellow-200">Unlimited liability clause - Medium risk</span>
+                </div>
+                <div className="p-2 bg-red-400/20 border border-red-400/30 rounded">
+                  <AlertCircle className="h-4 w-4 text-red-400 inline mr-2" />
+                  <span className="text-sm text-red-200">Arbitration clause - High risk</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     },
     {
       icon: <MessageSquare className="h-8 w-8" />,
@@ -76,7 +204,31 @@ export default function Home() {
       description: "Ask legal questions in plain English and get instant AI-powered answers with compliance guidance.",
       color: "from-gray-600 to-gray-800",
       bgColor: "bg-gray-50",
-      borderColor: "border-gray-200"
+      borderColor: "border-gray-200",
+      demo: (
+        <div className="feature-demo p-6">
+          <div className="demo-screen">
+            <div className="demo-header">
+              <div className="demo-dot bg-red-500"></div>
+              <div className="demo-dot bg-yellow-500"></div>
+              <div className="demo-dot bg-green-500"></div>
+            </div>
+            <div className="demo-content">
+              <div className="p-2 bg-gray-700 rounded mb-2">
+                <p className="text-sm text-gray-300">👤 &ldquo;What&apos;s the difference between an NDA and confidentiality agreement?&rdquo;</p>
+              </div>
+              <div className="p-2 bg-blue-400/20 border border-blue-400/30 rounded">
+                <Bot className="h-4 w-4 text-blue-400 inline mr-2" />
+                <p className="text-sm text-blue-200">NDAs are broader and cover all confidential info, while confidentiality agreements are more specific. Both are legally binding in your jurisdiction.</p>
+              </div>
+              <div className="p-2 bg-green-400/20 border border-green-400/30 rounded mt-2">
+                <Sparkles className="h-4 w-4 text-green-400 inline mr-2" />
+                <p className="text-sm text-green-200">💡 Tip: Use NDAs for general business relationships</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     }
   ];
 
@@ -135,18 +287,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-black to-gray-800 rounded-xl flex items-center justify-center shadow-medium">
+              <div className="w-10 h-10 bg-gradient-to-br from-black to-gray-800 rounded-xl flex items-center justify-center shadow-medium animate-fade-in-scale">
                 <FileText className="h-6 w-6 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900">ParaDoc.app</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform">Features</a>
-              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform">How It Works</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform">Pricing</a>
-              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform">Contact</a>
+              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left">Features</a>
+              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" style={{ animationDelay: '0.1s' }}>How It Works</a>
+              <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" style={{ animationDelay: '0.2s' }}>Pricing</a>
+              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" style={{ animationDelay: '0.3s' }}>Contact</a>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 animate-slide-in-right">
               <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 button-hover">
                 Sign In
               </Button>
@@ -169,7 +321,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <Badge className="mb-6 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 border border-gray-300 px-4 py-2 text-sm font-medium shadow-soft animate-fade-in-up">
+              <Badge className="mb-6 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 border border-gray-300 px-4 py-2 text-sm font-medium shadow-soft animate-bounce-in">
                 🚀 Now Available in USA & Canada
               </Badge>
               
@@ -229,7 +381,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center shadow-strong animate-pulse-glow">
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center shadow-strong animate-pulse-glow-strong">
                 <ShieldCheck className="h-12 w-12 text-white" />
               </div>
             </div>
@@ -250,28 +402,28 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="text-center group hover-lift">
+            <div className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <DollarSign className="h-8 w-8 text-red-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Expensive Lawyers</h3>
               <p className="text-gray-600">Hundreds of dollars for basic documents</p>
             </div>
-            <div className="text-center group hover-lift">
+            <div className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <BookOpen className="h-8 w-8 text-yellow-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Legal Jargon</h3>
               <p className="text-gray-600">Confusing language that&apos;s hard to understand</p>
             </div>
-            <div className="text-center group hover-lift">
+            <div className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Globe className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Compliance Issues</h3>
               <p className="text-gray-600">State and province-specific requirements</p>
             </div>
-            <div className="text-center group hover-lift">
+            <div className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Clock className="h-8 w-8 text-purple-600" />
               </div>
@@ -280,7 +432,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift">
+          <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               ParaDoc.app: The All-in-One Solution
             </h3>
@@ -299,19 +451,28 @@ export default function Home() {
       <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in-up">
               Everything You Need in One Platform
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Our MVP 5 pillars provide comprehensive legal document solutions for modern businesses.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className={`border-gray-200 bg-white card-hover group ${feature.bgColor} ${feature.borderColor}`}>
+              <Card 
+                key={index} 
+                className={`border-gray-200 bg-white card-hover group ${feature.bgColor} ${feature.borderColor} transition-all duration-500 ${
+                  activeFeature === index ? 'ring-2 ring-black scale-105' : ''
+                }`}
+                onMouseEnter={() => setActiveFeature(index)}
+                onMouseLeave={() => setActiveFeature(activeFeature)}
+              >
                 <CardHeader>
-                  <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-medium`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-medium ${
+                    activeFeature === index ? 'animate-pulse-glow-strong' : ''
+                  }`}>
                     <div className="text-white">{feature.icon}</div>
                   </div>
                   <CardTitle className="text-xl text-gray-900">{feature.title}</CardTitle>
@@ -326,6 +487,21 @@ export default function Home() {
               </Card>
             ))}
           </div>
+
+          {/* Interactive Feature Demo */}
+          <div className="mt-16 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                See {features[activeFeature]?.title} in Action
+              </h3>
+              <p className="text-gray-600">
+                Hover over any feature card above to see a live demonstration
+              </p>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              {features[activeFeature]?.demo}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -333,17 +509,17 @@ export default function Home() {
       <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 section-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in-up">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Get compliant legal documents in three simple steps
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {howItWorks.map((step, index) => (
-              <div key={index} className="text-center group hover-lift">
+              <div key={index} className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
                 <div className="w-20 h-20 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold shadow-medium group-hover:scale-110 transition-transform duration-300">
                   {step.step}
                 </div>
@@ -362,10 +538,10 @@ export default function Home() {
       <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in-up">
               Simple, Transparent Pricing
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Start free and scale as you grow. No hidden fees, no surprises.
             </p>
           </div>
@@ -374,7 +550,7 @@ export default function Home() {
             {pricingPlans.map((plan, index) => (
               <Card key={index} className={`border-gray-200 transition-all duration-300 transform hover:-translate-y-2 ${
                 plan.popular ? 'ring-2 ring-black bg-gradient-to-br from-gray-50 to-gray-100 shadow-strong' : 'bg-white shadow-medium'
-              } card-hover`}>
+              } card-hover animate-fade-in-up`} style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
                 {plan.popular && (
                   <div className="text-center -mt-3">
                     <Badge className="bg-gradient-to-r from-black to-gray-800 text-white px-3 py-1">
@@ -414,16 +590,16 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 section-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in-up">
               Trusted by Legal Professionals
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Our focus on compliance and accuracy makes us the choice for freelancers, startups, and law firms.
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift">
+            <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <div className="flex justify-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
@@ -435,7 +611,7 @@ export default function Home() {
               <p className="font-semibold text-gray-900">Sarah Chen</p>
               <p className="text-sm text-gray-500">Freelance Consultant</p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift">
+            <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               <div className="flex justify-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
@@ -447,7 +623,7 @@ export default function Home() {
               <p className="font-semibold text-gray-900">Marcus Rodriguez</p>
               <p className="text-sm text-gray-500">Founder, TechStart</p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift">
+            <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
               <div className="flex justify-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
@@ -461,7 +637,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="text-center">
+          <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <p className="text-gray-600 mb-6">Trusted by leading companies and professionals</p>
             <div className="flex justify-center items-center space-x-8 opacity-60">
               <div className="text-2xl font-bold text-gray-400">Vercel</div>
@@ -477,17 +653,17 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in-up">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Everything you need to know about ParaDoc.app
             </p>
           </div>
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <Card key={index} className="border-gray-200 hover-lift">
+              <Card key={index} className="border-gray-200 hover-lift animate-fade-in-up" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
                 <CardHeader 
                   className="cursor-pointer hover:bg-gray-50 transition-colors"
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
@@ -519,13 +695,13 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
         </div>
         <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6 animate-fade-in-up">
             Start creating legal documents in minutes.
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-300 mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Join thousands of professionals who trust ParaDoc.app for their legal document needs.
           </p>
-          <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-black button-hover">
+          <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-black button-hover animate-bounce-in" style={{ animationDelay: '0.4s' }}>
             Get Started Free Today
           </Button>
         </div>
