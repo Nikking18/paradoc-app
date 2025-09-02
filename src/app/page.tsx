@@ -30,37 +30,64 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <Badge variant="outline" className="mb-6 border-black text-black">
+      <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
+        <div className="absolute top-0 left-0 w-72 h-72 bg-black/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
+        
+        <div className="relative max-w-7xl mx-auto text-center">
+          <Badge variant="outline" className="mb-8 border-black text-black bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium">
             🚀 Now Available in USA & Canada
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold text-black mb-6 leading-tight">
+          
+          <h1 className="text-6xl md:text-8xl font-bold text-black mb-8 leading-tight tracking-tight">
             The Canva for
-            <span className="block text-gray-600">Legal Documents</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800 mt-2">
+              Legal Documents
+            </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
             Generate legally compliant documents, analyze contracts, and get AI-powered legal insights. 
-            Built specifically for USA & Canada jurisdiction compliance.
+            Built specifically for <span className="font-semibold">USA & Canada jurisdiction compliance</span>.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg">
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <Button size="lg" className="bg-black text-white hover:bg-gray-800 px-10 py-6 text-lg font-semibold shadow-2xl hover:shadow-black/25 transition-all duration-300 transform hover:scale-105">
               Start Creating Documents
             </Button>
-            <Button variant="outline" size="lg" className="border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg">
+            <Button variant="outline" size="lg" className="border-2 border-black text-black hover:bg-black hover:text-white px-10 py-6 text-lg font-semibold transition-all duration-300 transform hover:scale-105">
               Watch Demo
             </Button>
           </div>
-          <div className="mt-12 flex justify-center items-center space-x-8 text-sm text-gray-500">
-            <div className="flex items-center">
+          
+          {/* Stats Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-16">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-black mb-2">50+</div>
+              <div className="text-gray-600 text-sm">Document Templates</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-black mb-2">100%</div>
+              <div className="text-gray-600 text-sm">Compliance Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-black mb-2">24/7</div>
+              <div className="text-gray-600 text-sm">AI Support</div>
+            </div>
+          </div>
+          
+          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500">
+            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
               <Check className="h-4 w-4 text-green-500 mr-2" />
               No credit card required
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
               <Check className="h-4 w-4 text-green-500 mr-2" />
               Free plan available
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
               <Check className="h-4 w-4 text-green-500 mr-2" />
               USA & Canada compliant
             </div>
@@ -69,59 +96,76 @@ export default function Home() {
       </section>
 
       {/* Problem Statement */}
-      <section className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50"></div>
+        
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-20">
+            <Badge variant="outline" className="mb-6 border-black text-black bg-white/80 backdrop-blur-sm">
+              The Problem
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
               Legal Documents Shouldn&apos;t Be This Hard
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Traditional legal processes are expensive, complex, and slow. We&apos;re changing that.
             </p>
           </div>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border-gray-200 bg-white">
+            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
               <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">💸</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-3xl">💸</span>
                 </div>
-                <CardTitle className="text-lg">High Legal Costs</CardTitle>
+                <CardTitle className="text-xl font-semibold">High Legal Costs</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-gray-600">Lawyers charge hundreds for basic documents</p>
+                <p className="text-gray-600 text-lg">Lawyers charge hundreds for basic documents</p>
+                <div className="mt-4 text-3xl font-bold text-red-600">$500+</div>
               </CardContent>
             </Card>
-            <Card className="border-gray-200 bg-white">
+            
+            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
               <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">📚</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-3xl">📚</span>
                 </div>
-                <CardTitle className="text-lg">Complex Legal Language</CardTitle>
+                <CardTitle className="text-xl font-semibold">Complex Legal Language</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-gray-600">Contracts full of confusing jargon</p>
+                <p className="text-gray-600 text-lg">Contracts full of confusing jargon</p>
+                <div className="mt-4 text-3xl font-bold text-yellow-600">80%</div>
+                <div className="text-sm text-gray-500">Don&apos;t understand</div>
               </CardContent>
             </Card>
-            <Card className="border-gray-200 bg-white">
+            
+            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
               <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🗺️</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-3xl">🗺️</span>
                 </div>
-                <CardTitle className="text-lg">Jurisdiction Confusion</CardTitle>
+                <CardTitle className="text-xl font-semibold">Jurisdiction Confusion</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-gray-600">Laws vary by state and province</p>
+                <p className="text-gray-600 text-lg">Laws vary by state and province</p>
+                <div className="mt-4 text-3xl font-bold text-blue-600">60+</div>
+                <div className="text-sm text-gray-500">Different jurisdictions</div>
               </CardContent>
             </Card>
-            <Card className="border-gray-200 bg-white">
+            
+            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
               <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">⏰</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-3xl">⏰</span>
                 </div>
-                <CardTitle className="text-lg">Slow Processes</CardTitle>
+                <CardTitle className="text-xl font-semibold">Slow Processes</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-gray-600">Days or weeks for simple documents</p>
+                <p className="text-gray-600 text-lg">Days or weeks for simple documents</p>
+                <div className="mt-4 text-3xl font-bold text-purple-600">7-14</div>
+                <div className="text-sm text-gray-500">Days average</div>
               </CardContent>
             </Card>
           </div>
@@ -129,13 +173,19 @@ export default function Home() {
       </section>
 
       {/* Core Features */}
-      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+      <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-20">
+            <Badge variant="outline" className="mb-6 border-black text-black bg-white/80 backdrop-blur-sm">
+              Our Solutions
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
               AI-Powered Legal Solutions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Everything you need to create, analyze, and manage legal documents in one platform.
             </p>
           </div>
@@ -445,13 +495,19 @@ export default function Home() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+      <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-20">
+            <Badge variant="outline" className="mb-6 border-black text-black bg-white/80 backdrop-blur-sm">
+              Pricing Plans
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
               Simple, Transparent Pricing
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Start free and scale as you grow. No hidden fees, no surprises.
             </p>
           </div>
@@ -567,25 +623,47 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black text-white px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      <section className="py-32 bg-black text-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
+        
+        <div className="relative max-w-4xl mx-auto text-center">
+          <Badge variant="outline" className="mb-8 border-white text-white bg-white/10 backdrop-blur-sm">
+            Get Started Today
+          </Badge>
+          
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
             Ready to Transform Your Legal Document Process?
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
             Join thousands of professionals who trust ParaDoc.app for their legal document needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg">
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+            <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-6 text-lg font-semibold shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:scale-105">
               Start Creating Documents
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg">
+            <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-black px-10 py-6 text-lg font-semibold transition-all duration-300 transform hover:scale-105">
               Schedule Demo
             </Button>
           </div>
-          <p className="text-sm text-gray-400 mt-6">
-            No credit card required • Free plan available • USA & Canada compliant
-          </p>
+          
+          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-400">
+            <div className="flex items-center">
+              <Check className="h-4 w-4 text-green-400 mr-2" />
+              No credit card required
+            </div>
+            <div className="flex items-center">
+              <Check className="h-4 w-4 text-green-400 mr-2" />
+              Free plan available
+            </div>
+            <div className="flex items-center">
+              <Check className="h-4 w-4 text-green-400 mr-2" />
+              USA & Canada compliant
+            </div>
+          </div>
         </div>
       </section>
 
