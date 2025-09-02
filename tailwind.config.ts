@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -48,6 +48,20 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      animation: {
+        "spin-slow": "spin-slow 20s linear infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite alternate",
+      },
+      keyframes: {
+        "spin-slow": {
+          "0%": { transform: "translate(-50%, -50%) rotate(0deg)" },
+          "100%": { transform: "translate(-50%, -50%) rotate(360deg)" },
+        },
+        "pulse-glow": {
+          "0%": { boxShadow: "0 0 20px rgba(139, 92, 246, 0.5)" },
+          "100%": { boxShadow: "0 0 30px rgba(139, 92, 246, 0.8)" },
+        },
       },
     },
   },

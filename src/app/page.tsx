@@ -4,10 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Twitter, Github, Linkedin } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const faqs = [
     {
@@ -37,31 +42,41 @@ export default function Home() {
       icon: <FileText className="h-8 w-8" />,
       title: "AI Legal Document Generator",
       description: "Generate legally compliant documents tailored to your jurisdiction in minutes, not days.",
-      color: "from-blue-500 to-blue-600"
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200"
     },
     {
       icon: <Search className="h-8 w-8" />,
       title: "Smart Legal Document Lookup",
       description: "Find compliance-ready templates by state or province with embedded jurisdiction-specific clauses.",
-      color: "from-green-500 to-green-600"
+      color: "from-green-500 to-green-600",
+      bgColor: "bg-green-50",
+      borderColor: "border-green-200"
     },
     {
       icon: <Download className="h-8 w-8" />,
       title: "Multi-Document ZIP Converter",
       description: "Generate multiple documents at once and download them as a convenient ZIP file.",
-      color: "from-purple-500 to-purple-600"
+      color: "from-purple-500 to-purple-600",
+      bgColor: "bg-purple-50",
+      borderColor: "border-purple-200"
     },
     {
       icon: <Shield className="h-8 w-8" />,
       title: "AI Legal Summarizer & Risk Scanner",
       description: "Upload existing contracts and get plain English summaries with risk analysis.",
-      color: "from-orange-500 to-orange-600"
+      color: "from-orange-500 to-orange-600",
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-200"
     },
     {
       icon: <MessageSquare className="h-8 w-8" />,
       title: "AI Legal Chatbot",
       description: "Ask legal questions in plain English and get instant AI-powered answers with compliance guidance.",
-      color: "from-red-500 to-red-600"
+      color: "from-red-500 to-red-600",
+      bgColor: "bg-red-50",
+      borderColor: "border-red-200"
     }
   ];
 
@@ -114,28 +129,28 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
       {/* Navigation */}
-      <nav className="border-b border-gray-200 bg-white/95 backdrop-blur-sm sticky top-0 z-50">
+      <nav className="border-b border-gray-200 bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-medium">
                 <FileText className="h-6 w-6 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900">ParaDoc.app</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">How It Works</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
-              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform">Features</a>
+              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform">How It Works</a>
+              <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform">Pricing</a>
+              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform">Contact</a>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+              <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 button-hover">
                 Sign In
               </Button>
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white button-hover shadow-medium">
                 Get Started Free
               </Button>
             </div>
@@ -144,40 +159,42 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-30"></div>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden hero-gradient">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 animate-float"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-50 to-purple-50 rounded-full blur-3xl opacity-20 animate-spin-slow"></div>
+        </div>
         
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge className="mb-6 bg-blue-100 text-blue-800 border border-blue-200 px-3 py-1 text-sm font-medium">
+            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <Badge className="mb-6 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 border border-blue-200 px-4 py-2 text-sm font-medium shadow-soft animate-fade-in-up">
                 🚀 Now Available in USA & Canada
               </Badge>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 AI-Powered Legal Documents for{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                <span className="blue-gradient-text">
                   USA & Canada
                 </span>
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 Generate, review, and manage legally compliant documents in minutes — designed for freelancers, startups, and law firms.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold shadow-strong button-hover">
                   Get Started Free
                 </Button>
-                <Button size="lg" variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300">
+                <Button size="lg" variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover">
                   <Play className="h-5 w-5 mr-2" />
                   See How It Works
                 </Button>
               </div>
               
-              <div className="flex items-center space-x-6 text-sm text-gray-500">
+              <div className="flex items-center space-x-6 text-sm text-gray-500 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
                 <div className="flex items-center">
                   <Check className="h-4 w-4 text-green-500 mr-2" />
                   No credit card required
@@ -193,8 +210,8 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="relative">
-              <div className="bg-white rounded-2xl p-8 shadow-2xl border border-gray-200">
+            <div className="relative animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+              <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 hover-lift">
                 <div className="flex items-center mb-6">
                   <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
@@ -212,7 +229,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-strong animate-pulse-glow">
                 <ShieldCheck className="h-12 w-12 text-white" />
               </div>
             </div>
@@ -221,41 +238,41 @@ export default function Home() {
       </section>
 
       {/* Problem & Solution Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in-up">
               Legal Documents Shouldn&apos;t Be This Hard
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Traditional legal processes are expensive, complex, and slow. We&apos;re changing that.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="text-center group hover-lift">
+              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <DollarSign className="h-8 w-8 text-red-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Expensive Lawyers</h3>
               <p className="text-gray-600">Hundreds of dollars for basic documents</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="text-center group hover-lift">
+              <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <BookOpen className="h-8 w-8 text-yellow-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Legal Jargon</h3>
               <p className="text-gray-600">Confusing language that&apos;s hard to understand</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="text-center group hover-lift">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Globe className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Compliance Issues</h3>
               <p className="text-gray-600">State and province-specific requirements</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="text-center group hover-lift">
+              <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Clock className="h-8 w-8 text-purple-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Time Wasted</h3>
@@ -263,7 +280,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 text-center">
+          <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               ParaDoc.app: The All-in-One Solution
             </h3>
@@ -271,7 +288,7 @@ export default function Home() {
               AI-powered legal document generation that understands your jurisdiction, speaks plain English, 
               and delivers compliant results in minutes — not days.
             </p>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3">
+            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 button-hover">
               See How It Works
             </Button>
           </div>
@@ -292,9 +309,9 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="border-gray-200 bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+              <Card key={index} className={`border-gray-200 bg-white card-hover group ${feature.bgColor} ${feature.borderColor}`}>
                 <CardHeader>
-                  <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-medium`}>
                     <div className="text-white">{feature.icon}</div>
                   </div>
                   <CardTitle className="text-xl text-gray-900">{feature.title}</CardTitle>
@@ -313,7 +330,7 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 section-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
@@ -326,11 +343,11 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {howItWorks.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+              <div key={index} className="text-center group hover-lift">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold shadow-medium group-hover:scale-110 transition-transform duration-300">
                   {step.step}
                 </div>
-                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <div className="text-blue-600">{step.icon}</div>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{step.title}</h3>
@@ -356,8 +373,8 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {pricingPlans.map((plan, index) => (
               <Card key={index} className={`border-gray-200 transition-all duration-300 transform hover:-translate-y-2 ${
-                plan.popular ? 'ring-2 ring-blue-500 bg-gradient-to-br from-blue-50 to-purple-50' : 'bg-white'
-              }`}>
+                plan.popular ? 'ring-2 ring-blue-500 bg-gradient-to-br from-blue-50 to-purple-50 shadow-strong' : 'bg-white shadow-medium'
+              } card-hover`}>
                 {plan.popular && (
                   <div className="text-center -mt-3">
                     <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1">
@@ -383,7 +400,7 @@ export default function Home() {
                     plan.popular 
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white' 
                       : 'bg-gray-900 text-white hover:bg-gray-800'
-                  } transition-all duration-200 transform hover:scale-105`}>
+                  } transition-all duration-200 transform hover:scale-105 button-hover`}>
                     {plan.buttonText}
                   </Button>
                 </CardContent>
@@ -394,7 +411,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials / Trust Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
@@ -406,39 +423,39 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 text-center">
+            <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift">
               <div className="flex justify-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-                             <p className="text-gray-600 mb-4">
-                 &ldquo;ParaDoc.app saved me hours of research and drafting. The compliance checking is incredibly accurate.&rdquo;
-               </p>
+              <p className="text-gray-600 mb-4">
+                &ldquo;ParaDoc.app saved me hours of research and drafting. The compliance checking is incredibly accurate.&rdquo;
+              </p>
               <p className="font-semibold text-gray-900">Sarah Chen</p>
               <p className="text-sm text-gray-500">Freelance Consultant</p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 text-center">
+            <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift">
               <div className="flex justify-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-                             <p className="text-gray-600 mb-4">
-                 &ldquo;As a startup, we needed fast, compliant legal docs. ParaDoc.app delivered exactly what we needed.&rdquo;
-               </p>
+              <p className="text-gray-600 mb-4">
+                &ldquo;As a startup, we needed fast, compliant legal docs. ParaDoc.app delivered exactly what we needed.&rdquo;
+              </p>
               <p className="font-semibold text-gray-900">Marcus Rodriguez</p>
               <p className="text-sm text-gray-500">Founder, TechStart</p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 text-center">
+            <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift">
               <div className="flex justify-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-                             <p className="text-gray-600 mb-4">
-                 &ldquo;The jurisdiction-specific compliance is excellent. Our law firm uses it for client assistance.&rdquo;
-               </p>
+              <p className="text-gray-600 mb-4">
+                &ldquo;The jurisdiction-specific compliance is excellent. Our law firm uses it for client assistance.&rdquo;
+              </p>
               <p className="font-semibold text-gray-900">Jennifer Walsh</p>
               <p className="text-sm text-gray-500">Partner, Walsh & Associates</p>
             </div>
@@ -470,7 +487,7 @@ export default function Home() {
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <Card key={index} className="border-gray-200">
+              <Card key={index} className="border-gray-200 hover-lift">
                 <CardHeader 
                   className="cursor-pointer hover:bg-gray-50 transition-colors"
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
@@ -496,15 +513,19 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-purple-600">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-purple-600 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Start creating legal documents in minutes.
           </h2>
           <p className="text-xl text-blue-100 mb-8">
             Join thousands of professionals who trust ParaDoc.app for their legal document needs.
           </p>
-          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-strong button-hover">
             Get Started Free Today
           </Button>
         </div>
@@ -516,7 +537,7 @@ export default function Home() {
           <div className="grid md:grid-cols-5 gap-8 mb-8">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mr-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mr-3 shadow-medium">
                   <FileText className="h-6 w-6 text-white" />
                 </div>
                 <span className="text-xl font-bold text-gray-900">ParaDoc.app</span>
@@ -525,9 +546,9 @@ export default function Home() {
                 AI-powered legal documents for the modern world. Compliant, fast, and accessible.
               </p>
               <div className="flex space-x-4">
-                <Twitter className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors" />
-                <Github className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors" />
-                <Linkedin className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors" />
+                <Twitter className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors hover:scale-110 transform" />
+                <Github className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors hover:scale-110 transform" />
+                <Linkedin className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors hover:scale-110 transform" />
               </div>
             </div>
             <div>
