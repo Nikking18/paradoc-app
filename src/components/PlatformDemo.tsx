@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { X, Play, Pause, RotateCcw, FileText, Search, Shield, CheckCircle, Bot } from "lucide-react";
+import { X, Play, Pause, RotateCcw, FileText, Search, Shield, CheckCircle, Bot, Zap, Globe, AlertTriangle, Sparkles, CheckCircle2 } from "lucide-react";
 
 interface PlatformDemoProps {
   isOpen: boolean;
@@ -13,40 +13,107 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
   const [currentDemo, setCurrentDemo] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [typingText, setTypingText] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
   const screenRef = useRef<HTMLDivElement>(null);
-  const typingRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
   const demos = [
     {
       title: "AI Document Generation",
       description: "Watch how our AI creates compliant legal documents",
+      icon: <FileText className="h-6 w-6" />,
+      color: "from-gray-100 to-gray-200",
       steps: [
-        { action: "User types: 'Generate NDA for California'", delay: 1000 },
-        { action: "AI analyzes jurisdiction requirements", delay: 2000 },
-        { action: "Generating document with CA-specific clauses...", delay: 3000 },
-        { action: "✓ Document ready! Includes compliance features", delay: 4000 }
+        { 
+          action: "User types: 'Generate NDA for California'", 
+          delay: 1500,
+          details: "User enters specific requirements and jurisdiction",
+          icon: <FileText className="h-4 w-4" />
+        },
+        { 
+          action: "AI analyzes jurisdiction requirements", 
+          delay: 2000,
+          details: "AI processes California-specific legal requirements",
+          icon: <Globe className="h-4 w-4" />
+        },
+        { 
+          action: "Generating document with CA-specific clauses...", 
+          delay: 2500,
+          details: "AI creates compliant document structure",
+          icon: <Zap className="h-4 w-4" />
+        },
+        { 
+          action: "✓ Document ready! Includes compliance features", 
+          delay: 2000,
+          details: "Complete NDA with California legal standards",
+          icon: <CheckCircle className="h-4 w-4" />
+        }
       ]
     },
     {
       title: "Smart Legal Lookup",
       description: "See how our search finds jurisdiction-specific templates",
+      icon: <Search className="h-6 w-6" />,
+      color: "from-gray-200 to-gray-300",
       steps: [
-        { action: "Search: 'employment contract Ontario'", delay: 1000 },
-        { action: "Finding relevant templates...", delay: 2000 },
-        { action: "✓ Employment Agreement - Ontario", delay: 3000 },
-        { action: "✓ Includes Ontario Employment Standards", delay: 4000 }
+        { 
+          action: "Search: 'employment contract Ontario'", 
+          delay: 1500,
+          details: "User searches for specific jurisdiction template",
+          icon: <Search className="h-4 w-4" />
+        },
+        { 
+          action: "Finding relevant templates...", 
+          delay: 2000,
+          details: "AI searches through legal database",
+          icon: <Zap className="h-4 w-4" />
+        },
+        { 
+          action: "✓ Employment Agreement - Ontario", 
+          delay: 2000,
+          details: "Template found with Ontario-specific clauses",
+          icon: <CheckCircle className="h-4 w-4" />
+        },
+        { 
+          action: "✓ Includes Ontario Employment Standards", 
+          delay: 2000,
+          details: "Compliant with provincial regulations",
+          icon: <Shield className="h-4 w-4" />
+        }
       ]
     },
     {
       title: "Risk Analysis & Scanning",
       description: "Watch our AI identify potential legal risks",
+      icon: <Shield className="h-6 w-6" />,
+      color: "from-gray-300 to-gray-400",
       steps: [
-        { action: "Analyzing: Service Agreement.pdf", delay: 1000 },
-        { action: "Scanning for compliance issues...", delay: 2000 },
-        { action: "✓ Standard terms - Low risk", delay: 3000 },
-        { action: "⚠️ Unlimited liability clause - Medium risk", delay: 4000 }
+        { 
+          action: "Analyzing: Service Agreement.pdf", 
+          delay: 1500,
+          details: "AI processes uploaded document",
+          icon: <FileText className="h-4 w-4" />
+        },
+        { 
+          action: "Scanning for compliance issues...", 
+          delay: 2000,
+          details: "AI reviews legal terms and conditions",
+          icon: <Search className="h-4 w-4" />
+        },
+        { 
+          action: "✓ Standard terms - Low risk", 
+          delay: 2000,
+          details: "Most clauses are standard and safe",
+          icon: <CheckCircle2 className="h-4 w-4" />
+        },
+        { 
+          action: "⚠️ Unlimited liability clause - Medium risk", 
+          delay: 2000,
+          details: "Identified potential liability exposure",
+          icon: <AlertTriangle className="h-4 w-4" />
+        }
       ]
     }
   ];
@@ -54,6 +121,10 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
   useEffect(() => {
     if (isOpen) {
       initializeDemo();
+      // Auto-start after a short delay
+      setTimeout(() => {
+        startDemo();
+      }, 1000);
     }
   }, [isOpen]);
 
@@ -62,11 +133,8 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
     
     setCurrentStep(0);
     setCurrentDemo(0);
-    
-    // Reset screen
-    if (typingRef.current) {
-      typingRef.current.innerHTML = "";
-    }
+    setShowSuccess(false);
+    setTypingText("");
     
     // Reset progress bar
     if (progressRef.current) {
@@ -78,12 +146,14 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
     setIsPlaying(true);
     setCurrentStep(0);
     setCurrentDemo(0);
+    setShowSuccess(false);
     runDemo(0);
   };
 
   const runDemo = (demoIndex: number) => {
     if (demoIndex >= demos.length) {
       setIsPlaying(false);
+      setShowSuccess(true);
       return;
     }
 
@@ -96,7 +166,7 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
         // Move to next demo
         setTimeout(() => {
           runDemo(demoIndex + 1);
-        }, 2000);
+        }, 2500);
         return;
       }
 
@@ -111,27 +181,28 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
       }
 
       // Animate typing effect
-      if (typingRef.current) {
-        typingRef.current.innerHTML = "";
-        const text = step.action;
-        let charIndex = 0;
-        
-        const typeChar = () => {
-          if (charIndex < text.length) {
-            typingRef.current!.innerHTML += text[charIndex];
-            charIndex++;
-            setTimeout(typeChar, 50);
-          }
-        };
-        
-        typeChar();
-      }
+      animateTyping(step.action);
 
       stepIndex++;
       setTimeout(runStep, step.delay);
     };
 
     runStep();
+  };
+
+  const animateTyping = (text: string) => {
+    setTypingText("");
+    let charIndex = 0;
+    
+    const typeChar = () => {
+      if (charIndex < text.length) {
+        setTypingText(prev => prev + text[charIndex]);
+        charIndex++;
+        setTimeout(typeChar, 50);
+      }
+    };
+    
+    typeChar();
   };
 
   const pauseDemo = () => {
@@ -141,13 +212,16 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
   const resetDemo = () => {
     pauseDemo();
     initializeDemo();
+    setTimeout(() => {
+      startDemo();
+    }, 500);
   };
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden">
+      <div className="bg-white rounded-3xl shadow-2xl max-w-7xl w-full max-h-[90vh] overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 border-b border-gray-200">
           <div className="flex items-center justify-between">
@@ -189,7 +263,7 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
           <div className="mt-4 w-full bg-gray-200 rounded-full h-2">
             <div
               ref={progressRef}
-              className="bg-gradient-to-r from-gray-600 to-black h-2 rounded-full transition-all duration-500"
+              className="bg-gradient-to-r from-gray-600 to-black h-2 rounded-full transition-all duration-700 ease-out"
               style={{ width: "0%" }}
             ></div>
           </div>
@@ -200,10 +274,16 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
           <div ref={containerRef} className="grid lg:grid-cols-2 gap-8">
             {/* Demo Screen */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-gray-900">Live Demo</h3>
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-semibold text-gray-900">Live Demo</h3>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-xs text-gray-600">Live</span>
+                </div>
+              </div>
               
               {/* Mock Browser */}
-              <div className="bg-gray-900 rounded-lg p-4">
+              <div className="bg-gray-900 rounded-lg p-4 shadow-2xl">
                 <div className="flex items-center mb-3 space-x-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -213,48 +293,103 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
                 {/* Demo Screen */}
                 <div
                   ref={screenRef}
-                  className="bg-white rounded-lg p-4 min-h-[400px] relative overflow-hidden"
+                  className="bg-white rounded-lg p-6 min-h-[500px] relative overflow-hidden"
                 >
-                  {/* Typing Area */}
-                  <div
-                    ref={typingRef}
-                    className="text-sm text-gray-800 font-mono min-h-[20px]"
-                  ></div>
-                  
-                  {/* Default Content */}
-                  <div className="mt-4 space-y-3">
-                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                    <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-                    <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                  {/* Header with current demo info */}
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
+                    <div className="flex items-center space-x-3">
+                      <div className={`w-10 h-10 bg-gradient-to-br ${demos[currentDemo]?.color} rounded-xl flex items-center justify-center shadow-medium`}>
+                        {demos[currentDemo]?.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{demos[currentDemo]?.title}</h4>
+                        <p className="text-sm text-gray-600">{demos[currentDemo]?.description}</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-gray-500">Step {currentStep + 1} of {demos[currentDemo]?.steps.length}</div>
+                      <div className="text-sm font-medium text-gray-700">{demos[currentDemo]?.steps[currentStep]?.action}</div>
+                    </div>
                   </div>
 
-                  {/* Animated Elements */}
-                  {currentStep >= 0 && (
-                    <div className="absolute top-4 left-4 right-4 p-3 bg-gray-100 rounded-lg border border-gray-300 animate-fade-in-up">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
-                        <span className="text-sm text-gray-700">User input</span>
+                  {/* Main Content Area */}
+                  <div className="space-y-6">
+                    {/* Typing Area */}
+                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                      <div className="flex items-center space-x-2 mb-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-xs text-gray-600 font-medium">AI Assistant</span>
+                      </div>
+                      <div className="text-sm text-gray-800 font-mono min-h-[24px]">
+                        {typingText}
+                        <span className="inline-block w-2 h-4 bg-gray-800 ml-1 animate-pulse"></span>
                       </div>
                     </div>
-                  )}
-                  
-                  {currentStep >= 1 && (
-                    <div className="absolute top-16 left-4 right-4 p-3 bg-gray-50 rounded-lg border border-gray-200 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
-                        <span className="text-sm text-gray-700">Processing...</span>
+                    
+                    {/* Current Step Details */}
+                    {demos[currentDemo]?.steps[currentStep] && (
+                      <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 animate-fade-in-up">
+                        <div className="flex items-start space-x-3">
+                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            {demos[currentDemo]?.steps[currentStep]?.icon}
+                          </div>
+                          <div>
+                            <h5 className="font-medium text-blue-900 mb-1">
+                              {demos[currentDemo]?.steps[currentStep]?.action}
+                            </h5>
+                            <p className="text-sm text-blue-700">
+                              {demos[currentDemo]?.steps[currentStep]?.details}
+                            </p>
+                          </div>
+                        </div>
                       </div>
+                    )}
+
+                    {/* Progress Indicators */}
+                    <div className="grid grid-cols-3 gap-4">
+                      {demos[currentDemo]?.steps.map((step, index) => (
+                        <div
+                          key={index}
+                          className={`p-3 rounded-lg border-2 transition-all duration-500 ${
+                            index <= currentStep
+                              ? "border-gray-400 bg-gray-50 shadow-md"
+                              : "border-gray-200 bg-white"
+                          }`}
+                        >
+                          <div className="flex items-center space-x-2 mb-2">
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+                              index < currentStep
+                                ? "bg-green-500 text-white"
+                                : index === currentStep
+                                ? "bg-blue-500 text-white animate-pulse"
+                                : "bg-gray-200 text-gray-600"
+                            }`}>
+                              {index < currentStep ? <CheckCircle className="h-3 w-3" /> : index + 1}
+                            </div>
+                            <span className="text-xs font-medium text-gray-700">
+                              {index === 0 ? "Input" : index === 1 ? "Process" : index === 2 ? "Generate" : "Complete"}
+                            </span>
+                          </div>
+                          <div className="text-xs text-gray-600 line-clamp-2">{step.action}</div>
+                        </div>
+                      ))}
                     </div>
-                  )}
-                  
-                  {currentStep >= 2 && (
-                    <div className="absolute top-28 left-4 right-4 p-3 bg-gray-50 rounded-lg border border-gray-200 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                      <div className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-gray-600" />
-                        <span className="text-sm text-gray-700">Success!</span>
+
+                    {/* Success Message */}
+                    {showSuccess && (
+                      <div className="bg-green-50 rounded-lg p-4 border border-green-200 animate-bounce-in">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                            <CheckCircle className="h-6 w-6 text-green-600" />
+                          </div>
+                          <div>
+                            <h5 className="font-medium text-green-900">Demo Complete!</h5>
+                            <p className="text-sm text-green-700">You&apos;ve seen all the key features of ParaDoc.app</p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -268,15 +403,22 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
                 {demos.map((demo, index) => (
                   <div
                     key={index}
-                    className={`p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer ${
+                    className={`p-4 rounded-xl border-2 transition-all duration-500 cursor-pointer ${
                       currentDemo === index
-                        ? "border-gray-400 bg-gray-50 shadow-lg"
-                        : "border-gray-200 bg-white hover:border-gray-300"
+                        ? "border-gray-400 bg-gray-50 shadow-lg scale-105"
+                        : "border-gray-200 bg-white hover:border-gray-300 hover:scale-102"
                     }`}
                     onClick={() => setCurrentDemo(index)}
                   >
-                    <h4 className="font-semibold text-gray-900 mb-2">{demo.title}</h4>
-                    <p className="text-gray-600 text-sm mb-3">{demo.description}</p>
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className={`w-10 h-10 bg-gradient-to-br ${demo.color} rounded-xl flex items-center justify-center shadow-medium`}>
+                        {demo.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{demo.title}</h4>
+                        <p className="text-gray-600 text-sm">{demo.description}</p>
+                      </div>
+                    </div>
                     
                     {/* Demo Steps */}
                     <div className="space-y-2">
@@ -285,11 +427,20 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
                           key={stepIndex}
                           className={`text-xs p-2 rounded transition-all duration-300 ${
                             currentDemo === index && stepIndex <= currentStep
-                              ? "bg-gray-100 border border-gray-300"
+                              ? "bg-gray-100 border border-gray-300 shadow-sm"
                               : "bg-gray-50"
                           }`}
                         >
-                          {step.action}
+                          <div className="flex items-center space-x-2">
+                            <div className={`w-3 h-3 rounded-full ${
+                              stepIndex < currentStep
+                                ? "bg-green-500"
+                                : stepIndex === currentStep
+                                ? "bg-blue-500 animate-pulse"
+                                : "bg-gray-300"
+                            }`}></div>
+                            <span>{step.action}</span>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -298,25 +449,52 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
               </div>
 
               {/* Feature Highlights */}
-              <div className="bg-gray-50 rounded-xl p-4">
-                <h4 className="font-semibold text-gray-900 mb-3">Key Features</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="flex items-center space-x-2">
-                    <FileText className="h-4 w-4 text-gray-600" />
-                    <span className="text-sm text-gray-700">Document Gen</span>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border border-gray-200">
+                <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
+                  <Sparkles className="h-5 w-5 mr-2 text-gray-600" />
+                  Key Features
+                </h4>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                      <FileText className="h-4 w-4 text-gray-700" />
+                    </div>
+                    <span className="text-sm text-gray-700 font-medium">Document Gen</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Search className="h-4 w-4 text-gray-600" />
-                    <span className="text-sm text-gray-700">Smart Search</span>
+                  <div className="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                      <Search className="h-4 w-4 text-gray-700" />
+                    </div>
+                    <span className="text-sm text-gray-700 font-medium">Smart Search</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Shield className="h-4 w-4 text-gray-600" />
-                    <span className="text-sm text-gray-700">Risk Scanner</span>
+                  <div className="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                      <Shield className="h-4 w-4 text-gray-700" />
+                    </div>
+                    <span className="text-sm text-gray-700 font-medium">Risk Scanner</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Bot className="h-4 w-4 text-gray-600" />
-                    <span className="text-sm text-gray-700">AI Chat</span>
+                  <div className="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                      <Bot className="h-4 w-4 text-gray-700" />
+                    </div>
+                    <span className="text-sm text-gray-700 font-medium">AI Chat</span>
                   </div>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="text-center p-3 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-gray-900">3</div>
+                  <div className="text-xs text-gray-600">Demo Types</div>
+                </div>
+                <div className="text-center p-3 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-gray-900">12</div>
+                  <div className="text-xs text-gray-600">Total Steps</div>
+                </div>
+                <div className="text-center p-3 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-gray-900">100%</div>
+                  <div className="text-xs text-gray-600">Compliance</div>
                 </div>
               </div>
 
@@ -324,8 +502,9 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
               <div className="text-center">
                 <Button
                   onClick={onClose}
-                  className="bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-900 text-white px-8 py-3 w-full"
+                  className="bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-900 text-white px-8 py-3 w-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
+                  <Zap className="h-5 w-5 mr-2" />
                   Try ParaDoc.app Now
                 </Button>
               </div>
