@@ -16,6 +16,8 @@ export default function Home() {
   const [showPlatformDemo, setShowPlatformDemo] = useState(false);
   const [isFeatureShowcasePlaying, setIsFeatureShowcasePlaying] = useState(false);
   const [currentShowcaseFeature, setCurrentShowcaseFeature] = useState(0);
+  const [isHowItWorksShowcasePlaying, setIsHowItWorksShowcasePlaying] = useState(false);
+  const [currentHowItWorksStep, setCurrentHowItWorksStep] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
@@ -39,6 +41,17 @@ export default function Home() {
     }
   }, [isVisible]);
 
+  // Auto-play How It Works showcase
+  useEffect(() => {
+    if (isVisible) {
+      // Show content immediately, then start auto-play after delay
+      setIsHowItWorksShowcasePlaying(true);
+      setTimeout(() => {
+        startHowItWorksShowcase();
+      }, 6000);
+    }
+  }, [isVisible]);
+
   const startFeatureShowcase = () => {
     setCurrentShowcaseFeature(0);
     
@@ -51,6 +64,20 @@ export default function Home() {
         return prev + 1;
       });
     }, 4000);
+  };
+
+  const startHowItWorksShowcase = () => {
+    setCurrentHowItWorksStep(0);
+    
+    const showcaseInterval = setInterval(() => {
+      setCurrentHowItWorksStep((prev) => {
+        if (prev >= howItWorks.length - 1) {
+          clearInterval(showcaseInterval);
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 5000);
   };
 
   const faqs = [
@@ -365,19 +392,133 @@ export default function Home() {
       step: "1",
       title: "Enter your request + location",
       description: "Simply describe what you need and select your state or province for jurisdiction-specific compliance.",
-      icon: <FileText className="h-6 w-6" />
+      icon: <FileText className="h-6 w-6" />,
+      color: "from-gray-100 to-gray-200",
+      featureList: [
+        "Natural language input (e.g., 'NDA for freelancer in California')",
+        "Jurisdiction selection (State/Province)",
+        "Document type specification",
+        "Additional requirements input",
+        "Smart suggestions based on your needs",
+        "Instant compliance preview"
+      ],
+      benefits: [
+        "No legal jargon required",
+        "Intuitive interface",
+        "Quick setup (30 seconds)",
+        "Smart auto-completion"
+      ],
+      timeEstimate: "30 seconds",
+      demo: (
+        <div className="bg-gray-900 rounded-lg p-4 shadow-2xl">
+          <div className="flex items-center mb-3 space-x-2">
+            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          </div>
+          <div className="bg-white rounded-lg p-4 min-h-[200px]">
+            <div className="space-y-3">
+              <div className="p-2 bg-blue-50 border border-blue-200 rounded">
+                <p className="text-sm text-blue-800">📝 User types: &ldquo;Generate NDA for freelancer in California&rdquo;</p>
+              </div>
+              <div className="p-2 bg-green-50 border border-green-200 rounded">
+                <p className="text-sm text-green-800">✓ Jurisdiction: California selected</p>
+              </div>
+              <div className="p-2 bg-purple-50 border border-purple-200 rounded">
+                <p className="text-sm text-purple-800">⚖️ Document type: Non-Disclosure Agreement</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     },
     {
       step: "2",
       title: "AI generates compliant document",
       description: "Our AI creates a legally compliant document tailored to your jurisdiction and requirements.",
-      icon: <Zap className="h-6 w-6" />
+      icon: <Zap className="h-6 w-6" />,
+      color: "from-gray-200 to-gray-300",
+      featureList: [
+        "AI analyzes jurisdiction requirements",
+        "Generates compliant clauses",
+        "Applies current legal standards",
+        "Creates professional formatting",
+        "Includes jurisdiction-specific terms",
+        "Real-time compliance checking"
+      ],
+      benefits: [
+        "100% legally compliant",
+        "AI-powered generation",
+        "Real-time processing",
+        "Always up-to-date laws"
+      ],
+      timeEstimate: "2-3 minutes",
+      demo: (
+        <div className="bg-gray-900 rounded-lg p-4 shadow-2xl">
+          <div className="flex items-center mb-3 space-x-2">
+            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          </div>
+          <div className="bg-white rounded-lg p-4 min-h-[200px]">
+            <div className="space-y-3">
+              <div className="p-2 bg-yellow-50 border border-yellow-200 rounded">
+                <p className="text-sm text-yellow-800">🤖 AI analyzing California legal requirements...</p>
+              </div>
+              <div className="p-2 bg-blue-50 border border-blue-200 rounded">
+                <p className="text-sm text-blue-800">⚖️ Generating compliant clauses...</p>
+              </div>
+              <div className="p-2 bg-green-50 border border-green-200 rounded">
+                <p className="text-sm text-green-800">✓ Document ready with CA-specific compliance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     },
     {
       step: "3",
       title: "Review, customize, download",
       description: "Review the document, make any customizations, and download in your preferred format.",
-      icon: <Download className="h-6 w-6" />
+      icon: <Download className="h-6 w-6" />,
+      color: "from-gray-300 to-gray-400",
+      featureList: [
+        "Preview generated document",
+        "Edit specific clauses",
+        "Add custom terms",
+        "Export to PDF/Word/Google Docs",
+        "Instant formatting options",
+        "Professional document styling"
+      ],
+      benefits: [
+        "Easy editing interface",
+        "Multiple export formats",
+        "Professional output",
+        "Instant customization"
+      ],
+      timeEstimate: "1-2 minutes",
+      demo: (
+        <div className="bg-gray-900 rounded-lg p-4 shadow-2xl">
+          <div className="flex items-center mb-3 space-x-2">
+            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          </div>
+          <div className="bg-white rounded-lg p-4 min-h-[200px]">
+            <div className="space-y-3">
+              <div className="p-2 bg-gray-50 border border-gray-200 rounded">
+                <p className="text-sm text-gray-800">📄 Document preview with editing tools</p>
+              </div>
+              <div className="p-2 bg-blue-50 border border-blue-200 rounded">
+                <p className="text-sm text-blue-800">✏️ Customize clauses and terms</p>
+              </div>
+              <div className="p-2 bg-green-50 border border-green-200 rounded">
+                <p className="text-sm text-green-800">💾 Download as PDF, Word, or Google Docs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     }
   ];
 
@@ -842,7 +983,8 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Step Cards Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {howItWorks.map((step, index) => (
               <div key={index} className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
                 <div className="w-20 h-20 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold shadow-medium group-hover:scale-110 transition-transform duration-300">
@@ -855,6 +997,141 @@ export default function Home() {
                 <p className="text-gray-600">{step.description}</p>
               </div>
             ))}
+          </div>
+
+          {/* Enhanced How It Works Showcase */}
+          <div className="mt-16 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <div className="text-center mb-8">
+              <div className="flex items-center justify-center space-x-4 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {isHowItWorksShowcasePlaying ? 'Live Process Showcase' : 'Process Showcase'}
+                </h3>
+                {isHowItWorksShowcasePlaying && (
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm text-green-600 font-medium">Auto-playing</span>
+                  </div>
+                )}
+              </div>
+              <p className="text-gray-600">
+                {isHowItWorksShowcasePlaying 
+                  ? `Currently showcasing: Step ${howItWorks[currentHowItWorksStep]?.step} - ${howItWorks[currentHowItWorksStep]?.title}`
+                  : 'See each step of our process in detail with live demonstrations'
+                }
+              </p>
+            </div>
+
+            {/* Process Showcase Container */}
+            <div className="max-w-6xl mx-auto">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 border border-gray-200 shadow-lg">
+                {/* Current Step Header */}
+                <div className="text-center mb-8">
+                  <div className="flex items-center justify-center space-x-4 mb-4">
+                    <div className={`w-20 h-20 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center mx-auto text-white text-2xl font-bold shadow-lg transition-all duration-500 ${
+                      isHowItWorksShowcasePlaying ? 'scale-110 animate-pulse-glow' : ''
+                    }`}>
+                      {howItWorks[currentHowItWorksStep]?.step}
+                    </div>
+                    <div>
+                      <h4 className="text-2xl font-bold text-gray-900 mb-2">
+                        {howItWorks[currentHowItWorksStep]?.title}
+                      </h4>
+                      <p className="text-gray-600 max-w-2xl">
+                        {howItWorks[currentHowItWorksStep]?.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step Details Grid */}
+                <div className="grid lg:grid-cols-2 gap-8 mb-8">
+                  {/* Step Features */}
+                  <div className="space-y-4">
+                    <h5 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <CheckCircle2 className="h-5 w-5 mr-2 text-gray-600" />
+                      What Happens
+                    </h5>
+                    <div className="space-y-3">
+                      {howItWorks[currentHowItWorksStep]?.featureList.map((feature, index) => (
+                        <div 
+                          key={index}
+                          className={`flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 transition-all duration-500 ${
+                            isHowItWorksShowcasePlaying ? 'opacity-100 translate-x-0' : 'opacity-100 translate-x-0'
+                          }`}
+                          style={{ transitionDelay: `${index * 200}ms` }}
+                        >
+                          <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                          <span className="text-gray-700">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Step Benefits */}
+                  <div className="space-y-4">
+                    <h5 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <Sparkles className="h-5 w-5 mr-2 text-gray-600" />
+                      Benefits
+                    </h5>
+                    <div className="space-y-3">
+                      {howItWorks[currentHowItWorksStep]?.benefits.map((benefit, index) => (
+                        <div 
+                          key={index}
+                          className={`flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 transition-all duration-500 ${
+                            isHowItWorksShowcasePlaying ? 'opacity-100 translate-x-0' : 'opacity-100 translate-x-0'
+                          }`}
+                          style={{ transitionDelay: `${index * 300}ms` }}
+                        >
+                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                          <span className="text-gray-700 font-medium">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Time Estimate */}
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white rounded-lg border border-gray-200">
+                    <Clock className="h-5 w-5 text-gray-600" />
+                    <span className="text-gray-700 font-medium">
+                      Estimated time: <strong>{howItWorks[currentHowItWorksStep]?.timeEstimate}</strong>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Live Demo */}
+                <div className="text-center">
+                  <h5 className="text-lg font-semibold text-gray-900 mb-4">Live Demo</h5>
+                  <div className="max-w-4xl mx-auto">
+                    {howItWorks[currentHowItWorksStep]?.demo}
+                  </div>
+                </div>
+
+                {/* Progress Indicator */}
+                <div className="mt-8">
+                  <div className="flex items-center justify-center space-x-2">
+                    {howItWorks.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          index === currentHowItWorksStep
+                            ? 'bg-gray-800 scale-125'
+                            : index < currentHowItWorksStep
+                            ? 'bg-gray-400'
+                            : 'bg-gray-200'
+                        }`}
+                      ></div>
+                    ))}
+                  </div>
+                  <div className="text-center mt-2">
+                    <span className="text-sm text-gray-600">
+                      Step {currentHowItWorksStep + 1} of {howItWorks.length}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
