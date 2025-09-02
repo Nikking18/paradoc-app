@@ -14,6 +14,8 @@ export default function Home() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [showHowItWorks, setShowHowItWorks] = useState(false);
   const [showPlatformDemo, setShowPlatformDemo] = useState(false);
+  const [isFeatureShowcasePlaying, setIsFeatureShowcasePlaying] = useState(false);
+  const [currentShowcaseFeature, setCurrentShowcaseFeature] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
@@ -25,6 +27,33 @@ export default function Home() {
     
     return () => clearInterval(interval);
   }, []);
+
+  // Auto-play feature showcase
+  useEffect(() => {
+    if (isVisible) {
+      // Start feature showcase after a delay
+      setTimeout(() => {
+        setIsFeatureShowcasePlaying(true);
+        startFeatureShowcase();
+      }, 3000);
+    }
+  }, [isVisible]);
+
+  const startFeatureShowcase = () => {
+    setIsFeatureShowcasePlaying(true);
+    setCurrentShowcaseFeature(0);
+    
+    const showcaseInterval = setInterval(() => {
+      setCurrentShowcaseFeature((prev) => {
+        if (prev >= features.length - 1) {
+          clearInterval(showcaseInterval);
+          setIsFeatureShowcasePlaying(false);
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 4000);
+  };
 
   const faqs = [
     {
@@ -57,6 +86,20 @@ export default function Home() {
       color: "from-gray-700 to-gray-900",
       bgColor: "bg-gray-50",
       borderColor: "border-gray-200",
+      featureList: [
+        "Natural language input processing",
+        "Jurisdiction-specific compliance",
+        "Real-time AI generation",
+        "Professional formatting",
+        "Multiple document types",
+        "Instant customization options"
+      ],
+      benefits: [
+        "100% legally compliant",
+        "Save 90% of time",
+        "No lawyer fees",
+        "Always up-to-date laws"
+      ],
       demo: (
         <div className="feature-demo p-6">
           <div className="demo-screen">
@@ -92,6 +135,20 @@ export default function Home() {
       color: "from-gray-600 to-gray-800",
       bgColor: "bg-gray-50",
       borderColor: "border-gray-200",
+      featureList: [
+        "Advanced search algorithms",
+        "State/province filtering",
+        "Template categorization",
+        "Compliance verification",
+        "Instant access to 1000+ templates",
+        "Regular updates and additions"
+      ],
+      benefits: [
+        "Find templates in seconds",
+        "Always compliant",
+        "Save research time",
+        "Verified legal sources"
+      ],
       demo: (
         <div className="feature-demo p-6">
           <div className="demo-screen">
@@ -128,6 +185,20 @@ export default function Home() {
       color: "from-gray-800 to-black",
       bgColor: "bg-gray-50",
       borderColor: "border-gray-200",
+      featureList: [
+        "Bulk document generation",
+        "One-click ZIP creation",
+        "Multiple format support",
+        "Batch processing",
+        "Enterprise workflow support",
+        "Organized file structure"
+      ],
+      benefits: [
+        "Save hours of work",
+        "Perfect for businesses",
+        "Organized downloads",
+        "Professional delivery"
+      ],
       demo: (
         <div className="feature-demo p-6">
           <div className="demo-screen">
@@ -171,6 +242,20 @@ export default function Home() {
       color: "from-gray-700 to-gray-900",
       bgColor: "bg-gray-50",
       borderColor: "border-gray-200",
+      featureList: [
+        "AI-powered document analysis",
+        "Plain English summaries",
+        "Risk identification & scoring",
+        "Compliance checking",
+        "Clause-by-clause review",
+        "Actionable recommendations"
+      ],
+      benefits: [
+        "Understand complex contracts",
+        "Identify hidden risks",
+        "Save legal review costs",
+        "Make informed decisions"
+      ],
       demo: (
         <div className="feature-demo p-6">
           <div className="demo-screen">
@@ -209,6 +294,20 @@ export default function Home() {
       color: "from-gray-600 to-gray-800",
       bgColor: "bg-gray-50",
       borderColor: "border-gray-200",
+      featureList: [
+        "24/7 legal assistance",
+        "Plain English responses",
+        "Jurisdiction-specific advice",
+        "Instant compliance guidance",
+        "Document recommendations",
+        "Learning from interactions"
+      ],
+      benefits: [
+        "Get answers instantly",
+        "No waiting for lawyers",
+        "Always available",
+        "Learn as you go"
+      ],
       demo: (
         <div className="feature-demo p-6">
           <div className="demo-screen">
@@ -576,7 +675,8 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Feature Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {features.map((feature, index) => (
               <Card 
                 key={index} 
@@ -605,18 +705,128 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Interactive Feature Demo */}
+          {/* Enhanced Feature Showcase */}
           <div className="mt-16 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                See {features[activeFeature]?.title} in Action
-              </h3>
+              <div className="flex items-center justify-center space-x-4 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {isFeatureShowcasePlaying ? 'Live Feature Showcase' : 'Feature Showcase'}
+                </h3>
+                {isFeatureShowcasePlaying && (
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm text-green-600 font-medium">Auto-playing</span>
+                  </div>
+                )}
+              </div>
               <p className="text-gray-600">
-                Hover over any feature card above to see a live demonstration
+                {isFeatureShowcasePlaying 
+                  ? `Currently showcasing: ${features[currentShowcaseFeature]?.title}`
+                  : 'Hover over any feature card above to see a live demonstration'
+                }
               </p>
             </div>
-            <div className="max-w-4xl mx-auto">
-              {features[activeFeature]?.demo}
+
+            {/* Feature Showcase Container */}
+            <div className="max-w-6xl mx-auto">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 border border-gray-200 shadow-lg">
+                {/* Current Feature Header */}
+                <div className="text-center mb-8">
+                  <div className="flex items-center justify-center space-x-4 mb-4">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${features[currentShowcaseFeature]?.color} rounded-2xl flex items-center justify-center shadow-lg transition-all duration-500 ${
+                      isFeatureShowcasePlaying ? 'scale-110 animate-pulse-glow' : ''
+                    }`}>
+                      <div className="text-white text-2xl">{features[currentShowcaseFeature]?.icon}</div>
+                    </div>
+                    <div>
+                      <h4 className="text-2xl font-bold text-gray-900 mb-2">
+                        {features[currentShowcaseFeature]?.title}
+                      </h4>
+                      <p className="text-gray-600 max-w-2xl">
+                        {features[currentShowcaseFeature]?.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Feature Details Grid */}
+                <div className="grid lg:grid-cols-2 gap-8 mb-8">
+                  {/* Feature List */}
+                  <div className="space-y-4">
+                    <h5 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <CheckCircle2 className="h-5 w-5 mr-2 text-gray-600" />
+                      Key Features
+                    </h5>
+                    <div className="space-y-3">
+                      {features[currentShowcaseFeature]?.featureList.map((feature, index) => (
+                        <div 
+                          key={index}
+                          className={`flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 transition-all duration-500 ${
+                            isFeatureShowcasePlaying ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+                          }`}
+                          style={{ transitionDelay: `${index * 200}ms` }}
+                        >
+                          <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                          <span className="text-gray-700">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Benefits */}
+                  <div className="space-y-4">
+                    <h5 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <Sparkles className="h-5 w-5 mr-2 text-gray-600" />
+                      Benefits
+                    </h5>
+                    <div className="space-y-3">
+                      {features[currentShowcaseFeature]?.benefits.map((benefit, index) => (
+                        <div 
+                          key={index}
+                          className={`flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 transition-all duration-500 ${
+                            isFeatureShowcasePlaying ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+                          }`}
+                          style={{ transitionDelay: `${index * 300}ms` }}
+                        >
+                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                          <span className="text-gray-700 font-medium">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Live Demo */}
+                <div className="text-center">
+                  <h5 className="text-lg font-semibold text-gray-900 mb-4">Live Demo</h5>
+                  <div className="max-w-4xl mx-auto">
+                    {features[currentShowcaseFeature]?.demo}
+                  </div>
+                </div>
+
+                {/* Progress Indicator */}
+                <div className="mt-8">
+                  <div className="flex items-center justify-center space-x-2">
+                    {features.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          index === currentShowcaseFeature
+                            ? 'bg-gray-800 scale-125'
+                            : index < currentShowcaseFeature
+                            ? 'bg-gray-400'
+                            : 'bg-gray-200'
+                        }`}
+                      ></div>
+                    ))}
+                  </div>
+                  <div className="text-center mt-2">
+                    <span className="text-sm text-gray-600">
+                      {currentShowcaseFeature + 1} of {features.length} features
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
