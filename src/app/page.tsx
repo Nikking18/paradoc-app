@@ -316,6 +316,14 @@ export default function Home() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-gray-100 rounded-full blur-3xl opacity-30 animate-float"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-200 rounded-full blur-3xl opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-gray-50 to-gray-100 rounded-full blur-3xl opacity-20 animate-spin-slow"></div>
+          
+          {/* Additional floating elements */}
+          <div className="absolute top-20 left-20 w-8 h-8 bg-black/10 rounded-full animate-float" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+          <div className="absolute top-40 right-40 w-6 h-6 bg-gray-800/10 rounded-full animate-float" style={{ animationDelay: '3s', animationDuration: '5s' }}></div>
+          <div className="absolute bottom-40 left-40 w-4 h-4 bg-gray-600/10 rounded-full animate-float" style={{ animationDelay: '2.5s', animationDuration: '6s' }}></div>
+          
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.03)_1px,transparent_0)] bg-[length:20px_20px] opacity-30 animate-pulse"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto">
@@ -326,63 +334,118 @@ export default function Home() {
               </Badge>
               
               <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                AI-Powered Legal Documents for{" "}
-                <span className="accent-gradient-text">
+                <span className="inline-block animate-slide-in-left" style={{ animationDelay: '0.3s' }}>AI-Powered Legal Documents</span>
+                <br />
+                <span className="inline-block animate-slide-in-left" style={{ animationDelay: '0.4s' }}>for{" "}</span>
+                <span className="accent-gradient-text inline-block animate-fade-in-scale" style={{ animationDelay: '0.6s' }}>
                   USA & Canada
                 </span>
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                Generate, review, and manage legally compliant documents in minutes — designed for freelancers, startups, and law firms.
+                <span className="typing-animation inline-block">
+                  Generate, review, and manage legally compliant documents in minutes — designed for freelancers, startups, and law firms.
+                </span>
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                <Button size="lg" className="bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white px-8 py-4 text-lg font-semibold shadow-strong button-hover">
-                  Get Started Free
+                <Button size="lg" className="bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white px-8 py-4 text-lg font-semibold shadow-strong button-hover animate-bounce-in" style={{ animationDelay: '0.8s' }}>
+                  <span className="inline-block animate-pulse-glow-strong">Get Started Free</span>
                 </Button>
-                <Button size="lg" variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover">
-                  <Play className="h-5 w-5 mr-2" />
+                <Button size="lg" variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover animate-bounce-in" style={{ animationDelay: '1s' }}>
+                  <Play className="h-5 w-5 mr-2 animate-pulse" />
                   See How It Works
                 </Button>
               </div>
               
               <div className="flex items-center space-x-6 text-sm text-gray-500 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-                <div className="flex items-center">
-                  <Check className="h-4 w-4 text-green-500 mr-2" />
+                <div className="flex items-center animate-slide-in-left" style={{ animationDelay: '1.1s' }}>
+                  <Check className="h-4 w-4 text-green-500 mr-2 animate-bounce-in" style={{ animationDelay: '1.2s' }} />
                   No credit card required
                 </div>
-                <div className="flex items-center">
-                  <Check className="h-4 w-4 text-green-500 mr-2" />
+                <div className="flex items-center animate-slide-in-left" style={{ animationDelay: '1.3s' }}>
+                  <Check className="h-4 w-4 text-green-500 mr-2 animate-bounce-in" style={{ animationDelay: '1.4s' }} />
                   Free plan available
                 </div>
-                <div className="flex items-center">
-                  <Check className="h-4 w-4 text-green-500 mr-2" />
+                <div className="flex items-center animate-slide-in-left" style={{ animationDelay: '1.5s' }}>
+                  <Check className="h-4 w-4 text-green-500 mr-2 animate-bounce-in" style={{ animationDelay: '1.6s' }} />
                   USA & Canada compliant
                 </div>
               </div>
             </div>
             
             <div className="relative animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-              <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 hover-lift">
-                <div className="flex items-center mb-6">
-                  <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                </div>
-                <div className="space-y-4">
-                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                  <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                  <div className="h-4 bg-gray-200 rounded w-2/3"></div>
-                </div>
-                <div className="mt-6 p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200">
-                  <p className="text-sm text-gray-800 font-medium">
-                    AI Legal Assistant: Ready to generate compliant documents for your jurisdiction
-                  </p>
+              {/* Main demo card with enhanced animations */}
+              <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 hover-lift relative overflow-hidden group">
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-float" style={{ animationDelay: '1s' }}></div>
+                
+                <div className="relative z-10">
+                  {/* Animated browser dots */}
+                  <div className="flex items-center mb-6 space-x-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  </div>
+                  
+                  {/* Animated content lines */}
+                  <div className="space-y-4">
+                    <div className="h-4 bg-gray-200 rounded w-3/4 animate-slide-in-left" style={{ animationDelay: '0.8s' }}></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/2 animate-slide-in-left" style={{ animationDelay: '1s' }}></div>
+                    <div className="h-4 bg-gray-200 rounded w-5/6 animate-slide-in-left" style={{ animationDelay: '1.2s' }}></div>
+                    <div className="h-4 bg-gray-200 rounded w-2/3 animate-slide-in-left" style={{ animationDelay: '1.4s' }}></div>
+                  </div>
+                  
+                  {/* Animated AI message */}
+                  <div className="mt-6 p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200 animate-fade-in-scale" style={{ animationDelay: '1.6s' }}>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs text-gray-500 font-medium">AI Assistant</span>
+                    </div>
+                    <p className="text-sm text-gray-800 font-medium animate-typing">
+                      Ready to generate compliant documents for your jurisdiction
+                    </p>
+                  </div>
+                  
+                  {/* Animated status indicator */}
+                  <div className="absolute bottom-4 right-4 flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs text-gray-500">Online</span>
+                  </div>
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center shadow-strong animate-pulse-glow-strong">
-                <ShieldCheck className="h-12 w-12 text-white" />
+              
+              {/* Floating shield icon with enhanced animations */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center shadow-strong animate-pulse-glow-strong group-hover:animate-rotate-in transition-all duration-500">
+                <ShieldCheck className="h-12 w-12 text-white animate-bounce-in" style={{ animationDelay: '1.8s' }} />
+              </div>
+              
+              {/* Additional floating elements around the card */}
+              <div className="absolute -top-8 left-8 w-6 h-6 bg-gray-800/20 rounded-full animate-float" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
+              <div className="absolute -bottom-6 left-12 w-4 h-4 bg-gray-600/20 rounded-full animate-float" style={{ animationDelay: '2.5s', animationDuration: '5s' }}></div>
+              <div className="absolute top-1/2 -right-8 w-3 h-3 bg-black/20 rounded-full animate-float" style={{ animationDelay: '3s', animationDuration: '6s' }}></div>
+              
+              {/* Animated connection lines */}
+              <div className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent transform -translate-x-full opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
+              <div className="absolute top-1/2 right-1/2 w-32 h-0.5 bg-gradient-to-l from-transparent via-gray-300 to-transparent transform translate-x-full opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
+            </div>
+          </div>
+          
+          {/* Bottom animated elements */}
+          <div className="mt-16 text-center animate-fade-in-up" style={{ animationDelay: '2s' }}>
+            <div className="flex justify-center items-center space-x-8 opacity-60">
+              <div className="flex items-center space-x-2 animate-slide-in-up" style={{ animationDelay: '2.2s' }}>
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-gray-600">AI-Powered</span>
+              </div>
+              <div className="flex items-center space-x-2 animate-slide-in-up" style={{ animationDelay: '2.4s' }}>
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-gray-600">Compliant</span>
+              </div>
+              <div className="flex items-center space-x-2 animate-slide-in-up" style={{ animationDelay: '2.6s' }}>
+                <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-gray-600">Secure</span>
               </div>
             </div>
           </div>

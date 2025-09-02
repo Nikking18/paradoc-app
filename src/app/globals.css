@@ -310,6 +310,61 @@
   }
 }
 
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    border-color: #000;
+  }
+  51%, 100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes browserDotPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes contentLineSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    width: 100%;
+  }
+}
+
+@keyframes aiMessageFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
 }
