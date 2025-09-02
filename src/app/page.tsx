@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Twitter, Github, Linkedin, Sparkles, Bot, AlertCircle, CheckCircle2 } from "lucide-react";
+import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Twitter, Github, Linkedin, Sparkles, Bot, AlertCircle, CheckCircle2, CreditCard, Lock, CheckCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import HowItWorksGuide from "@/components/HowItWorksGuide";
 import PlatformDemo from "@/components/PlatformDemo";
@@ -18,6 +18,7 @@ export default function Home() {
   const [currentShowcaseFeature, setCurrentShowcaseFeature] = useState(0);
   const [isHowItWorksShowcasePlaying, setIsHowItWorksShowcasePlaying] = useState(false);
   const [currentHowItWorksStep, setCurrentHowItWorksStep] = useState(0);
+  const [isYearlyBilling, setIsYearlyBilling] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -367,23 +368,41 @@ export default function Home() {
       period: "forever",
       features: ["2 documents per month", "Basic chatbot access", "Summarizer with word limit", "USA & Canada compliance", "Email support"],
       buttonText: "Get Started Free",
-      popular: false
+      popular: false,
+      restrictions: ["Limited to 2 documents", "Basic AI features", "Standard support"]
     },
     {
-      name: "Premium",
-      price: "$29",
+      name: "Pro",
+      price: "$50",
       period: "per month",
-      features: ["Unlimited document generation", "Full risk scanning", "Multi-document ZIP export", "Priority support", "Advanced AI features", "Custom templates"],
-      buttonText: "Start Premium Trial",
-      popular: true
+      yearlyPrice: "$510",
+      features: [
+        "Unlimited document generations",
+        "Unlimited chatbot conversations with memory",
+        "Export to PDF, DOCX, Google Docs",
+        "AI summarizer & risk scanner",
+        "Smart document lookup",
+        "6-month encrypted storage"
+      ],
+      buttonText: "Start Pro Trial",
+      popular: true,
+      restrictions: ["7-day free trial", "Monthly or yearly billing", "Cancel anytime"]
     },
     {
       name: "Enterprise",
       price: "Custom",
       period: "contact us",
-      features: ["Bulk upload & generation", "White-labeled chatbot", "Team collaboration", "Custom AI fine-tuning", "Dedicated support", "API access"],
+      features: [
+        "Everything in Pro",
+        "Bulk ZIP + CSV/JSON upload",
+        "Custom AI model tuning",
+        "API embedding (law firm systems)",
+        "Team access + shared folders",
+        "Unlimited encrypted storage"
+      ],
       buttonText: "Contact Sales",
-      popular: false
+      popular: false,
+      restrictions: ["Custom pricing", "Dedicated support", "SLA guarantees"]
     }
   ];
 
@@ -1146,6 +1165,33 @@ export default function Home() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Start free and scale as you grow. No hidden fees, no surprises.
             </p>
+            
+            {/* Billing Toggle */}
+            <div className="mt-8 flex items-center justify-center space-x-4">
+              <span className={`text-sm font-medium ${!isYearlyBilling ? 'text-gray-900' : 'text-gray-500'}`}>
+                Monthly
+              </span>
+              <button
+                onClick={() => setIsYearlyBilling(!isYearlyBilling)}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 ${
+                  isYearlyBilling ? 'bg-gray-900' : 'bg-gray-200'
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    isYearlyBilling ? 'translate-x-6' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+              <span className={`text-sm font-medium ${isYearlyBilling ? 'text-gray-900' : 'text-gray-500'}`}>
+                Yearly
+                {isYearlyBilling && (
+                  <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                    Save 15%
+                  </span>
+                )}
+              </span>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -1162,8 +1208,24 @@ export default function Home() {
                 )}
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl text-gray-900">{plan.name}</CardTitle>
-                  <div className="text-4xl font-bold text-gray-900">{plan.price}</div>
-                  <p className="text-gray-600">{plan.period}</p>
+                  <div className="flex items-baseline justify-center space-x-1">
+                    <span className="text-4xl font-bold text-gray-900">
+                      {plan.name === "Pro" && isYearlyBilling ? plan.yearlyPrice : plan.price}
+                    </span>
+                    {plan.name === "Pro" && isYearlyBilling && (
+                      <span className="text-lg text-gray-500 line-through">$600</span>
+                    )}
+                  </div>
+                  <p className="text-gray-600">
+                    {plan.name === "Pro" && isYearlyBilling ? "per year" : plan.period}
+                  </p>
+                  {plan.name === "Pro" && (
+                    <div className="mt-2">
+                      <Badge variant="outline" className="border-green-200 bg-green-50 text-green-700">
+                        {isYearlyBilling ? "7-day free trial" : "7-day free trial"}
+                      </Badge>
+                    </div>
+                  )}
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 mb-6">
@@ -1171,9 +1233,25 @@ export default function Home() {
                       <li key={featureIndex} className="flex items-center text-gray-700">
                         <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
                         {feature}
-          </li>
+                      </li>
                     ))}
                   </ul>
+                  
+                  {/* Restrictions */}
+                  {plan.restrictions && (
+                    <div className="mb-6 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                      <h4 className="text-sm font-medium text-gray-700 mb-2">Plan Restrictions:</h4>
+                      <ul className="space-y-1">
+                        {plan.restrictions.map((restriction, restrictionIndex) => (
+                          <li key={restrictionIndex} className="flex items-center text-xs text-gray-600">
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
+                            {restriction}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  
                   <Button className={`w-full ${
                     plan.popular 
                       ? 'bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white' 
@@ -1184,6 +1262,45 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          
+          {/* Stripe Integration Info */}
+          <div className="mt-16 text-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
+              <div className="flex items-center justify-center space-x-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                  <CreditCard className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Secure Payment Processing</h3>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto mb-6">
+                All payments are securely processed through Stripe with enterprise-grade security. 
+                Your data is encrypted and protected with industry-standard security measures.
+              </p>
+              <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div className="text-center p-4 bg-white rounded-xl border border-gray-200">
+                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Shield className="h-5 w-5 text-green-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">PCI Compliant</h4>
+                  <p className="text-sm text-gray-600">Bank-level security standards</p>
+                </div>
+                <div className="text-center p-4 bg-white rounded-xl border border-gray-200">
+                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Lock className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">256-bit Encryption</h4>
+                  <p className="text-sm text-gray-600">Military-grade data protection</p>
+                </div>
+                <div className="text-center p-4 bg-white rounded-xl border border-gray-200">
+                  <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <CheckCircle className="h-5 w-5 text-purple-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">SOC 2 Certified</h4>
+                  <p className="text-sm text-gray-600">Enterprise security compliance</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
