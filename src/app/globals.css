@@ -310,70 +310,12 @@
   }
 }
 
-/* AI Interface Keyframes */
-@keyframes contentLineSlide {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-    width: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    width: 100%;
-  }
-}
-
-@keyframes statusPulse {
+@keyframes floatingBadge {
   0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
+    transform: translateY(0px);
   }
   50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
-
-@keyframes browserDotPulse {
-  0%, 100% {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-}
-
-@keyframes aiMessageFade {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes textReveal {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    transform: translateY(-8px);
   }
 }
 
@@ -425,34 +367,64 @@
   animation: pulseGlowStrong 2s ease-in-out infinite alternate;
 }
 
-/* AI Interface Animations */
-.content-line-animate {
-  animation: contentLineSlide 0.8s ease-out forwards;
+/* Enhanced problem/solution section animations */
+  .problem-card-hover {
+    @apply transition-all duration-500 hover:scale-105 hover:shadow-lg;
+  }
+
+.floating-badge {
+  animation: floatingBadge 3s ease-in-out infinite;
 }
 
-.status-pulse {
-  animation: statusPulse 2s ease-in-out infinite;
+.underline-expand {
+  @apply relative;
 }
 
-.browser-dot-pulse {
-  animation: browserDotPulse 1.5s ease-in-out infinite;
+.underline-expand::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-red-400 to-red-600 rounded-full transition-all duration-500 origin-left;
 }
 
-.ai-message-fade {
-  animation: aiMessageFade 1s ease-out forwards;
+.underline-expand:hover::after {
+  @apply w-full;
 }
 
-.text-reveal {
-  animation: textReveal 1.2s ease-out forwards;
+  .feature-highlight {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+.solution-card-glow {
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.1);
+  transition: all 0.3s ease;
 }
 
-.gradient-text-animate {
-  background: linear-gradient(135deg, #000000 0%, #404040 50%, #666666 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 3s ease-in-out infinite;
+.solution-card-glow:hover {
+  box-shadow: 0 0 50px rgba(34, 197, 94, 0.2);
+}
+
+.connecting-line {
+  @apply relative;
+}
+
+.connecting-line::before {
+  content: '';
+  @apply absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-30;
+}
+
+.decorative-dot {
+  @apply animate-pulse-glow;
+}
+
+.text-highlight {
+  @apply bg-yellow-100 px-2 py-1 rounded transition-all duration-300 hover:bg-yellow-200;
+}
+
+.text-highlight-green {
+  @apply bg-green-100 px-2 py-1 rounded transition-all duration-300 hover:bg-green-200;
+}
+
+.text-highlight-green:hover {
+  @apply bg-green-200;
 }
 
 /* Custom scrollbar */

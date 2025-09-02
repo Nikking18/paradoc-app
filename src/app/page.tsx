@@ -325,12 +325,12 @@ export default function Home() {
                 🚀 Now Available in USA & Canada
               </Badge>
               
-                              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                  <span className="text-reveal inline-block" style={{ animationDelay: '0.3s' }}>AI-Powered Legal Documents for</span>{" "}
-                  <span className="gradient-text-animate inline-block" style={{ animationDelay: '0.6s' }}>
-                    USA & Canada
-                  </span>
-                </h1>
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                AI-Powered Legal Documents for{" "}
+                <span className="accent-gradient-text">
+                  USA & Canada
+                </span>
+              </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 Generate, review, and manage legally compliant documents in minutes — designed for freelancers, startups, and law firms.
@@ -362,109 +362,193 @@ export default function Home() {
               </div>
             </div>
             
-                          <div className="relative animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 hover-lift">
-                  {/* Animated browser dots */}
-                  <div className="flex items-center mb-6 space-x-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full browser-dot-pulse"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full browser-dot-pulse" style={{ animationDelay: '0.5s' }}></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full browser-dot-pulse" style={{ animationDelay: '1s' }}></div>
-                  </div>
-                  
-                  {/* Animated content lines */}
-                  <div className="space-y-4">
-                    <div className="h-4 bg-gray-200 rounded w-3/4 content-line-animate" style={{ animationDelay: '0.8s' }}></div>
-                    <div className="h-4 bg-gray-200 rounded w-1/2 content-line-animate" style={{ animationDelay: '1s' }}></div>
-                    <div className="h-4 bg-gray-200 rounded w-5/6 content-line-animate" style={{ animationDelay: '1.2s' }}></div>
-                    <div className="h-4 bg-gray-200 rounded w-2/3 content-line-animate" style={{ animationDelay: '1.4s' }}></div>
-                  </div>
-                  
-                  {/* Animated AI message with status indicator */}
-                  <div className="mt-6 p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200 ai-message-fade" style={{ animationDelay: '1.6s' }}>
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full status-pulse"></div>
-                        <span className="text-xs text-gray-500 font-medium">AI Assistant</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-green-500 rounded-full status-pulse"></div>
-                        <span className="text-xs text-gray-500">Online</span>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-800 font-medium animate-typing">
-                      Ready to generate compliant documents for your jurisdiction
-                    </p>
-                  </div>
+            <div className="relative animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+              <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 hover-lift">
+                <div className="flex items-center mb-6">
+                  <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
-                
-                {/* Enhanced floating shield icon */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center shadow-strong animate-pulse-glow-strong">
-                  <ShieldCheck className="h-12 w-12 text-white" />
+                <div className="space-y-4">
+                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                  <div className="h-4 bg-gray-200 rounded w-2/3"></div>
                 </div>
-                
-                {/* Additional floating elements for visual interest */}
-                <div className="absolute -top-8 left-8 w-6 h-6 bg-gray-800/20 rounded-full animate-float" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
-                <div className="absolute -bottom-6 left-12 w-4 h-4 bg-gray-600/20 rounded-full animate-float" style={{ animationDelay: '2.5s', animationDuration: '5s' }}></div>
-                <div className="absolute top-1/2 -right-8 w-3 h-3 bg-black/20 rounded-full animate-float" style={{ animationDelay: '3s', animationDuration: '6s' }}></div>
+                <div className="mt-6 p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200">
+                  <p className="text-sm text-gray-800 font-medium">
+                    AI Legal Assistant: Ready to generate compliant documents for your jurisdiction
+                  </p>
+                </div>
               </div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center shadow-strong animate-pulse-glow-strong">
+                <ShieldCheck className="h-12 w-12 text-white" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Problem & Solution Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 section-gradient">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-gradient relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full blur-2xl opacity-40 animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full blur-2xl opacity-30 animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full blur-3xl opacity-20 animate-spin-slow"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in-up">
-              Legal Documents Shouldn&apos;t Be This Hard
+            <div className="inline-block mb-4">
+              <Badge className="bg-gradient-to-r from-red-100 to-red-200 text-red-800 border border-red-300 px-4 py-2 text-sm font-medium shadow-soft animate-bounce-in">
+                ⚠️ Problem Statement
+              </Badge>
+            </div>
+            <h2 className="text-5xl font-bold text-gray-900 mb-6 animate-fade-in-up leading-tight">
+              Legal Documents Shouldn&apos;t Be{" "}
+              <span className="accent-gradient-text relative">
+                This Hard
+                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-red-600 rounded-full animate-pulse-glow"></div>
+              </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Traditional legal processes are expensive, complex, and slow. We&apos;re changing that.
+              Traditional legal processes are expensive, complex, and slow. We&apos;re changing that with{" "}
+              <span className="font-semibold text-gray-800">AI-powered simplicity</span>.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <DollarSign className="h-8 w-8 text-red-600" />
+            <div className="text-center group hover-lift animate-fade-in-up transform transition-all duration-500 hover:scale-105" style={{ animationDelay: '0.1s' }}>
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-strong">
+                  <DollarSign className="h-10 w-10 text-red-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                {/* Floating price tag */}
+                <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1s' }}>
+                  $500+
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Expensive Lawyers</h3>
-              <p className="text-gray-600">Hundreds of dollars for basic documents</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">Expensive Lawyers</h3>
+              <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Hundreds of dollars for basic documents that should cost pennies</p>
+              <div className="mt-4 h-1 bg-gradient-to-r from-red-400 to-red-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
-            <div className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <BookOpen className="h-8 w-8 text-yellow-600" />
+            
+            <div className="text-center group hover-lift animate-fade-in-up transform transition-all duration-500 hover:scale-105" style={{ animationDelay: '0.2s' }}>
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-strong">
+                  <BookOpen className="h-10 w-10 text-yellow-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                {/* Floating complexity indicator */}
+                <div className="absolute -top-2 -right-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1.2s' }}>
+                  🤯
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Legal Jargon</h3>
-              <p className="text-gray-600">Confusing language that&apos;s hard to understand</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-yellow-600 transition-colors duration-300">Legal Jargon</h3>
+              <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Confusing language that&apos;s impossible to understand without a law degree</p>
+              <div className="mt-4 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
-            <div className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Globe className="h-8 w-8 text-blue-600" />
+            
+            <div className="text-center group hover-lift animate-fade-in-up transform transition-all duration-500 hover:scale-105" style={{ animationDelay: '0.3s' }}>
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-strong">
+                  <Globe className="h-10 w-10 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                {/* Floating location indicator */}
+                <div className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1.4s' }}>
+                  🌍
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Compliance Issues</h3>
-              <p className="text-gray-600">State and province-specific requirements</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">Compliance Issues</h3>
+              <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">State and province-specific requirements that change constantly</p>
+              <div className="mt-4 h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
-            <div className="text-center group hover-lift animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Clock className="h-8 w-8 text-purple-600" />
+            
+            <div className="text-center group hover-lift animate-fade-in-up transform transition-all duration-500 hover:scale-105" style={{ animationDelay: '0.4s' }}>
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-strong">
+                  <Clock className="h-10 w-10 text-purple-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                {/* Floating time indicator */}
+                <div className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1.6s' }}>
+                  ⏰
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Time Wasted</h3>
-              <p className="text-gray-600">Days or weeks for simple documents</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-300">Time Wasted</h3>
+              <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Days or weeks for simple documents that should take minutes</p>
+              <div className="mt-4 h-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 text-center hover-lift animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              ParaDoc.app: The All-in-One Solution
-            </h3>
-            <p className="text-lg text-gray-600 mb-6">
-              AI-powered legal document generation that understands your jurisdiction, speaks plain English, 
-              and delivers compliant results in minutes — not days.
-            </p>
-            <Button className="bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white px-8 py-3 button-hover">
-              See How It Works
-            </Button>
+          {/* Enhanced Solution Card */}
+          <div className="relative">
+            {/* Connecting lines animation */}
+            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-30"></div>
+            
+            <div className="bg-white rounded-3xl p-10 shadow-strong border border-gray-200 text-center hover-lift animate-fade-in-up transform transition-all duration-700 hover:scale-[1.02]" style={{ animationDelay: '0.5s' }}>
+              {/* Decorative elements */}
+              <div className="absolute top-4 left-4 w-3 h-3 bg-green-500 rounded-full animate-pulse-glow"></div>
+              <div className="absolute top-4 right-4 w-3 h-3 bg-blue-500 rounded-full animate-pulse-glow" style={{ animationDelay: '0.5s' }}></div>
+              <div className="absolute bottom-4 left-4 w-3 h-3 bg-purple-500 rounded-full animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute bottom-4 right-4 w-3 h-3 bg-yellow-500 rounded-full animate-pulse-glow" style={{ animationDelay: '1.5s' }}></div>
+              
+              <div className="relative z-10">
+                <div className="inline-block mb-6">
+                  <Badge className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 border border-green-300 px-6 py-3 text-lg font-semibold shadow-medium animate-bounce-in" style={{ animationDelay: '0.8s' }}>
+                    ✨ The Solution
+                  </Badge>
+                </div>
+                
+                <h3 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
+                  ParaDoc.app: The{" "}
+                  <span className="accent-gradient-text relative">
+                    All-in-One Solution
+                    <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-green-600 rounded-full animate-pulse-glow"></div>
+                  </span>
+                </h3>
+                
+                <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+                  AI-powered legal document generation that understands your jurisdiction, speaks{" "}
+                  <span className="font-semibold text-gray-800 bg-yellow-100 px-2 py-1 rounded">plain English</span>, 
+                  and delivers{" "}
+                  <span className="font-semibold text-gray-800 bg-green-100 px-2 py-1 rounded">compliant results</span> in{" "}
+                  <span className="font-bold text-green-600">minutes — not days</span>.
+                </p>
+                
+                {/* Feature highlights */}
+                <div className="grid md:grid-cols-3 gap-6 mb-8">
+                  <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl border border-gray-200 hover:border-green-300 transition-colors duration-300 group">
+                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Check className="h-5 w-5 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">AI-Powered</span>
+                  </div>
+                  <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl border border-gray-200 hover:border-blue-300 transition-colors duration-300 group">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Shield className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">Compliant</span>
+                  </div>
+                  <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl border border-gray-200 hover:border-purple-300 transition-colors duration-300 group">
+                    <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Zap className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">Lightning Fast</span>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 text-lg font-semibold button-hover shadow-strong transform hover:scale-105 transition-all duration-300">
+                    <Zap className="h-5 w-5 mr-2" />
+                    See How It Works
+                  </Button>
+                  <Button variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover hover:border-green-400 hover:text-green-700">
+                    <Play className="h-5 w-5 mr-2" />
+                    Watch Demo
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
