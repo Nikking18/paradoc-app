@@ -401,7 +401,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16">
             <div className="inline-block mb-4">
-              <Badge className="bg-gradient-to-r from-red-100 to-red-200 text-red-800 border border-red-300 px-4 py-2 text-sm font-medium shadow-soft animate-bounce-in">
+              <Badge className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 border border-gray-300 px-4 py-2 text-sm font-medium shadow-soft animate-bounce-in">
                 ⚠️ Problem Statement
               </Badge>
             </div>
@@ -409,7 +409,7 @@ export default function Home() {
               Legal Documents Shouldn&apos;t Be{" "}
               <span className="accent-gradient-text relative">
                 This Hard
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-red-600 rounded-full animate-pulse-glow"></div>
+                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-gray-600 to-black rounded-full animate-pulse-glow"></div>
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -421,62 +421,62 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <div className="text-center group hover-lift animate-fade-in-up transform transition-all duration-500 hover:scale-105" style={{ animationDelay: '0.1s' }}>
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-strong">
-                  <DollarSign className="h-10 w-10 text-red-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-lg">
+                  <DollarSign className="h-10 w-10 text-gray-700 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 {/* Floating price tag */}
-                <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1s' }}>
+                <div className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1s' }}>
                   $500+
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">Expensive Lawyers</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-gray-700 transition-colors duration-300">Expensive Lawyers</h3>
               <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Hundreds of dollars for basic documents that should cost pennies</p>
-              <div className="mt-4 h-1 bg-gradient-to-r from-red-400 to-red-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="mt-4 h-1 bg-gradient-to-r from-gray-600 to-black rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
             
             <div className="text-center group hover-lift animate-fade-in-up transform transition-all duration-500 hover:scale-105" style={{ animationDelay: '0.2s' }}>
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-strong">
-                  <BookOpen className="h-10 w-10 text-yellow-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-lg">
+                  <BookOpen className="h-10 w-10 text-gray-700 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 {/* Floating complexity indicator */}
-                <div className="absolute -top-2 -right-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1.2s' }}>
+                <div className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1.2s' }}>
                   🤯
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-yellow-600 transition-colors duration-300">Legal Jargon</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-gray-700 transition-colors duration-300">Legal Jargon</h3>
               <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Confusing language that&apos;s impossible to understand without a law degree</p>
-              <div className="mt-4 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="mt-4 h-1 bg-gradient-to-r from-gray-600 to-black rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
             
             <div className="text-center group hover-lift animate-fade-in-up transform transition-all duration-500 hover:scale-105" style={{ animationDelay: '0.3s' }}>
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-strong">
-                  <Globe className="h-10 w-10 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-lg">
+                  <Globe className="h-10 w-10 text-gray-700 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 {/* Floating location indicator */}
-                <div className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1.4s' }}>
+                <div className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1.4s' }}>
                   🌍
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">Compliance Issues</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-gray-700 transition-colors duration-300">Compliance Issues</h3>
               <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">State and province-specific requirements that change constantly</p>
-              <div className="mt-4 h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="mt-4 h-1 bg-gradient-to-r from-gray-600 to-black rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
             
             <div className="text-center group hover-lift animate-fade-in-up transform transition-all duration-500 hover:scale-105" style={{ animationDelay: '0.4s' }}>
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-strong">
-                  <Clock className="h-10 w-10 text-purple-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-medium group-hover:shadow-lg">
+                  <Clock className="h-10 w-10 text-gray-700 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 {/* Floating time indicator */}
-                <div className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1.6s' }}>
+                <div className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-in" style={{ animationDelay: '1.6s' }}>
                   ⏰
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-300">Time Wasted</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-gray-700 transition-colors duration-300">Time Wasted</h3>
               <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Days or weeks for simple documents that should take minutes</p>
-              <div className="mt-4 h-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="mt-4 h-1 bg-gradient-to-r from-gray-600 to-black rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
           </div>
           
@@ -487,14 +487,14 @@ export default function Home() {
             
             <div className="bg-white rounded-3xl p-10 shadow-strong border border-gray-200 text-center hover-lift animate-fade-in-up transform transition-all duration-700 hover:scale-[1.02]" style={{ animationDelay: '0.5s' }}>
               {/* Decorative elements */}
-              <div className="absolute top-4 left-4 w-3 h-3 bg-green-500 rounded-full animate-pulse-glow"></div>
-              <div className="absolute top-4 right-4 w-3 h-3 bg-blue-500 rounded-full animate-pulse-glow" style={{ animationDelay: '0.5s' }}></div>
-              <div className="absolute bottom-4 left-4 w-3 h-3 bg-purple-500 rounded-full animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
-              <div className="absolute bottom-4 right-4 w-3 h-3 bg-yellow-500 rounded-full animate-pulse-glow" style={{ animationDelay: '1.5s' }}></div>
+              <div className="absolute top-4 left-4 w-3 h-3 bg-gray-600 rounded-full animate-pulse-glow"></div>
+              <div className="absolute top-4 right-4 w-3 h-3 bg-gray-600 rounded-full animate-pulse-glow" style={{ animationDelay: '0.5s' }}></div>
+              <div className="absolute bottom-4 left-4 w-3 h-3 bg-gray-600 rounded-full animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute bottom-4 right-4 w-3 h-3 bg-gray-600 rounded-full animate-pulse-glow" style={{ animationDelay: '1.5s' }}></div>
               
               <div className="relative z-10">
                 <div className="inline-block mb-6">
-                  <Badge className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 border border-green-300 px-6 py-3 text-lg font-semibold shadow-medium animate-bounce-in" style={{ animationDelay: '0.8s' }}>
+                  <Badge className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 border border-gray-300 px-6 py-3 text-lg font-semibold shadow-medium animate-bounce-in" style={{ animationDelay: '0.8s' }}>
                     ✨ The Solution
                   </Badge>
                 </div>
@@ -503,46 +503,46 @@ export default function Home() {
                   ParaDoc.app: The{" "}
                   <span className="accent-gradient-text relative">
                     All-in-One Solution
-                    <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-green-600 rounded-full animate-pulse-glow"></div>
+                    <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-gray-600 to-black rounded-full animate-pulse-glow"></div>
                   </span>
                 </h3>
                 
                 <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
                   AI-powered legal document generation that understands your jurisdiction, speaks{" "}
-                  <span className="font-semibold text-gray-800 bg-yellow-100 px-2 py-1 rounded">plain English</span>, 
+                  <span className="font-semibold text-gray-800 bg-gray-100 px-2 py-1 rounded">plain English</span>, 
                   and delivers{" "}
-                  <span className="font-semibold text-gray-800 bg-green-100 px-2 py-1 rounded">compliant results</span> in{" "}
-                  <span className="font-bold text-green-600">minutes — not days</span>.
+                  <span className="font-semibold text-gray-800 bg-gray-100 px-2 py-1 rounded">compliant results</span> in{" "}
+                  <span className="font-bold text-gray-800">minutes — not days</span>.
                 </p>
                 
                 {/* Feature highlights */}
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl border border-gray-200 hover:border-green-300 transition-colors duration-300 group">
-                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Check className="h-5 w-5 text-green-600" />
+                  <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl border border-gray-200 hover:border-gray-400 transition-colors duration-300 group">
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Check className="h-5 w-5 text-gray-700" />
                     </div>
                     <span className="text-gray-700 font-medium">AI-Powered</span>
                   </div>
-                  <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl border border-gray-200 hover:border-blue-300 transition-colors duration-300 group">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Shield className="h-5 w-5 text-blue-600" />
+                  <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl border border-gray-200 hover:border-gray-400 transition-colors duration-300 group">
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Shield className="h-5 w-5 text-gray-700" />
                     </div>
                     <span className="text-gray-700 font-medium">Compliant</span>
                   </div>
-                  <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl border border-gray-200 hover:border-purple-300 transition-colors duration-300 group">
-                    <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Zap className="h-5 w-5 text-purple-600" />
+                  <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl border border-gray-200 hover:border-gray-400 transition-colors duration-300 group">
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Zap className="h-5 w-5 text-gray-700" />
                     </div>
                     <span className="text-gray-700 font-medium">Lightning Fast</span>
                   </div>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 text-lg font-semibold button-hover shadow-strong transform hover:scale-105 transition-all duration-300">
+                  <Button className="bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-900 text-white px-8 py-4 text-lg font-semibold button-hover shadow-strong transform hover:scale-105 transition-all duration-300">
                     <Zap className="h-5 w-5 mr-2" />
                     See How It Works
                   </Button>
-                  <Button variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover hover:border-green-400 hover:text-green-700">
+                  <Button variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover hover:border-gray-600 hover:text-gray-800">
                     <Play className="h-5 w-5 mr-2" />
                     Watch Demo
                   </Button>

@@ -372,60 +372,60 @@
     @apply transition-all duration-500 hover:scale-105 hover:shadow-lg;
   }
 
-.floating-badge {
-  animation: floatingBadge 3s ease-in-out infinite;
-}
+  .floating-badge {
+    animation: floatingBadge 3s ease-in-out infinite;
+  }
 
-.underline-expand {
-  @apply relative;
-}
+  .underline-expand {
+    @apply relative;
+  }
 
-.underline-expand::after {
-  content: '';
-  @apply absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-red-400 to-red-600 rounded-full transition-all duration-500 origin-left;
-}
+  .underline-expand::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-gray-600 to-black rounded-full transition-all duration-500 origin-left;
+  }
 
-.underline-expand:hover::after {
-  @apply w-full;
-}
+  .underline-expand:hover::after {
+    @apply w-full;
+  }
 
   .feature-highlight {
     @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
   }
 
-.solution-card-glow {
-  box-shadow: 0 0 30px rgba(34, 197, 94, 0.1);
-  transition: all 0.3s ease;
-}
+  .solution-card-glow {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
 
-.solution-card-glow:hover {
-  box-shadow: 0 0 50px rgba(34, 197, 94, 0.2);
-}
+  .solution-card-glow:hover {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  }
 
-.connecting-line {
-  @apply relative;
-}
+  .connecting-line {
+    @apply relative;
+  }
 
-.connecting-line::before {
-  content: '';
-  @apply absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-30;
-}
+  .connecting-line::before {
+    content: '';
+    @apply absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-30;
+  }
 
-.decorative-dot {
-  @apply animate-pulse-glow;
-}
+  .decorative-dot {
+    @apply animate-pulse-glow;
+  }
 
-.text-highlight {
-  @apply bg-yellow-100 px-2 py-1 rounded transition-all duration-300 hover:bg-yellow-200;
-}
+  .text-highlight {
+    @apply bg-gray-100 px-2 py-1 rounded transition-all duration-300 hover:bg-gray-200;
+  }
 
-.text-highlight-green {
-  @apply bg-green-100 px-2 py-1 rounded transition-all duration-300 hover:bg-green-200;
-}
+  .text-highlight-green {
+    @apply bg-gray-100 px-2 py-1 rounded transition-all duration-300 hover:bg-gray-200;
+  }
 
-.text-highlight-green:hover {
-  @apply bg-green-200;
-}
+  .text-highlight-green:hover {
+    @apply bg-gray-200;
+  }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
