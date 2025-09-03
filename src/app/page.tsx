@@ -1763,57 +1763,119 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 border-t border-gray-200 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-5 gap-8 mb-8">
+      <footer className="py-20 border-t border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gray-200/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-200/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Footer Content */}
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            {/* Company Info */}
             <div className="md:col-span-2">
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-black to-gray-800 rounded-xl flex items-center justify-center mr-3 shadow-medium">
-                  <FileText className="h-6 w-6 text-white" />
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-black to-gray-800 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                  <FileText className="h-7 w-7 text-white" />
                 </div>
-                <span className="text-xl font-bold text-gray-900">ParaDoc.app</span>
+                <div>
+                  <span className="text-2xl font-bold text-gray-900">ParaDoc.app</span>
+                  <div className="text-sm text-gray-500 mt-1">AI-Powered Legal Solutions</div>
+                </div>
               </div>
-              <p className="text-gray-600 mb-4">
-                AI-powered legal documents for the modern world. Compliant, fast, and accessible.
+              <p className="text-gray-600 mb-6 text-lg leading-relaxed max-w-md">
+                AI-powered legal documents for the modern world. Compliant, fast, and accessible for USA & Canada.
               </p>
               <div className="flex space-x-4">
-                <Twitter className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors hover:scale-110 transform" />
-                <Github className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors hover:scale-110 transform" />
-                <Linkedin className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer transition-colors hover:scale-110 transform" />
+                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer">
+                  <Twitter className="h-5 w-5 text-gray-600 hover:text-gray-900 transition-colors" />
+                </div>
+                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer">
+                  <Github className="h-5 w-5 text-gray-600 hover:text-gray-900 transition-colors" />
+                </div>
+                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer">
+                  <Linkedin className="h-5 w-5 text-gray-600 hover:text-gray-900 transition-colors" />
+                </div>
               </div>
             </div>
+            
+            {/* About Section */}
             <div>
-              <h3 className="font-semibold text-gray-900 mb-4">About</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Company</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Team</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Blog</a></li>
+              <h3 className="font-bold text-gray-900 mb-6 text-lg">Company</h3>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">About Us</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Our Team</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Careers</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Blog & News</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Press Kit</a></li>
               </ul>
             </div>
+            
+            {/* Support Section */}
             <div>
-              <h3 className="font-semibold text-gray-900 mb-4">Features</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Document Generator</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Legal Lookup</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Risk Scanner</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">AI Chatbot</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-4">Support</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Terms of Service</a></li>
+              <h3 className="font-bold text-gray-900 mb-6 text-lg">Support & Legal</h3>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Help Center</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Contact Support</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">API Documentation</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Status Page</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Community</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-200 pt-8 text-center">
-            <p className="text-gray-600">
-              © 2025 ParaDoc.app. All rights reserved. Built for USA & Canada legal compliance.
-            </p>
+          
+          {/* Legal Disclaimer Section */}
+          <div className="border-t border-gray-200 pt-8 mb-8">
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-4 text-lg">⚠️ Important Legal Disclaimer</h4>
+              <div className="text-sm text-gray-700 leading-relaxed space-y-3">
+                <p>
+                  <strong>AI-Generated Content Notice:</strong> ParaDoc.app utilizes artificial intelligence (AI) technology to generate legal documents, summaries, and content. 
+                  All AI-generated materials are provided for informational and educational purposes only.
+                </p>
+                <p>
+                  <strong>Not Legal Advice:</strong> The content generated by our AI system does not constitute legal advice, legal representation, or attorney-client relationship. 
+                  Our AI-generated documents are not a substitute for professional legal counsel from qualified attorneys licensed in your jurisdiction.
+                </p>
+                <p>
+                  <strong>Accuracy & Compliance:</strong> While we strive for accuracy and current legal compliance, AI-generated content may contain errors, omissions, or outdated information. 
+                  Laws and regulations change frequently and vary by jurisdiction. Users are responsible for verifying the accuracy, completeness, and current legal status of all generated content.
+                </p>
+                <p>
+                  <strong>Professional Review Required:</strong> We strongly recommend that all AI-generated legal documents be reviewed by qualified legal professionals before use in any legal proceeding, 
+                  business transaction, or other legal matter. This is especially important for complex legal issues, high-stakes transactions, or matters involving significant financial or legal consequences.
+                </p>
+                <p>
+                  <strong>Limitation of Liability:</strong> ParaDoc.app, its affiliates, employees, and AI systems are not liable for any damages, losses, or legal consequences arising from the use of 
+                  AI-generated content. Users assume all risks and responsibilities associated with the use of our services.
+                </p>
+                <p>
+                  <strong>Jurisdictional Limitations:</strong> Our services are designed for use in the United States and Canada. Users outside these jurisdictions should consult with local legal professionals 
+                  regarding the applicability and compliance of any generated content with their local laws.
+                </p>
+                <p>
+                  <strong>Terms of Use:</strong> By using ParaDoc.app, you acknowledge that you have read, understood, and agree to these disclaimers and our complete Terms of Service and Privacy Policy.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Bottom Footer */}
+          <div className="border-t border-gray-200 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-center md:text-left">
+                <p className="text-gray-600 text-sm">
+                  © 2025 ParaDoc.app. All rights reserved. Built for USA & Canada legal compliance.
+                </p>
+              </div>
+              <div className="flex space-x-6 text-sm">
+                <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors">Privacy Policy</a>
+                <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors">Terms of Service</a>
+                <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors">Cookie Policy</a>
+                <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors">GDPR</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
