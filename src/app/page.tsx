@@ -1812,15 +1812,33 @@ export default function Home() {
               
               {/* Enhanced Social Media Icons */}
               <div className="flex space-x-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100">
+                <a 
+                  href="https://twitter.com/paradocapp" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100 hover:border-blue-200"
+                  aria-label="Follow us on Twitter"
+                >
                   <Twitter className="h-6 w-6 text-gray-600 group-hover/social:text-blue-500 transition-all duration-300 group-hover/social:scale-110" />
-                </div>
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100">
+                </a>
+                <a 
+                  href="https://github.com/Nikking18/paradoc-app" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100 hover:border-gray-300"
+                  aria-label="View our GitHub repository"
+                >
                   <Github className="h-6 w-6 text-gray-600 group-hover/social:text-gray-900 transition-all duration-300 group-hover/social:scale-110" />
-                </div>
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100">
+                </a>
+                <a 
+                  href="https://linkedin.com/company/paradocapp" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100 hover:border-blue-300"
+                  aria-label="Connect with us on LinkedIn"
+                >
                   <Linkedin className="h-6 w-6 text-gray-600 group-hover/social:text-blue-600 transition-all duration-300 group-hover/social:scale-110" />
-                </div>
+                </a>
               </div>
             </div>
             
@@ -1832,19 +1850,20 @@ export default function Home() {
               </h3>
               <ul className="space-y-4">
                 {[
-                  { text: "About Us", href: "#" },
-                  { text: "Our Team", href: "#" },
-                  { text: "Careers", href: "#" },
-                  { text: "Blog & News", href: "#" },
-                  { text: "Press Kit", href: "#" }
+                  { text: "About Us", href: "/about", description: "Learn about our mission and vision" },
+                  { text: "Our Team", href: "/team", description: "Meet the experts behind ParaDoc.app" },
+                  { text: "Careers", href: "/careers", description: "Join our growing team" },
+                  { text: "Blog & News", href: "/blog", description: "Latest updates and insights" },
+                  { text: "Press Kit", href: "/press", description: "Media resources and brand assets" }
                 ].map((item, index) => (
                   <li key={index} className="group">
                     <a 
                       href={item.href} 
-                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 transform inline-block group-hover:font-medium relative"
+                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 transform inline-block group-hover:font-medium relative py-1 px-2 rounded-lg hover:bg-gray-50"
                       style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                      title={item.description}
                     >
-                      <span className="absolute left-0 top-1/2 w-0 h-0.5 bg-gray-400 rounded-full transition-all duration-300 group-hover:w-full"></span>
+                      <span className="absolute left-0 top-1/2 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full transition-all duration-300 group-hover:w-full"></span>
                       {item.text}
                     </a>
                   </li>
@@ -1860,24 +1879,49 @@ export default function Home() {
               </h3>
               <ul className="space-y-4">
                 {[
-                  { text: "Help Center", href: "#" },
-                  { text: "Contact Support", href: "#" },
-                  { text: "API Documentation", href: "#" },
-                  { text: "Status Page", href: "#" },
-                  { text: "Community", href: "#" }
+                  { text: "Help Center", href: "/help", description: "Find answers to common questions" },
+                  { text: "Contact Support", href: "/contact", description: "Get in touch with our team" },
+                  { text: "API Documentation", href: "/api", description: "Developer resources and guides" },
+                  { text: "Status Page", href: "/status", description: "Check system status and uptime" },
+                  { text: "Community", href: "/community", description: "Join our user community" }
                 ].map((item, index) => (
                   <li key={index} className="group">
                     <a 
                       href={item.href} 
-                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 transform inline-block group-hover:font-medium relative"
+                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 transform inline-block group-hover:font-medium relative py-1 px-2 rounded-lg hover:bg-gray-50"
                       style={{ animationDelay: `${0.7 + index * 0.1}s` }}
+                      title={item.description}
                     >
-                      <span className="absolute left-0 top-1/2 w-0 h-0.5 bg-gray-400 rounded-full transition-all duration-300 group-hover:w-full"></span>
+                      <span className="absolute left-0 top-1/2 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full transition-all duration-300 group-hover:w-full"></span>
                       {item.text}
                     </a>
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+          
+          {/* Newsletter Subscription Section */}
+          <div className="border-t border-gray-200 pt-12 mb-12 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+            <div className="max-w-md mx-auto text-center">
+              <h4 className="text-lg font-semibold text-gray-900 mb-3">Stay Updated</h4>
+              <p className="text-gray-600 text-sm mb-6">Get the latest legal tech insights and updates</p>
+              <div className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200 text-sm"
+                />
+                <Button 
+                  size="sm" 
+                  className="bg-gray-900 text-white hover:bg-black px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg"
+                >
+                  Subscribe
+                </Button>
+              </div>
+              <p className="text-xs text-gray-500 mt-3">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
             </div>
           </div>
           
@@ -1891,17 +1935,18 @@ export default function Home() {
               </div>
               <div className="flex flex-wrap justify-center gap-6 text-sm">
                 {[
-                  { text: "Privacy Policy", href: "#" },
-                  { text: "Terms of Service", href: "#" },
-                  { text: "Cookie Policy", href: "#" },
-                  { text: "GDPR", href: "#" }
+                  { text: "Privacy Policy", href: "/privacy", description: "How we protect your data" },
+                  { text: "Terms of Service", href: "/terms", description: "Our service terms and conditions" },
+                  { text: "Cookie Policy", href: "/cookies", description: "Information about cookies usage" },
+                  { text: "GDPR", href: "/gdpr", description: "Data protection and privacy rights" }
                 ].map((item, index) => (
                   <a 
                     key={index}
                     href={item.href} 
-                    className="text-gray-500 hover:text-gray-700 transition-all duration-300 hover:scale-105 relative group"
+                    className="text-gray-500 hover:text-gray-700 transition-all duration-300 hover:scale-105 relative group py-1 px-2 rounded hover:bg-gray-100"
+                    title={item.description}
                   >
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-400 rounded-full transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full transition-all duration-300 group-hover:w-full"></span>
                     {item.text}
                   </a>
                 ))}
