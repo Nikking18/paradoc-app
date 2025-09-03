@@ -1651,19 +1651,119 @@ export default function Home() {
       {/* Final CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 dark-section relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-white/3 rounded-full blur-2xl animate-float"></div>
+          <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-white/4 rounded-full blur-2xl animate-float" style={{ animationDelay: '0.5s' }}></div>
         </div>
-        <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6 animate-fade-in-up">
-            Start creating legal documents in minutes.
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Join thousands of professionals who trust ParaDoc.app for their legal document needs.
-          </p>
-          <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-black button-hover animate-bounce-in" style={{ animationDelay: '0.4s' }}>
-            Get Started Free Today
-          </Button>
+        
+        <div className="relative max-w-6xl mx-auto text-center">
+          {/* Main CTA Content */}
+          <div className="mb-12">
+            <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6 animate-fade-in-up">
+              <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+              <span className="text-white/90 text-sm font-medium">Trusted by 10,000+ Legal Professionals</span>
+            </div>
+            
+            <h2 className="text-5xl font-bold text-white mb-6 animate-fade-in-up leading-tight">
+              Start creating legal documents in{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 animate-pulse-glow">
+                minutes
+              </span>
+            </h2>
+            
+            <p className="text-xl text-gray-300 mb-8 animate-fade-in-up max-w-3xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
+              Join thousands of professionals who trust ParaDoc.app for their legal document needs. 
+              Generate, review, and manage legally compliant documents with AI-powered precision.
+            </p>
+            
+            {/* Enhanced CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-black button-hover animate-bounce-in group relative overflow-hidden">
+                <span className="relative z-10">Get Started Free Today</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </Button>
+              
+              <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold backdrop-blur-sm hover:border-white/50 transition-all duration-300 group">
+                <span className="mr-2">📚</span>
+                View All Templates
+              </Button>
+            </div>
+          </div>
+          
+          {/* Trust Indicators & Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div className="text-3xl font-bold text-white mb-2 animate-count-up">50+</div>
+              <div className="text-gray-300 text-sm">Document Types</div>
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mx-auto mt-3 animate-pulse-glow"></div>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div className="text-3xl font-bold text-white mb-2 animate-count-up">100%</div>
+              <div className="text-gray-300 text-sm">Legal Compliance</div>
+              <div className="w-16 h-1 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mx-auto mt-3 animate-pulse-glow"></div>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div className="text-3xl font-bold text-white mb-2 animate-count-up">24/7</div>
+              <div className="text-gray-300 text-sm">AI Support</div>
+              <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-red-400 rounded-full mx-auto mt-3 animate-pulse-glow"></div>
+            </div>
+          </div>
+          
+          {/* Feature Highlights */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                <FileText className="h-8 w-8 text-white" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">AI Generation</h4>
+              <p className="text-gray-400 text-sm">Smart document creation</p>
+            </div>
+            
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                <Shield className="h-8 w-8 text-white" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">Risk Scanner</h4>
+              <p className="text-gray-400 text-sm">Identify legal issues</p>
+            </div>
+            
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                <Globe className="h-8 w-8 text-white" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">Jurisdiction</h4>
+              <p className="text-gray-400 text-sm">USA & Canada focused</p>
+            </div>
+            
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                <Zap className="h-8 w-8 text-white" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">Lightning Fast</h4>
+              <p className="text-gray-400 text-sm">Generate in minutes</p>
+            </div>
+          </div>
+          
+          {/* Final Trust Statement */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '1s' }}>
+            <div className="flex items-center justify-center space-x-6 text-gray-400 text-sm">
+              <div className="flex items-center">
+                <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
+                <span>No Credit Card Required</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
+                <span>7-Day Free Trial</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
+                <span>Cancel Anytime</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
