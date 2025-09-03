@@ -20,6 +20,7 @@ export default function Home() {
   const [currentHowItWorksStep, setCurrentHowItWorksStep] = useState(0);
   const [isYearlyBilling, setIsYearlyBilling] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [showAllFaqs, setShowAllFaqs] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -115,6 +116,46 @@ export default function Home() {
     {
       question: "What types of documents can I generate?",
       answer: "We support 50+ document types including contracts, NDAs, employment agreements, privacy policies, terms of service, and more. All documents are automatically customized for your jurisdiction and business needs."
+    },
+    {
+      question: "How does the AI risk scanner work?",
+      answer: "Our AI risk scanner analyzes your contracts and legal documents to identify potential issues, unusual clauses, and compliance risks. It flags red flags like unlimited liability, unfair arbitration clauses, and other problematic terms that could put your business at risk."
+    },
+    {
+      question: "Can I export documents to different formats?",
+      answer: "Yes! Pro and Enterprise users can export documents to PDF, DOCX, and Google Docs formats. Free users can view and copy the generated text. All exports maintain professional formatting and are ready for immediate use."
+    },
+    {
+      question: "How often are legal frameworks updated?",
+      answer: "We continuously monitor legal changes across all supported jurisdictions and update our AI models monthly. This ensures your documents always reflect the most current laws and compliance requirements."
+    },
+    {
+      question: "Is my data secure and private?",
+      answer: "Absolutely. We use enterprise-grade encryption and never store your document content permanently. Your data is processed securely and deleted after generation. We're SOC 2 compliant and follow strict privacy standards."
+    },
+    {
+      question: "Can I customize generated documents?",
+      answer: "Yes! All documents are fully customizable. You can edit clauses, add specific terms, modify language, and adjust formatting. The AI maintains compliance while allowing you to tailor documents to your exact needs."
+    },
+    {
+      question: "What if I need help with a complex legal matter?",
+      answer: "While ParaDoc.app handles most standard legal documents, we always recommend consulting with a qualified attorney for complex matters, litigation, or high-stakes transactions. Our tool is designed to complement, not replace, professional legal counsel."
+    },
+    {
+      question: "Do you offer team collaboration features?",
+      answer: "Enterprise users get access to team collaboration features including shared folders, multi-user editing, approval workflows, and version control. This makes it easy for legal teams to work together on documents."
+    },
+    {
+      question: "How does the jurisdiction-specific compliance work?",
+      answer: "Our AI automatically detects your location and applies the relevant legal requirements. For example, California employment contracts include specific wage and hour laws, while Ontario contracts follow Canadian privacy regulations. This ensures 100% compliance without manual research."
+    },
+    {
+      question: "Can I use this for international business?",
+      answer: "Currently, ParaDoc.app focuses on USA and Canada. For international business, we recommend consulting with local legal professionals who understand the specific legal frameworks of those countries."
+    },
+    {
+      question: "What's included in the free trial?",
+      answer: "The free trial gives you access to all Pro features for 7 days, including unlimited document generation, AI risk scanning, and multi-format exports. No credit card required, and you can cancel anytime."
     }
   ];
 
@@ -1543,24 +1584,7 @@ export default function Home() {
           
           
           
-          {/* Company Logos - White Theme */}
-          <div className="text-center animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
-            <p className="text-gray-600 mb-8 text-lg font-medium">Trusted by leading companies and professionals</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-70">
-              <div className="flex items-center justify-center p-4 bg-gray-100 rounded-xl border border-gray-200 hover:opacity-100 transition-opacity">
-                <div className="text-xl font-bold text-gray-600">Vercel</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-100 rounded-xl border border-gray-200 hover:opacity-100 transition-opacity">
-                <div className="text-xl font-bold text-gray-600">Duolingo</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-100 rounded-xl border border-gray-200 hover:opacity-100 transition-opacity">
-                <div className="text-xl font-bold text-gray-600">Ramp</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-100 rounded-xl border border-gray-200 hover:opacity-100 transition-opacity">
-                <div className="text-xl font-bold text-gray-600">Asana</div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -1577,7 +1601,7 @@ export default function Home() {
           </div>
           
           <div className="space-y-4">
-            {faqs.map((faq, index) => (
+            {(showAllFaqs ? faqs : faqs.slice(0, 5)).map((faq, index) => (
               <Card key={index} className="border-gray-200 hover-lift animate-fade-in-up" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
                 <CardHeader 
                   className="cursor-pointer hover:bg-gray-50 transition-colors"
@@ -1599,6 +1623,27 @@ export default function Home() {
                 )}
               </Card>
             ))}
+          </div>
+          
+          {/* Show More/Less Button */}
+          <div className="text-center mt-8 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <Button
+              onClick={() => setShowAllFaqs(!showAllFaqs)}
+              variant="outline"
+              className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 px-8 py-3"
+            >
+              {showAllFaqs ? (
+                <>
+                  <ChevronUp className="h-4 w-4 mr-2" />
+                  Show Less
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="h-4 w-4 mr-2" />
+                  Show More Questions
+                </>
+              )}
+            </Button>
           </div>
         </div>
       </section>
