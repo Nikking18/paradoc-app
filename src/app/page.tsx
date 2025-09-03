@@ -20,7 +20,6 @@ export default function Home() {
   const [currentHowItWorksStep, setCurrentHowItWorksStep] = useState(0);
   const [isYearlyBilling, setIsYearlyBilling] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [currentSocialReview, setCurrentSocialReview] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
@@ -66,16 +65,7 @@ export default function Home() {
     }
   }, [isVisible]);
 
-  // Auto-swipe social media reviews
-  useEffect(() => {
-    if (isVisible) {
-      const socialInterval = setInterval(() => {
-        setCurrentSocialReview((prev) => (prev === 2 ? 0 : prev + 1));
-      }, 4000);
-      
-      return () => clearInterval(socialInterval);
-    }
-  }, [isVisible]);
+
 
   const startFeatureShowcase = () => {
     setCurrentShowcaseFeature(0);
@@ -1372,7 +1362,7 @@ export default function Home() {
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
                         <img 
-                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face" 
                           alt="Alex Thompson" 
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
@@ -1396,7 +1386,7 @@ export default function Home() {
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
                         <img 
-                          src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" 
+                          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face" 
                           alt="Sarah Chen" 
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
@@ -1420,7 +1410,7 @@ export default function Home() {
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
                         <img 
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+                          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face" 
                           alt="Michael Rodriguez" 
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
@@ -1445,18 +1435,18 @@ export default function Home() {
                 {/* Testimonial Set 2 */}
                 <div className="w-full flex-shrink-0">
                   <div className="grid md:grid-cols-3 gap-8">
-                    {/* Testimonial Card 4 */}
+                                        {/* Testimonial Card 4 */}
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
                         <img 
-                          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" 
+                          src="https://images.unsplash.com/photo-1580489944761-15f19a654b0e?w=150&h=150&fit=crop&crop=face" 
                           alt="Emily Watson" 
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
                       </div>
                       <div className="text-4xl text-gray-400 mb-6">&ldquo;</div>
                       <p className="text-gray-200 mb-6 leading-relaxed">
-                                                 ParaDoc.app&apos;s jurisdiction-specific features are incredible. We operate in multiple states and the compliance accuracy is unmatched. Highly recommend!
+                        ParaDoc.app&apos;s jurisdiction-specific features are incredible. We operate in multiple states and the compliance accuracy is unmatched. Highly recommend!
                       </p>
                       <div className="flex justify-center mb-6">
                         {[...Array(5)].map((_, i) => (
@@ -1473,7 +1463,7 @@ export default function Home() {
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
                         <img 
-                          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face" 
+                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
                           alt="David Kim" 
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
@@ -1497,7 +1487,7 @@ export default function Home() {
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
                         <img 
-                          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face" 
+                          src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" 
                           alt="Lisa Park" 
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
@@ -1551,145 +1541,7 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Social Media Reviews Section */}
-          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: '1.0s' }}>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Social Media Reviews</h3>
-            <div className="relative">
-              <div className="overflow-hidden">
-                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSocialReview * 100}%)` }}>
-                  {/* Social Review Set 1 */}
-                  <div className="w-full flex-shrink-0">
-                    <div className="grid md:grid-cols-2 gap-8">
-                      {/* X Review 1 */}
-                      <div className="bg-gray-900 rounded-2xl p-6 text-left hover-lift">
-                        <div className="flex items-center space-x-3 mb-4">
-                          <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">𝕏</span>
-                          </div>
-                          <div className="text-sm text-gray-300 font-medium">X (Twitter)</div>
-                        </div>
-                        <p className="text-gray-200 mb-4 leading-relaxed">
-                          &ldquo;Just used @ParaDoc_app for our startup&apos;s employment contracts. Generated compliant docs for 3 different states in under 10 minutes. This is a game-changer for small businesses! 🚀 #LegalTech #StartupLife&rdquo;
-                        </p>
-                        <div className="flex items-center justify-between text-sm text-gray-400">
-                          <span>@StartupLegal</span>
-                          <span>2 hours ago</span>
-                        </div>
-                      </div>
-                      
-                      {/* X Review 2 */}
-                      <div className="bg-gray-900 rounded-2xl p-6 text-left hover-lift">
-                        <div className="flex items-center space-x-3 mb-4">
-                          <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">𝕏</span>
-                          </div>
-                          <div className="text-sm text-gray-300 font-medium">X (Twitter)</div>
-                        </div>
-                        <p className="text-gray-200 mb-4 leading-relaxed">
-                          &ldquo;ParaDoc.app saved our law firm countless hours on contract generation. The jurisdiction-specific compliance is spot-on! ⚖️ #LegalTech #Efficiency&rdquo;
-                        </p>
-                        <div className="flex items-center justify-between text-sm text-gray-400">
-                          <span>@LegalEagle</span>
-                          <span>1 day ago</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Social Review Set 2 */}
-                  <div className="w-full flex-shrink-0">
-                    <div className="grid md:grid-cols-2 gap-8">
-                      {/* X Review 3 */}
-                      <div className="bg-gray-900 rounded-2xl p-6 text-left hover-lift">
-                        <div className="flex items-center space-x-3 mb-4">
-                          <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">𝕏</span>
-                          </div>
-                          <div className="text-sm text-gray-300 font-medium">X (Twitter)</div>
-                        </div>
-                        <p className="text-gray-200 mb-4 leading-relaxed">
-                          &ldquo;The AI risk scanner in ParaDoc.app is incredible! Found several red flags in our vendor contracts that we completely missed. 🚨 #ContractReview #LegalTech&rdquo;
-                        </p>
-                        <div className="flex items-center justify-between text-sm text-gray-400">
-                          <span>@ContractPro</span>
-                          <span>3 hours ago</span>
-                        </div>
-                      </div>
-                      
-                      {/* X Review 4 */}
-                      <div className="bg-gray-900 rounded-2xl p-6 text-left hover-lift">
-                        <div className="flex items-center space-x-3 mb-4">
-                          <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">𝕏</span>
-                          </div>
-                          <div className="text-sm text-gray-300 font-medium">X (Twitter)</div>
-                        </div>
-                        <p className="text-gray-200 mb-4 leading-relaxed">
-                          &ldquo;As a solo practitioner, ParaDoc.app has been a lifesaver. Professional contracts without the overhead. The compliance checking gives me confidence! 💼 #SoloLawyer #LegalTech&rdquo;
-                        </p>
-                        <div className="flex items-center justify-between text-sm text-gray-400">
-                          <span>@SoloLawyer</span>
-                          <span>5 hours ago</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Social Review Set 3 */}
-                  <div className="w-full flex-shrink-0">
-                    <div className="grid md:grid-cols-2 gap-8">
-                      {/* X Review 5 */}
-                      <div className="bg-gray-900 rounded-2xl p-6 text-left hover-lift">
-                        <div className="flex items-center space-x-3 mb-4">
-                          <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">𝕏</span>
-                          </div>
-                          <div className="text-sm text-gray-300 font-medium">X (Twitter)</div>
-                        </div>
-                        <p className="text-gray-200 mb-4 leading-relaxed">
-                          &ldquo;ParaDoc.app&apos;s multi-jurisdiction support is amazing! We operate in 5 states and each contract is perfectly tailored. No more legal headaches! 🎯 #MultiState #LegalCompliance&rdquo;
-                        </p>
-                        <div className="flex items-center justify-between text-sm text-gray-400">
-                          <span>@MultiStateBiz</span>
-                          <span>6 hours ago</span>
-                        </div>
-                      </div>
-                      
-                      {/* X Review 6 */}
-                      <div className="bg-gray-900 rounded-2xl p-6 text-left hover-lift">
-                        <div className="flex items-center space-x-3 mb-4">
-                          <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">𝕏</span>
-                          </div>
-                          <div className="text-sm text-gray-300 font-medium">X (Twitter)</div>
-                        </div>
-                        <p className="text-gray-200 mb-4 leading-relaxed">
-                          &ldquo;Finally, a legal tech tool that actually understands business needs! ParaDoc.app generates contracts that protect our interests, not just generic templates. ⚡ #BusinessLaw #LegalTech&rdquo;
-                        </p>
-                        <div className="flex items-center justify-between text-sm text-gray-400">
-                          <span>@BusinessLaw</span>
-                          <span>8 hours ago</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Navigation Dots */}
-              <div className="flex justify-center mt-8 space-x-2">
-                {[0, 1, 2].map((index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSocialReview(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      currentSocialReview === index ? 'bg-gray-900' : 'bg-gray-300'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+          
           
           {/* Company Logos - White Theme */}
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
