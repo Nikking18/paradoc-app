@@ -1335,106 +1335,117 @@ export default function Home() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Our focus on compliance and accuracy makes us the choice for freelancers, startups, and law firms.
             </p>
+            <div className="mt-8">
+              <Button className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105">
+                Case Studies
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
           </div>
           
-          {/* Enhanced Testimonials Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
-            {/* Left Column - Professional Testimonials */}
-            <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 hover-lift animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-lg">SC</span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                      ))}
-                      <span className="ml-2 text-sm text-gray-500">5.0</span>
-                    </div>
-                    <p className="text-gray-700 mb-4 leading-relaxed">
-                      &ldquo;ParaDoc.app saved me hours of research and drafting. The compliance checking is incredibly accurate and the jurisdiction-specific clauses are spot-on. As a freelance consultant, this tool has become indispensable.&rdquo;
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold text-gray-900">Sarah Chen</p>
-                        <p className="text-sm text-gray-500">Freelance Consultant, California</p>
-                      </div>
-                      <div className="text-xs text-gray-400">2 days ago</div>
-                    </div>
-                  </div>
-                </div>
+          {/* Professional Testimonials Grid - Inspired by Avo Design */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {/* Testimonial Card 1 */}
+            <div className="bg-gray-900 rounded-2xl p-8 text-white hover-lift animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              {/* Quote Icon */}
+              <div className="text-4xl text-gray-300 mb-6">&ldquo;</div>
+              
+              {/* Company Logo/Name */}
+              <div className="text-right mb-6">
+                <div className="text-xl font-bold text-white">Fender</div>
               </div>
               
-              <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 hover-lift animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-lg">MR</span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                      ))}
-                      <span className="ml-2 text-sm text-gray-500">5.0</span>
-                    </div>
-                    <p className="text-gray-700 mb-4 leading-relaxed">
-                      &ldquo;As a startup founder, we needed fast, compliant legal docs without breaking the bank. ParaDoc.app delivered exactly what we needed - professional contracts that actually protect our business. The AI risk scanner caught several issues our previous lawyer missed.&rdquo;
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold text-gray-900">Marcus Rodriguez</p>
-                        <p className="text-sm text-gray-500">Founder & CEO, TechStart Inc.</p>
-                      </div>
-                      <div className="text-xs text-gray-400">1 week ago</div>
-                    </div>
-                  </div>
+              {/* Testimonial Text */}
+              <p className="text-gray-200 mb-6 leading-relaxed">
+                ParaDoc.app saved my sanity when juggling our legal compliance across multiple states. We now generate compliant contracts within minutes of a new business need because of the pre-work we&apos;ve done in ParaDoc.
+              </p>
+              
+              {/* Review Link */}
+              <div className="mb-6">
+                <a href="#" className="text-white hover:text-gray-300 transition-colors flex items-center group">
+                  Read full G2 review
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+              
+              {/* Reviewer Info */}
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">CA</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-white">Claire Armstrong</p>
+                  <p className="text-sm text-gray-400">Director of Legal Operations</p>
                 </div>
               </div>
             </div>
             
-            {/* Right Column - Social Media & Reviews */}
-            <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-8 shadow-strong border border-gray-200 hover-lift animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-lg">JW</span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                      ))}
-                      <span className="ml-2 text-sm text-gray-500">5.0</span>
-                    </div>
-                    <p className="text-gray-700 mb-4 leading-relaxed">
-                      &ldquo;The jurisdiction-specific compliance is excellent. Our law firm uses ParaDoc.app for client assistance and document generation. It&apos;s like having a junior associate who never sleeps and always follows current legal standards.&rdquo;
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold text-gray-900">Jennifer Walsh</p>
-                        <p className="text-sm text-gray-500">Partner, Walsh & Associates LLP</p>
-                      </div>
-                      <div className="text-xs text-gray-400">3 days ago</div>
-                    </div>
-                  </div>
-                </div>
+            {/* Testimonial Card 2 */}
+            <div className="bg-gray-900 rounded-2xl p-8 text-white hover-lift animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              {/* Quote Icon */}
+              <div className="text-4xl text-gray-300 mb-6">&ldquo;</div>
+              
+              {/* Company Logo/Name */}
+              <div className="text-right mb-6">
+                <div className="text-xl font-bold text-white">Culture Amp</div>
               </div>
               
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200 hover-lift animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                    <Twitter className="h-5 w-5 text-white" />
-                  </div>
-                  <div className="text-sm text-blue-600 font-medium">Twitter Review</div>
+              {/* Testimonial Text */}
+              <p className="text-gray-200 mb-6 leading-relaxed">
+                Buying ParaDoc.app was possibly the most impactful decision I&apos;ve made for our legal team. I don&apos;t know how companies do any legal work without ParaDoc. It&apos;s become the foundation of our compliance strategy.
+              </p>
+              
+              {/* Review Link */}
+              <div className="mb-6">
+                <a href="#" className="text-white hover:text-gray-300 transition-colors flex items-center group">
+                  Read full G2 review
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+              
+              {/* Reviewer Info */}
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">NT</span>
                 </div>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  &ldquo;Just used @ParaDoc_app for our startup&apos;s employment contracts. Generated compliant docs for 3 different states in under 10 minutes. This is a game-changer for small businesses! 🚀 #LegalTech #StartupLife&rdquo;
-                </p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>@StartupLegal</span>
-                  <span>2 hours ago</span>
+                <div>
+                  <p className="font-semibold text-white">Nicholas Threapleton</p>
+                  <p className="text-sm text-gray-400">Lead Legal Analyst</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Testimonial Card 3 */}
+            <div className="bg-gray-900 rounded-2xl p-8 text-white hover-lift animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+              {/* Quote Icon */}
+              <div className="text-4xl text-gray-300 mb-6">&ldquo;</div>
+              
+              {/* Company Logo/Name */}
+              <div className="text-right mb-6">
+                <div className="text-xl font-bold text-white">ZenBusiness</div>
+              </div>
+              
+              {/* Testimonial Text */}
+              <p className="text-gray-200 mb-6 leading-relaxed">
+                The best legal compliance platform for your business documents. Overall I&apos;m very happy with the product and our legal quality improves on a daily basis. The jurisdiction-specific features are game-changing.
+              </p>
+              
+              {/* Review Link */}
+              <div className="mb-6">
+                <a href="#" className="text-white hover:text-gray-300 transition-colors flex items-center group">
+                  Read full G2 review
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+              
+              {/* Reviewer Info */}
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">TK</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-white">Tomi Keah</p>
+                  <p className="text-sm text-gray-400">Senior Legal Counsel</p>
                 </div>
               </div>
             </div>
@@ -1443,28 +1454,28 @@ export default function Home() {
           {/* Trust Indicators & Stats */}
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">10,000+</div>
               <div className="text-gray-600">Active Users</div>
             </div>
             <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <FileText className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">50,000+</div>
               <div className="text-gray-600">Documents Generated</div>
             </div>
             <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">99.7%</div>
               <div className="text-gray-600">Compliance Rate</div>
             </div>
             <div className="text-center animate-fade-in-up" style={{ animationDelay: '1.0s' }}>
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Star className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">4.9/5</div>
