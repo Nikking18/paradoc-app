@@ -1783,83 +1783,128 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 border-t border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
-        {/* Background decorative elements */}
+      <footer className="py-24 border-t border-gray-200 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+        {/* Enhanced Background decorative elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gray-200/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-200/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-gray-200/40 to-gray-300/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-gray-200/30 to-gray-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-gray-300/20 to-gray-200/10 rounded-full blur-2xl animate-pulse-slow"></div>
+          <div className="absolute top-2/3 right-1/3 w-48 h-48 bg-gradient-to-br from-gray-200/25 to-gray-300/15 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: '0.5s' }}></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Footer Content */}
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            {/* Company Info */}
-            <div className="md:col-span-2">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-black to-gray-800 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                  <FileText className="h-7 w-7 text-white" />
+          <div className="grid md:grid-cols-4 gap-12 mb-16">
+            {/* Company Info - Enhanced */}
+            <div className="md:col-span-2 group">
+              <div className="flex items-center mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                <div className="w-16 h-16 bg-gradient-to-br from-black via-gray-800 to-gray-900 rounded-3xl flex items-center justify-center mr-6 shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-110">
+                  <FileText className="h-8 w-8 text-white group-hover:rotate-12 transition-transform duration-500" />
                 </div>
                 <div>
-                  <span className="text-2xl font-bold text-gray-900">ParaDoc.app</span>
-                  <div className="text-sm text-gray-500 mt-1">AI-Powered Legal Solutions</div>
+                  <span className="text-3xl font-bold text-gray-900 group-hover:text-black transition-colors duration-300">ParaDoc.app</span>
+                  <div className="text-sm text-gray-500 mt-2 group-hover:text-gray-700 transition-colors duration-300">AI-Powered Legal Solutions</div>
                 </div>
               </div>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed max-w-md">
+              <p className="text-gray-600 mb-8 text-lg leading-relaxed max-w-lg animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 AI-powered legal documents for the modern world. Compliant, fast, and accessible for USA & Canada.
               </p>
-              <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer">
-                  <Twitter className="h-5 w-5 text-gray-600 hover:text-gray-900 transition-colors" />
+              
+              {/* Enhanced Social Media Icons */}
+              <div className="flex space-x-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100">
+                  <Twitter className="h-6 w-6 text-gray-600 group-hover/social:text-blue-500 transition-all duration-300 group-hover/social:scale-110" />
                 </div>
-                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer">
-                  <Github className="h-5 w-5 text-gray-600 hover:text-gray-900 transition-colors" />
+                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100">
+                  <Github className="h-6 w-6 text-gray-600 group-hover/social:text-gray-900 transition-all duration-300 group-hover/social:scale-110" />
                 </div>
-                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer">
-                  <Linkedin className="h-5 w-5 text-gray-600 hover:text-gray-900 transition-colors" />
+                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100">
+                  <Linkedin className="h-6 w-6 text-gray-600 group-hover/social:text-blue-600 transition-all duration-300 group-hover/social:scale-110" />
                 </div>
               </div>
             </div>
             
-            {/* About Section */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-6 text-lg">Company</h3>
-              <ul className="space-y-3">
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">About Us</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Our Team</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Careers</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Blog & News</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Press Kit</a></li>
+            {/* About Section - Enhanced */}
+            <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              <h3 className="font-bold text-gray-900 mb-8 text-xl relative">
+                Company
+                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full"></div>
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  { text: "About Us", href: "#" },
+                  { text: "Our Team", href: "#" },
+                  { text: "Careers", href: "#" },
+                  { text: "Blog & News", href: "#" },
+                  { text: "Press Kit", href: "#" }
+                ].map((item, index) => (
+                  <li key={index} className="group">
+                    <a 
+                      href={item.href} 
+                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 transform inline-block group-hover:font-medium relative"
+                      style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                    >
+                      <span className="absolute left-0 top-1/2 w-0 h-0.5 bg-gray-400 rounded-full transition-all duration-300 group-hover:w-full"></span>
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             
-            {/* Support Section */}
-            <div>
-              <h3 className="font-bold text-gray-900 mb-6 text-lg">Support & Legal</h3>
-              <ul className="space-y-3">
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Help Center</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Contact Support</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">API Documentation</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Status Page</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:translate-x-1 transform inline-block">Community</a></li>
+            {/* Support Section - Enhanced */}
+            <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+              <h3 className="font-bold text-gray-900 mb-8 text-xl relative">
+                Support & Legal
+                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full"></div>
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  { text: "Help Center", href: "#" },
+                  { text: "Contact Support", href: "#" },
+                  { text: "API Documentation", href: "#" },
+                  { text: "Status Page", href: "#" },
+                  { text: "Community", href: "#" }
+                ].map((item, index) => (
+                  <li key={index} className="group">
+                    <a 
+                      href={item.href} 
+                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 transform inline-block group-hover:font-medium relative"
+                      style={{ animationDelay: `${0.7 + index * 0.1}s` }}
+                    >
+                      <span className="absolute left-0 top-1/2 w-0 h-0.5 bg-gray-400 rounded-full transition-all duration-300 group-hover:w-full"></span>
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
           
-
-          
-          {/* Bottom Footer */}
-          <div className="border-t border-gray-200 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-center md:text-left">
-                <p className="text-gray-600 text-sm">
+          {/* Enhanced Bottom Footer */}
+          <div className="border-t border-gray-200 pt-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+              <div className="text-center md:text-left group">
+                <p className="text-gray-600 text-sm group-hover:text-gray-800 transition-colors duration-300">
                   © 2025 ParaDoc.app. All rights reserved. Built for USA & Canada legal compliance.
                 </p>
               </div>
-              <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors">Privacy Policy</a>
-                <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors">Terms of Service</a>
-                <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors">Cookie Policy</a>
-                <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors">GDPR</a>
+              <div className="flex flex-wrap justify-center gap-6 text-sm">
+                {[
+                  { text: "Privacy Policy", href: "#" },
+                  { text: "Terms of Service", href: "#" },
+                  { text: "Cookie Policy", href: "#" },
+                  { text: "GDPR", href: "#" }
+                ].map((item, index) => (
+                  <a 
+                    key={index}
+                    href={item.href} 
+                    className="text-gray-500 hover:text-gray-700 transition-all duration-300 hover:scale-105 relative group"
+                  >
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-400 rounded-full transition-all duration-300 group-hover:w-full"></span>
+                    {item.text}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
