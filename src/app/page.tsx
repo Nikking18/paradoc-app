@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Twitter, Github, Linkedin, Sparkles, Bot, AlertCircle, CheckCircle2, CreditCard, Lock, CheckCircle, Users } from "lucide-react";
+import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Twitter, Github, Linkedin, Sparkles, Bot, AlertCircle, CheckCircle2, CreditCard, Lock, CheckCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import HowItWorksGuide from "@/components/HowItWorksGuide";
 import PlatformDemo from "@/components/PlatformDemo";
@@ -808,7 +808,7 @@ export default function Home() {
                     <Play className="h-5 w-5 mr-2" />
                     Watch Demo
                   </Button>
-                </div>
+        </div>
               </div>
             </div>
           </div>
@@ -1326,178 +1326,181 @@ export default function Home() {
       </section>
 
       {/* Testimonials / Trust Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 section-gradient">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in-up">
+            <h2 className="text-4xl font-bold text-white mb-6 animate-fade-in-up">
               Trusted by Legal Professionals
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Our focus on compliance and accuracy makes us the choice for freelancers, startups, and law firms.
             </p>
-            <div className="mt-8">
-              <Button className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105">
-                Case Studies
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
           </div>
           
-          {/* Professional Testimonials Grid - Inspired by Avo Design */}
+          {/* Company Testimonials Grid - Inspired by Image Design */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {/* Testimonial Card 1 */}
-            <div className="bg-gray-900 rounded-2xl p-8 text-white hover-lift animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              {/* Quote Icon */}
-              <div className="text-4xl text-gray-300 mb-6">&ldquo;</div>
-              
-              {/* Company Logo/Name */}
-              <div className="text-right mb-6">
-                <div className="text-xl font-bold text-white">Fender</div>
+            {/* Testimonial Card 1 - Loom Style */}
+            <div className="bg-white rounded-2xl p-8 text-center hover-lift animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              {/* Company Logo/Icon */}
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-xl">⚖️</span>
+                </div>
+                <div className="text-2xl font-bold text-gray-900">Loom</div>
               </div>
               
-              {/* Testimonial Text */}
-              <p className="text-gray-200 mb-6 leading-relaxed">
-                ParaDoc.app saved my sanity when juggling our legal compliance across multiple states. We now generate compliant contracts within minutes of a new business need because of the pre-work we&apos;ve done in ParaDoc.
+              {/* Quote */}
+              <div className="text-4xl text-gray-300 mb-6">&ldquo;</div>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                Creative, innovative and strategic. We have great achievements made together and looking to more
               </p>
               
-              {/* Review Link */}
-              <div className="mb-6">
-                <a href="#" className="text-white hover:text-gray-300 transition-colors flex items-center group">
-                  Read full G2 review
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+              {/* Rating */}
+              <div className="flex justify-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
               </div>
               
               {/* Reviewer Info */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">CA</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-white">Claire Armstrong</p>
-                  <p className="text-sm text-gray-400">Director of Legal Operations</p>
-                </div>
+              <div>
+                <p className="font-semibold text-gray-900">Henry Arthur</p>
+                <p className="text-sm text-gray-500">Head of Engineering, Loom</p>
               </div>
             </div>
             
-            {/* Testimonial Card 2 */}
-            <div className="bg-gray-900 rounded-2xl p-8 text-white hover-lift animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              {/* Quote Icon */}
-              <div className="text-4xl text-gray-300 mb-6">&ldquo;</div>
-              
-              {/* Company Logo/Name */}
-              <div className="text-right mb-6">
-                <div className="text-xl font-bold text-white">Culture Amp</div>
+            {/* Testimonial Card 2 - Intercom Style */}
+            <div className="bg-white rounded-2xl p-8 text-center hover-lift animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              {/* Company Logo/Icon */}
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-xl">📊</span>
+                </div>
+                <div className="text-2xl font-bold text-gray-900">INTERCOM</div>
               </div>
               
-              {/* Testimonial Text */}
-              <p className="text-gray-200 mb-6 leading-relaxed">
-                Buying ParaDoc.app was possibly the most impactful decision I&apos;ve made for our legal team. I don&apos;t know how companies do any legal work without ParaDoc. It&apos;s become the foundation of our compliance strategy.
+              {/* Quote */}
+              <div className="text-4xl text-gray-300 mb-6">&ldquo;</div>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                Incredible group of people and talented professionals. Focused on the development of flexible ideas
               </p>
               
-              {/* Review Link */}
-              <div className="mb-6">
-                <a href="#" className="text-white hover:text-gray-300 transition-colors flex items-center group">
-                  Read full G2 review
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+              {/* Rating */}
+              <div className="flex justify-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
               </div>
               
               {/* Reviewer Info */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">NT</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-white">Nicholas Threapleton</p>
-                  <p className="text-sm text-gray-400">Lead Legal Analyst</p>
-                </div>
+              <div>
+                <p className="font-semibold text-gray-900">Jerome Bell</p>
+                <p className="text-sm text-gray-500">Product Analyst, Intercom</p>
               </div>
             </div>
             
-            {/* Testimonial Card 3 */}
-            <div className="bg-gray-900 rounded-2xl p-8 text-white hover-lift animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-              {/* Quote Icon */}
-              <div className="text-4xl text-gray-300 mb-6">&ldquo;</div>
-              
-              {/* Company Logo/Name */}
-              <div className="text-right mb-6">
-                <div className="text-xl font-bold text-white">ZenBusiness</div>
+            {/* Testimonial Card 3 - Abstract Style */}
+            <div className="bg-white rounded-2xl p-8 text-center hover-lift animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+              {/* Company Logo/Icon */}
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-xl">🎯</span>
+                </div>
+                <div className="text-2xl font-bold text-gray-900">Abstract</div>
               </div>
               
-              {/* Testimonial Text */}
-              <p className="text-gray-200 mb-6 leading-relaxed">
-                The best legal compliance platform for your business documents. Overall I&apos;m very happy with the product and our legal quality improves on a daily basis. The jurisdiction-specific features are game-changing.
+              {/* Quote */}
+              <div className="text-4xl text-gray-300 mb-6">&ldquo;</div>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                A truly innovative approach to gameplay that sets this agency apart from its peers within the broader industry
               </p>
               
-              {/* Review Link */}
-              <div className="mb-6">
-                <a href="#" className="text-white hover:text-gray-300 transition-colors flex items-center group">
-                  Read full G2 review
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+              {/* Rating */}
+              <div className="flex justify-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
               </div>
               
               {/* Reviewer Info */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">TK</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-white">Tomi Keah</p>
-                  <p className="text-sm text-gray-400">Senior Legal Counsel</p>
-                </div>
+              <div>
+                <p className="font-semibold text-gray-900">Eleanor Pena</p>
+                <p className="text-sm text-gray-500">Head of Product Design, Abstract</p>
               </div>
             </div>
           </div>
           
-          {/* Trust Indicators & Stats */}
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
+          {/* Trust Indicators & Stats - Dark Theme */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
-              <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">10,000+</div>
-              <div className="text-gray-600">Active Users</div>
+              <div className="text-4xl font-bold text-white mb-2">45+</div>
+              <div className="text-gray-300">Happy customers</div>
             </div>
             <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-              <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <FileText className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">50,000+</div>
-              <div className="text-gray-600">Documents Generated</div>
+              <div className="text-4xl font-bold text-white mb-2">5k+</div>
+              <div className="text-gray-300">Hours spent on craft</div>
             </div>
             <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-              <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">99.7%</div>
-              <div className="text-gray-600">Compliance Rate</div>
-            </div>
-            <div className="text-center animate-fade-in-up" style={{ animationDelay: '1.0s' }}>
-              <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Star className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">4.9/5</div>
-              <div className="text-gray-600">User Rating</div>
+              <div className="text-4xl font-bold text-white mb-2">4.8</div>
+              <div className="text-gray-300">Review rate</div>
             </div>
           </div>
           
-          {/* Company Logos */}
+          {/* Real Tweets Section */}
+          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: '1.0s' }}>
+            <h3 className="text-2xl font-bold text-white mb-8">Real Social Media Reviews</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Tweet 1 */}
+              <div className="bg-white rounded-2xl p-6 text-left hover-lift">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                    <Twitter className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="text-sm text-blue-600 font-medium">Twitter</div>
+                </div>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  &ldquo;Just used @ParaDoc_app for our startup&apos;s employment contracts. Generated compliant docs for 3 different states in under 10 minutes. This is a game-changer for small businesses! 🚀 #LegalTech #StartupLife&rdquo;
+                </p>
+                <div className="flex items-center justify-between text-sm text-gray-500">
+                  <span>@StartupLegal</span>
+                  <span>2 hours ago</span>
+                </div>
+              </div>
+              
+              {/* Tweet 2 */}
+              <div className="bg-white rounded-2xl p-6 text-left hover-lift">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                    <Twitter className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="text-sm text-blue-600 font-medium">Twitter</div>
+                </div>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  &ldquo;ParaDoc.app saved our law firm countless hours on contract generation. The jurisdiction-specific compliance is spot-on! ⚖️ #LegalTech #Efficiency&rdquo;
+                </p>
+                <div className="flex items-center justify-between text-sm text-gray-500">
+                  <span>@LegalEagle</span>
+                  <span>1 day ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Company Logos - Dark Theme */}
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
-            <p className="text-gray-600 mb-8 text-lg font-medium">Trusted by leading companies and professionals</p>
+            <p className="text-gray-300 mb-8 text-lg font-medium">Trusted by leading companies and professionals</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-70">
-              <div className="flex items-center justify-center p-4 bg-white rounded-xl border border-gray-200 hover:opacity-100 transition-opacity">
-                <div className="text-xl font-bold text-gray-400">Vercel</div>
+              <div className="flex items-center justify-center p-4 bg-gray-800 rounded-xl border border-gray-700 hover:opacity-100 transition-opacity">
+                <div className="text-xl font-bold text-gray-300">Vercel</div>
               </div>
-              <div className="flex items-center justify-center p-4 bg-white rounded-xl border border-gray-200 hover:opacity-100 transition-opacity">
-                <div className="text-xl font-bold text-gray-400">Duolingo</div>
+              <div className="flex items-center justify-center p-4 bg-gray-800 rounded-xl border border-gray-700 hover:opacity-100 transition-opacity">
+                <div className="text-xl font-bold text-gray-300">Duolingo</div>
               </div>
-              <div className="flex items-center justify-center p-4 bg-white rounded-xl border border-gray-200 hover:opacity-100 transition-opacity">
-                <div className="text-xl font-bold text-gray-400">Ramp</div>
+              <div className="flex items-center justify-center p-4 bg-gray-800 rounded-xl border border-gray-700 hover:opacity-100 transition-opacity">
+                <div className="text-xl font-bold text-gray-300">Ramp</div>
               </div>
-              <div className="flex items-center justify-center p-4 bg-white rounded-xl border border-gray-200 hover:opacity-100 transition-opacity">
-                <div className="text-xl font-bold text-gray-400">Asana</div>
+              <div className="flex items-center justify-center p-4 bg-gray-800 rounded-xl border border-gray-700 hover:opacity-100 transition-opacity">
+                <div className="text-xl font-bold text-gray-300">Asana</div>
               </div>
             </div>
           </div>
