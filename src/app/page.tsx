@@ -1970,7 +1970,7 @@ export default function Home() {
             <div className="sticky bottom-0 bg-gray-50 border-t border-gray-200 px-6 py-4 rounded-b-2xl">
               <div className="flex justify-between items-center">
                 <p className="text-sm text-gray-600">
-                  By clicking &ldquo;I Understand&rdquo;, you acknowledge reading this disclaimer
+                  By clicking &ldquo;I Accept&rdquo;, you acknowledge reading this disclaimer
                 </p>
                 <div className="flex space-x-3">
                   <Button
@@ -1984,7 +1984,7 @@ export default function Home() {
                     onClick={() => setShowLegalDisclaimer(false)}
                     className="bg-gray-900 text-white hover:bg-gray-800"
                   >
-                    I Understand
+                    I Accept
                   </Button>
                 </div>
               </div>
