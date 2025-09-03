@@ -1677,16 +1677,11 @@ export default function Home() {
               Generate, review, and manage legally compliant documents with AI-powered precision.
             </p>
             
-            {/* Enhanced CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            {/* Enhanced CTA Button */}
+            <div className="flex justify-center items-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-black button-hover animate-bounce-in group relative overflow-hidden">
                 <span className="relative z-10">Get Started Free Today</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Button>
-              
-              <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold backdrop-blur-sm hover:border-white/50 transition-all duration-300 group">
-                <span className="mr-2">📚</span>
-                View All Templates
               </Button>
             </div>
           </div>
