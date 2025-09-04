@@ -127,7 +127,14 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function generateDocumentPrompt(template: string, data: any): string {
+function generateDocumentPrompt(template: string, data: {
+  title: string;
+  description: string;
+  jurisdiction: string;
+  parties: string;
+  specificRequirements: string;
+  additionalNotes: string;
+}): string {
   const basePrompt = `Generate a professional legal document with the following specifications:
 
 Title: ${data.title}

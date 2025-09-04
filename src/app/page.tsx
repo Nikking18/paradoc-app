@@ -4,13 +4,16 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Sparkles, Bot, AlertCircle, CheckCircle2, CreditCard, Lock, CheckCircle, X } from "lucide-react";
+import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, CheckCircle, CheckCircle2, AlertCircle, Bot, Sparkles, ShieldCheck, BookOpen, CreditCard, Lock, X } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 import HowItWorksGuide from "@/components/HowItWorksGuide";
 import PlatformDemo from "@/components/PlatformDemo";
 
 export default function Home() {
   // Footer removed as requested
+  const router = useRouter();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
@@ -636,13 +639,13 @@ export default function Home() {
               <Button 
                 variant="outline" 
                 className="border-gray-300 text-gray-700 hover:bg-gray-50 button-hover"
-                onClick={() => window.location.href = '/auth/signin'}
+                onClick={() => router.push('/auth/signin')}
               >
                 Sign In
               </Button>
               <Button 
                 className="bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white button-hover shadow-medium"
-                onClick={() => window.location.href = '/auth/signup'}
+                onClick={() => router.push('/auth/signup')}
               >
                 Get Started Free
               </Button>
@@ -681,7 +684,7 @@ export default function Home() {
                 <Button 
                   size="lg" 
                   className="bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white px-8 py-4 text-lg font-semibold shadow-strong button-hover"
-                  onClick={() => window.location.href = '/auth/signup'}
+                  onClick={() => router.push('/auth/signup')}
                 >
                   Get Started Free
                 </Button>
@@ -1377,7 +1380,7 @@ export default function Home() {
                       if (plan.name === "Enterprise") {
                         window.open('mailto:sales@paradoc.app?subject=Enterprise Plan Inquiry', '_blank');
                       } else {
-                        window.location.href = '/pricing';
+                        router.push('/pricing');
                       }
                     }}
                   >
@@ -1451,9 +1454,11 @@ export default function Home() {
                     {/* Testimonial Card 1 */}
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
-                        <img 
+                        <Image 
                           src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face" 
                           alt="Alex Thompson" 
+                          width={64}
+                          height={64}
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
                       </div>
@@ -1475,9 +1480,11 @@ export default function Home() {
                     {/* Testimonial Card 2 */}
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
-                        <img 
+                        <Image 
                           src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face" 
                           alt="Sarah Chen" 
+                          width={64}
+                          height={64}
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
                       </div>
@@ -1499,9 +1506,11 @@ export default function Home() {
                     {/* Testimonial Card 3 */}
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
-                        <img 
+                        <Image 
                           src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face" 
                           alt="Michael Rodriguez" 
+                          width={64}
+                          height={64}
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
                       </div>
@@ -1528,9 +1537,11 @@ export default function Home() {
                                         {/* Testimonial Card 4 */}
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
-                        <img 
+                        <Image 
                           src="https://images.unsplash.com/photo-1580489944761-15f19a654b0e?w=150&h=150&fit=crop&crop=face" 
                           alt="Emily Watson" 
+                          width={64}
+                          height={64}
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
                       </div>
@@ -1552,9 +1563,11 @@ export default function Home() {
                     {/* Testimonial Card 5 */}
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
-                        <img 
+                        <Image 
                           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
                           alt="David Kim" 
+                          width={64}
+                          height={64}
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
                       </div>
@@ -1576,9 +1589,11 @@ export default function Home() {
                     {/* Testimonial Card 6 */}
                     <div className="bg-gray-900 rounded-2xl p-8 text-center hover-lift animate-fade-in-up">
                       <div className="flex justify-center mb-6">
-                        <img 
+                        <Image 
                           src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" 
                           alt="Lisa Park" 
+                          width={64}
+                          height={64}
                           className="w-16 h-16 rounded-full object-cover border-4 border-gray-700"
                         />
                       </div>
@@ -1731,7 +1746,7 @@ export default function Home() {
               <Button 
                 size="lg" 
                 className="bg-white text-black hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-black button-hover animate-bounce-in group relative overflow-hidden"
-                onClick={() => window.location.href = '/auth/signup'}
+                onClick={() => router.push('/auth/signup')}
               >
                 <span className="relative z-10">Get Started Free Today</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

@@ -75,7 +75,10 @@ export default function PricingPage() {
     }
   ];
 
-  const handleSubscribe = async (plan: any) => {
+  const handleSubscribe = async (plan: {
+    name: string;
+    stripePriceId: string | null;
+  }) => {
     if (!session) {
       router.push('/auth/signup');
       return;
