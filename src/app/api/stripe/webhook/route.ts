@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
 import Stripe from 'stripe';
 
 export async function POST(request: NextRequest) {
@@ -62,7 +62,7 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
   }
 
   // Update user subscription status
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('users')
     .update({
       subscription_status: 'active',
@@ -87,7 +87,7 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
 
   const status = subscription.status === 'active' ? 'active' : 'inactive';
 
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('users')
     .update({
       subscription_status: status,
@@ -108,7 +108,7 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
     return;
   }
 
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('users')
     .update({
       subscription_status: 'canceled',
@@ -134,7 +134,7 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
   if (!userId) return;
 
   // Update last payment date
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('users')
     .update({
       last_payment_date: new Date().toISOString(),
@@ -160,7 +160,7 @@ async function handlePaymentFailed(invoice: Stripe.Invoice) {
   if (!userId) return;
 
   // Update subscription status to past_due
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('users')
     .update({
       subscription_status: 'past_due',
