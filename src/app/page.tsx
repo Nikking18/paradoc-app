@@ -1794,9 +1794,9 @@ export default function Home() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Footer Content */}
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
+          <div className="grid md:grid-cols-1 gap-12 mb-16">
             {/* Company Info - Enhanced */}
-            <div className="md:col-span-2 group">
+            <div className="group">
               <div className="flex items-center mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                 <div className="w-16 h-16 bg-gradient-to-br from-black via-gray-800 to-gray-900 rounded-3xl flex items-center justify-center mr-6 shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-110">
                   <FileText className="h-8 w-8 text-white group-hover:rotate-12 transition-transform duration-500" />
@@ -1842,88 +1842,8 @@ export default function Home() {
               </div>
             </div>
             
-            {/* About Section - Enhanced */}
-            <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <h3 className="font-bold text-gray-900 mb-8 text-xl relative">
-                Company
-                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full"></div>
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  { text: "About Us", href: "/about", description: "Learn about our mission and vision" },
-                  { text: "Our Team", href: "/team", description: "Meet the experts behind ParaDoc.app" },
-                  { text: "Careers", href: "/careers", description: "Join our growing team" },
-                  { text: "Blog & News", href: "/blog", description: "Latest updates and insights" },
-                  { text: "Press Kit", href: "/press", description: "Media resources and brand assets" }
-                ].map((item, index) => (
-                  <li key={index} className="group">
-                    <a 
-                      href={item.href} 
-                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 transform inline-block group-hover:font-medium relative py-1 px-2 rounded-lg hover:bg-gray-50"
-                      style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-                      title={item.description}
-                    >
-                      <span className="absolute left-0 top-1/2 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full transition-all duration-300 group-hover:w-full"></span>
-                      {item.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            {/* Support Section - Enhanced */}
-            <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-              <h3 className="font-bold text-gray-900 mb-8 text-xl relative">
-                Support & Legal
-                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full"></div>
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  { text: "Help Center", href: "/help", description: "Find answers to common questions" },
-                  { text: "Contact Support", href: "/contact", description: "Get in touch with our team" },
-                  { text: "API Documentation", href: "/api", description: "Developer resources and guides" },
-                  { text: "Status Page", href: "/status", description: "Check system status and uptime" },
-                  { text: "Community", href: "/community", description: "Join our user community" }
-                ].map((item, index) => (
-                  <li key={index} className="group">
-                    <a 
-                      href={item.href} 
-                      className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 transform inline-block group-hover:font-medium relative py-1 px-2 rounded-lg hover:bg-gray-50"
-                      style={{ animationDelay: `${0.7 + index * 0.1}s` }}
-                      title={item.description}
-                    >
-                      <span className="absolute left-0 top-1/2 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full transition-all duration-300 group-hover:w-full"></span>
-                      {item.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
           
-          {/* Newsletter Subscription Section */}
-          <div className="border-t border-gray-200 pt-12 mb-12 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-            <div className="max-w-md mx-auto text-center">
-              <h4 className="text-lg font-semibold text-gray-900 mb-3">Stay Updated</h4>
-              <p className="text-gray-600 text-sm mb-6">Get the latest legal tech insights and updates</p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200 text-sm"
-                />
-                <Button 
-                  size="sm" 
-                  className="bg-gray-900 text-white hover:bg-black px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg"
-                >
-                  Subscribe
-                </Button>
-              </div>
-              <p className="text-xs text-gray-500 mt-3">
-                We respect your privacy. Unsubscribe at any time.
-              </p>
-            </div>
-          </div>
           
           {/* Enhanced Bottom Footer */}
           <div className="border-t border-gray-200 pt-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
