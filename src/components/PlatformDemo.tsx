@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { X, Play, Pause, RotateCcw, FileText, Search, Shield, CheckCircle, Bot, Zap, Globe, AlertTriangle, Sparkles, CheckCircle2 } from "lucide-react";
 
@@ -18,6 +18,14 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const screenRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
+
+  const startDemo = useCallback(() => {
+    setIsPlaying(true);
+    setCurrentStep(0);
+    setCurrentDemo(0);
+    setShowSuccess(false);
+    runDemo(0);
+  }, []);
 
   const demos = [
     {
@@ -126,7 +134,7 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
         startDemo();
       }, 1000);
     }
-  }, [isOpen]);
+  }, [isOpen, startDemo]);
 
   const initializeDemo = () => {
     if (!containerRef.current || !screenRef.current) return;
@@ -140,14 +148,6 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
     if (progressRef.current) {
       progressRef.current.style.width = "0%";
     }
-  };
-
-  const startDemo = () => {
-    setIsPlaying(true);
-    setCurrentStep(0);
-    setCurrentDemo(0);
-    setShowSuccess(false);
-    runDemo(0);
   };
 
   const runDemo = (demoIndex: number) => {

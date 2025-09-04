@@ -2,8 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { FileText, Globe, Shield, Zap, Users, Target, Lightbulb, Heart, ArrowRight, CheckCircle, Star, TrendingUp } from "lucide-react";
+import { FileText, Globe, Shield, Zap, Users, Target, Lightbulb, Heart, ArrowRight, CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -28,7 +27,7 @@ export default function AboutPage() {
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            We're on a mission to make legal documents accessible, affordable, and compliant for everyone. 
+            We&apos;re on a mission to make legal documents accessible, affordable, and compliant for everyone. 
             Our AI-powered platform transforms how businesses and individuals create, manage, and understand legal content.
           </p>
           
@@ -222,7 +221,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Growth</h3>
               <p className="text-gray-600 leading-relaxed">
-                We're committed to growing together with our users, helping them scale their 
+                We&apos;re committed to growing together with our users, helping them scale their 
                 businesses with confidence and legal compliance.
               </p>
             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { X, ArrowRight, FileText, Zap, Download, CheckCircle, Play, Pause, Clock, Shield, Globe, Sparkles, CheckCircle2, ArrowUpRight, Users, TrendingUp } from "lucide-react";
 
@@ -15,6 +15,30 @@ export default function HowItWorksGuide({ isOpen, onClose }: HowItWorksGuideProp
   const [showSuccess, setShowSuccess] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const startAnimation = useCallback(() => {
+    setIsPlaying(true);
+    setCurrentStep(0);
+    setShowSuccess(false);
+    
+    const runStep = (stepIndex: number) => {
+      if (stepIndex >= steps.length) {
+        setIsPlaying(false);
+        setShowSuccess(true);
+        return;
+      }
+      
+      setCurrentStep(stepIndex);
+      
+      
+      
+      setTimeout(() => {
+        runStep(stepIndex + 1);
+      }, 4000);
+    };
+    
+    runStep(0);
+  }, []);
 
   const steps = [
     {
@@ -76,36 +100,12 @@ export default function HowItWorksGuide({ isOpen, onClose }: HowItWorksGuideProp
         startAnimation();
       }, 1000);
     }
-  }, [isOpen]);
+  }, [isOpen, startAnimation]);
 
   const initializeAnimation = () => {
     setCurrentStep(0);
     setIsPlaying(false);
     setShowSuccess(false);
-  };
-
-  const startAnimation = () => {
-    setIsPlaying(true);
-    setCurrentStep(0);
-    setShowSuccess(false);
-    
-    const runStep = (stepIndex: number) => {
-      if (stepIndex >= steps.length) {
-        setIsPlaying(false);
-        setShowSuccess(true);
-        return;
-      }
-      
-      setCurrentStep(stepIndex);
-      
-      
-      
-      setTimeout(() => {
-        runStep(stepIndex + 1);
-      }, 4000);
-    };
-    
-    runStep(0);
   };
 
   const pauseAnimation = () => {

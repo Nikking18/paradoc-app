@@ -4,12 +4,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Twitter, Github, Linkedin, Sparkles, Bot, AlertCircle, CheckCircle2, CreditCard, Lock, CheckCircle, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, BookOpen, ShieldCheck, Sparkles, Bot, AlertCircle, CheckCircle2, CreditCard, Lock, CheckCircle, X } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
 import HowItWorksGuide from "@/components/HowItWorksGuide";
 import PlatformDemo from "@/components/PlatformDemo";
 
 export default function Home() {
+  // Footer removed as requested
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
@@ -23,6 +24,34 @@ export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [showAllFaqs, setShowAllFaqs] = useState(false);
   const [showLegalDisclaimer, setShowLegalDisclaimer] = useState(false);
+
+  const startFeatureShowcase = useCallback(() => {
+    setCurrentShowcaseFeature(0);
+    
+    const showcaseInterval = setInterval(() => {
+      setCurrentShowcaseFeature((prev) => {
+        if (prev >= features.length - 1) {
+          clearInterval(showcaseInterval);
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 4000);
+  }, []);
+
+  const startHowItWorksShowcase = useCallback(() => {
+    setCurrentHowItWorksStep(0);
+    
+    const showcaseInterval = setInterval(() => {
+      setCurrentHowItWorksStep((prev) => {
+        if (prev >= howItWorks.length - 1) {
+          clearInterval(showcaseInterval);
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 5000);
+  }, []);
 
   useEffect(() => {
     setIsVisible(true);
@@ -44,7 +73,7 @@ export default function Home() {
         startFeatureShowcase();
       }, 3000);
     }
-  }, [isVisible]);
+  }, [isVisible, startFeatureShowcase]);
 
   // Auto-play How It Works showcase
   useEffect(() => {
@@ -55,7 +84,7 @@ export default function Home() {
         startHowItWorksShowcase();
       }, 6000);
     }
-  }, [isVisible]);
+  }, [isVisible, startHowItWorksShowcase]);
 
   // Auto-swipe testimonials
   useEffect(() => {
@@ -67,36 +96,6 @@ export default function Home() {
       return () => clearInterval(testimonialInterval);
     }
   }, [isVisible]);
-
-
-
-  const startFeatureShowcase = () => {
-    setCurrentShowcaseFeature(0);
-    
-    const showcaseInterval = setInterval(() => {
-      setCurrentShowcaseFeature((prev) => {
-        if (prev >= features.length - 1) {
-          clearInterval(showcaseInterval);
-          return 0;
-        }
-        return prev + 1;
-      });
-    }, 4000);
-  };
-
-  const startHowItWorksShowcase = () => {
-    setCurrentHowItWorksStep(0);
-    
-    const showcaseInterval = setInterval(() => {
-      setCurrentHowItWorksStep((prev) => {
-        if (prev >= howItWorks.length - 1) {
-          clearInterval(showcaseInterval);
-          return 0;
-        }
-        return prev + 1;
-      });
-    }, 5000);
-  };
 
   const faqs = [
     {
