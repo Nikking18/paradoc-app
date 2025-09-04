@@ -16,6 +16,57 @@ export default function HowItWorksGuide({ isOpen, onClose }: HowItWorksGuideProp
 
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const steps = [
+    {
+      title: "Enter your request + location",
+      description: "Simply describe what you need and select your state or province for jurisdiction-specific compliance.",
+      icon: <FileText className="h-8 w-8" />,
+      color: "from-gray-100 to-gray-200",
+      details: [
+        "Natural language input",
+        "Jurisdiction selection",
+        "Document type specification",
+        "Custom requirements"
+      ]
+    },
+    {
+      title: "AI analyzes & generates",
+      description: "Our advanced AI processes your request, applies relevant laws, and generates a compliant document.",
+      icon: <Zap className="h-8 w-8" />,
+      color: "from-gray-200 to-gray-300",
+      details: [
+        "Legal research automation",
+        "Compliance verification",
+        "Template optimization",
+        "Risk assessment"
+      ]
+    },
+    {
+      title: "Review & customize",
+      description: "Review the generated document, make any necessary adjustments, and ensure it meets your needs.",
+      icon: <CheckCircle className="h-8 w-8" />,
+      color: "from-gray-300 to-gray-400",
+      details: [
+        "Interactive editing",
+        "Real-time validation",
+        "Custom clause insertion",
+        "Format customization"
+      ]
+    },
+    {
+      title: "Download & use",
+      description: "Export your document in multiple formats and start using it immediately for your business needs.",
+      icon: <Download className="h-8 w-8" />,
+      color: "from-gray-400 to-gray-500",
+      details: [
+        "Multiple export formats",
+        "Digital signatures",
+        "Version control",
+        "Secure storage"
+      ]
+    }
+  ];
+
   const startAnimation = useCallback(() => {
     setIsPlaying(true);
     setCurrentStep(0);
@@ -38,52 +89,7 @@ export default function HowItWorksGuide({ isOpen, onClose }: HowItWorksGuideProp
     };
     
     runStep(0);
-  }, []);
-
-  const steps = [
-    {
-      title: "Enter your request + location",
-      description: "Simply describe what you need and select your state or province for jurisdiction-specific compliance.",
-      icon: <FileText className="h-8 w-8" />,
-      color: "from-gray-100 to-gray-200",
-      details: [
-        "Natural language input (e.g., 'NDA for freelancer in California')",
-        "Jurisdiction selection (State/Province)",
-        "Document type specification",
-        "Additional requirements input"
-      ],
-      benefits: ["No legal jargon", "Intuitive interface", "Quick setup"],
-      timeEstimate: "30 seconds"
-    },
-    {
-      title: "AI generates compliant document",
-      description: "Our AI creates a legally compliant document tailored to your jurisdiction and requirements.",
-      icon: <Zap className="h-8 w-8" />,
-      color: "from-gray-200 to-gray-300",
-      details: [
-        "AI analyzes jurisdiction requirements",
-        "Generates compliant clauses",
-        "Applies legal standards",
-        "Creates professional formatting"
-      ],
-      benefits: ["100% compliant", "AI-powered", "Real-time generation"],
-      timeEstimate: "2-3 minutes"
-    },
-    {
-      title: "Review, customize, download",
-      description: "Review the document, make any customizations, and download in your preferred format.",
-      icon: <Download className="h-8 w-8" />,
-      color: "from-gray-300 to-gray-400",
-      details: [
-        "Preview generated document",
-        "Edit specific clauses",
-        "Add custom terms",
-        "Export to PDF/Word/Google Docs"
-      ],
-      benefits: ["Easy editing", "Multiple formats", "Professional output"],
-      timeEstimate: "1-2 minutes"
-    }
-  ];
+  }, [steps.length]);
 
   const features = [
     { icon: <Shield className="h-5 w-5" />, text: "100% Compliant", color: "text-green-600" },

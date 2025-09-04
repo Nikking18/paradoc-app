@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,6 @@ import {
   Download,
   Eye,
   Trash2,
-  Calendar,
   TrendingUp
 } from "lucide-react";
 
@@ -65,9 +64,9 @@ export default function DashboardPage() {
       fetchUserProfile();
       fetchDocuments();
     }
-  }, [status, router]);
+  }, [status, router, fetchUserProfile]);
 
-  const fetchUserProfile = async () => {
+  const fetchUserProfile = useCallback(async () => {
     try {
       const response = await fetch('/api/user/profile');
       if (response.ok) {
@@ -82,7 +81,7 @@ export default function DashboardPage() {
     } catch (error) {
       console.error('Error fetching profile:', error);
     }
-  };
+  }, []);
 
   const fetchDocuments = async () => {
     try {

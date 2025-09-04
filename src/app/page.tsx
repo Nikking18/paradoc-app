@@ -28,6 +28,144 @@ export default function Home() {
   const [showAllFaqs, setShowAllFaqs] = useState(false);
   const [showLegalDisclaimer, setShowLegalDisclaimer] = useState(false);
 
+  const features = [
+    {
+      icon: <FileText className="h-8 w-8" />,
+      title: "AI Legal Document Generator",
+      description: "Generate legally compliant documents tailored to your jurisdiction in minutes, not days.",
+      color: "from-gray-700 to-gray-900",
+      bgColor: "bg-gray-50",
+      borderColor: "border-gray-200",
+      featureList: [
+        "Natural language input processing",
+        "Jurisdiction-specific compliance",
+        "Real-time AI generation",
+        "Professional formatting",
+        "Multiple document types",
+        "Instant download"
+      ]
+    },
+    {
+      icon: <Search className="h-8 w-8" />,
+      title: "AI Risk Scanner",
+      description: "Automatically identify potential legal risks and compliance issues in your documents.",
+      color: "from-gray-600 to-gray-800",
+      bgColor: "bg-gray-50",
+      borderColor: "border-gray-200",
+      featureList: [
+        "Automated risk detection",
+        "Compliance gap analysis",
+        "Risk severity scoring",
+        "Remediation suggestions",
+        "Regulatory updates",
+        "Audit trail"
+      ]
+    },
+    {
+      icon: <Zap className="h-8 w-8" />,
+      title: "Smart Templates",
+      description: "Access a comprehensive library of pre-built legal templates for common business needs.",
+      color: "from-gray-500 to-gray-700",
+      bgColor: "bg-gray-50",
+      borderColor: "border-gray-200",
+      featureList: [
+        "100+ professional templates",
+        "Industry-specific documents",
+        "Customizable clauses",
+        "Version control",
+        "Template sharing",
+        "Regular updates"
+      ]
+    },
+    {
+      icon: <Shield className="h-8 w-8" />,
+      title: "Compliance Monitoring",
+      description: "Stay up-to-date with changing regulations and ensure ongoing compliance.",
+      color: "from-gray-400 to-gray-600",
+      bgColor: "bg-gray-50",
+      borderColor: "border-gray-200",
+      featureList: [
+        "Regulatory change alerts",
+        "Compliance dashboards",
+        "Automated monitoring",
+        "Deadline tracking",
+        "Audit reports",
+        "Expert insights"
+      ]
+    },
+    {
+      icon: <MessageSquare className="h-8 w-8" />,
+      title: "AI Legal Assistant",
+      description: "Get instant answers to legal questions and guidance on complex matters.",
+      color: "from-gray-300 to-gray-500",
+      bgColor: "bg-gray-50",
+      borderColor: "border-gray-200",
+      featureList: [
+        "24/7 legal guidance",
+        "Context-aware responses",
+        "Case law references",
+        "Best practice recommendations",
+        "Multi-language support",
+        "Confidential consultations"
+      ]
+    }
+  ];
+
+  const howItWorks = [
+    {
+      step: "1",
+      title: "Enter your request + location",
+      description: "Simply describe what you need and select your state or province for jurisdiction-specific compliance.",
+      icon: <FileText className="h-6 w-6" />,
+      color: "from-gray-100 to-gray-200",
+      details: [
+        "Natural language input",
+        "Jurisdiction selection",
+        "Document type specification",
+        "Custom requirements"
+      ]
+    },
+    {
+      step: "2", 
+      title: "AI analyzes & generates",
+      description: "Our advanced AI processes your request, applies relevant laws, and generates a compliant document.",
+      icon: <Zap className="h-6 w-6" />,
+      color: "from-gray-200 to-gray-300",
+      details: [
+        "Legal research automation",
+        "Compliance verification",
+        "Template optimization",
+        "Risk assessment"
+      ]
+    },
+    {
+      step: "3",
+      title: "Review & customize",
+      description: "Review the generated document, make any necessary adjustments, and ensure it meets your needs.",
+      icon: <CheckCircle className="h-6 w-6" />,
+      color: "from-gray-300 to-gray-400",
+      details: [
+        "Interactive editing",
+        "Real-time validation",
+        "Custom clause insertion",
+        "Format customization"
+      ]
+    },
+    {
+      step: "4",
+      title: "Download & use",
+      description: "Export your document in multiple formats and start using it immediately for your business needs.",
+      icon: <Download className="h-6 w-6" />,
+      color: "from-gray-400 to-gray-500",
+      details: [
+        "Multiple export formats",
+        "Digital signatures",
+        "Version control",
+        "Secure storage"
+      ]
+    }
+  ];
+
   const startFeatureShowcase = useCallback(() => {
     setCurrentShowcaseFeature(0);
     
@@ -40,7 +178,7 @@ export default function Home() {
         return prev + 1;
       });
     }, 4000);
-  }, []);
+  }, [features.length]);
 
   const startHowItWorksShowcase = useCallback(() => {
     setCurrentHowItWorksStep(0);
@@ -54,7 +192,7 @@ export default function Home() {
         return prev + 1;
       });
     }, 5000);
-  }, []);
+  }, [howItWorks.length]);
 
   useEffect(() => {
     setIsVisible(true);
@@ -160,437 +298,6 @@ export default function Home() {
     {
       question: "What's included in the free trial?",
       answer: "The free trial gives you access to all Pro features for 7 days, including unlimited document generation, AI risk scanning, and multi-format exports. No credit card required, and you can cancel anytime."
-    }
-  ];
-
-  const features = [
-    {
-      icon: <FileText className="h-8 w-8" />,
-      title: "AI Legal Document Generator",
-      description: "Generate legally compliant documents tailored to your jurisdiction in minutes, not days.",
-      color: "from-gray-700 to-gray-900",
-      bgColor: "bg-gray-50",
-      borderColor: "border-gray-200",
-      featureList: [
-        "Natural language input processing",
-        "Jurisdiction-specific compliance",
-        "Real-time AI generation",
-        "Professional formatting",
-        "Multiple document types",
-        "Instant customization options"
-      ],
-      benefits: [
-        "100% legally compliant",
-        "Save 90% of time",
-        "No lawyer fees",
-        "Always up-to-date laws"
-      ],
-      demo: (
-        <div className="feature-demo p-6">
-          <div className="demo-screen">
-            <div className="demo-header">
-              <div className="demo-dot bg-red-500"></div>
-              <div className="demo-dot bg-yellow-500"></div>
-              <div className="demo-dot bg-green-500"></div>
-            </div>
-            <div className="demo-content">
-              <div className="demo-line w-3/4"></div>
-              <div className="demo-line w-1/2"></div>
-              <div className="demo-line w-5/6"></div>
-              <div className="demo-line w-2/3"></div>
-            </div>
-            <div className="mt-4 p-3 bg-yellow-400/20 border border-yellow-400/30 rounded">
-              <p className="text-sm text-yellow-200 font-medium">
-                Generating NDA for California...
-              </p>
-            </div>
-            <div className="mt-3 p-3 bg-green-400/20 border border-green-400/30 rounded">
-              <p className="text-sm text-green-200 font-medium">
-                ✓ Document ready! Includes CA-specific clauses
-              </p>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      icon: <Search className="h-8 w-8" />,
-      title: "Smart Legal Document Lookup",
-      description: "Find compliance-ready templates by state or province with embedded jurisdiction-specific clauses.",
-      color: "from-gray-600 to-gray-800",
-      bgColor: "bg-gray-50",
-      borderColor: "border-gray-200",
-      featureList: [
-        "Advanced search algorithms",
-        "State/province filtering",
-        "Template categorization",
-        "Compliance verification",
-        "Instant access to 1000+ templates",
-        "Regular updates and additions"
-      ],
-      benefits: [
-        "Find templates in seconds",
-        "Always compliant",
-        "Save research time",
-        "Verified legal sources"
-      ],
-      demo: (
-        <div className="feature-demo p-6">
-          <div className="demo-screen">
-            <div className="demo-header">
-              <div className="demo-dot bg-red-500"></div>
-              <div className="demo-dot bg-yellow-500"></div>
-              <div className="demo-dot bg-green-500"></div>
-            </div>
-            <div className="demo-content">
-              <div className="flex items-center space-x-2 mb-3">
-                <Search className="h-4 w-4 text-gray-400" />
-                <span className="text-gray-300 text-sm">Search: &ldquo;employment contract Ontario&rdquo;</span>
-              </div>
-              <div className="space-y-2">
-                <div className="p-2 bg-blue-400/20 border border-blue-400/30 rounded">
-                  <p className="text-sm text-blue-200">📄 Employment Agreement - Ontario</p>
-                </div>
-                <div className="p-2 bg-green-400/20 border border-green-400/30 rounded">
-                  <p className="text-sm text-green-200">✓ Includes Ontario Employment Standards</p>
-                </div>
-                <div className="p-2 bg-purple-400/20 border border-purple-400/30 rounded">
-                  <p className="text-sm text-purple-200">⚖️ Provincial compliance verified</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      icon: <Download className="h-8 w-8" />,
-      title: "Multi-Document ZIP Converter",
-      description: "Generate multiple documents at once and download them as a convenient ZIP file.",
-      color: "from-gray-800 to-black",
-      bgColor: "bg-gray-50",
-      borderColor: "border-gray-200",
-      featureList: [
-        "Bulk document generation",
-        "One-click ZIP creation",
-        "Multiple format support",
-        "Batch processing",
-        "Enterprise workflow support",
-        "Organized file structure"
-      ],
-      benefits: [
-        "Save hours of work",
-        "Perfect for businesses",
-        "Organized downloads",
-        "Professional delivery"
-      ],
-      demo: (
-        <div className="feature-demo p-6">
-          <div className="demo-screen">
-            <div className="demo-header">
-              <div className="demo-dot bg-red-500"></div>
-              <div className="demo-dot bg-yellow-500"></div>
-              <div className="demo-dot bg-green-500"></div>
-            </div>
-            <div className="demo-content">
-              <div className="grid grid-cols-2 gap-2 mb-3">
-                <div className="p-2 bg-gray-700 rounded text-center">
-                  <FileText className="h-6 w-6 text-gray-400 mx-auto mb-1" />
-                  <p className="text-xs text-gray-300">NDA</p>
-                </div>
-                <div className="p-2 bg-gray-700 rounded text-center">
-                  <FileText className="h-6 w-6 text-gray-400 mx-auto mb-1" />
-                  <p className="text-xs text-gray-300">Contract</p>
-                </div>
-                <div className="p-2 bg-gray-700 rounded text-center">
-                  <FileText className="h-6 w-6 text-gray-400 mx-auto mb-1" />
-                  <p className="text-xs text-gray-300">Policy</p>
-                </div>
-                <div className="p-2 bg-gray-700 rounded text-center">
-                  <FileText className="h-6 w-6 text-gray-400 mx-auto mb-1" />
-                  <p className="text-xs text-gray-300">Terms</p>
-                </div>
-              </div>
-              <div className="p-2 bg-green-400/20 border border-green-400/30 rounded">
-                <Download className="h-4 w-4 text-green-400 inline mr-2" />
-                <span className="text-sm text-green-200">Download as ZIP (4 files)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      icon: <Shield className="h-8 w-8" />,
-      title: "AI Legal Summarizer & Risk Scanner",
-      description: "Upload existing contracts and get plain English summaries with risk analysis.",
-      color: "from-gray-700 to-gray-900",
-      bgColor: "bg-gray-50",
-      borderColor: "border-gray-200",
-      featureList: [
-        "AI-powered document analysis",
-        "Plain English summaries",
-        "Risk identification & scoring",
-        "Compliance checking",
-        "Clause-by-clause review",
-        "Actionable recommendations"
-      ],
-      benefits: [
-        "Understand complex contracts",
-        "Identify hidden risks",
-        "Save legal review costs",
-        "Make informed decisions"
-      ],
-      demo: (
-        <div className="feature-demo p-6">
-          <div className="demo-screen">
-            <div className="demo-header">
-              <div className="demo-dot bg-red-500"></div>
-              <div className="demo-dot bg-yellow-500"></div>
-              <div className="demo-dot bg-green-500"></div>
-            </div>
-            <div className="demo-content">
-              <div className="p-2 bg-blue-400/20 border border-blue-400/30 rounded mb-2">
-                <p className="text-sm text-blue-200">📄 Analyzing: Service Agreement.pdf</p>
-              </div>
-              <div className="space-y-2">
-                <div className="p-2 bg-green-400/20 border border-green-400/30 rounded">
-                  <CheckCircle2 className="h-4 w-4 text-green-400 inline mr-2" />
-                  <span className="text-sm text-green-200">Standard terms - Low risk</span>
-                </div>
-                <div className="p-2 bg-yellow-400/20 border border-yellow-400/30 rounded">
-                  <AlertCircle className="h-4 w-4 text-yellow-400 inline mr-2" />
-                  <span className="text-sm text-yellow-200">Unlimited liability clause - Medium risk</span>
-                </div>
-                <div className="p-2 bg-red-400/20 border border-red-400/30 rounded">
-                  <AlertCircle className="h-4 w-4 text-red-400 inline mr-2" />
-                  <span className="text-sm text-red-200">Arbitration clause - High risk</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      icon: <MessageSquare className="h-8 w-8" />,
-      title: "AI Legal Chatbot",
-      description: "Ask legal questions in plain English and get instant AI-powered answers with compliance guidance.",
-      color: "from-gray-600 to-gray-800",
-      bgColor: "bg-gray-50",
-      borderColor: "border-gray-200",
-      featureList: [
-        "24/7 legal assistance",
-        "Plain English responses",
-        "Jurisdiction-specific advice",
-        "Instant compliance guidance",
-        "Document recommendations",
-        "Learning from interactions"
-      ],
-      benefits: [
-        "Get answers instantly",
-        "No waiting for lawyers",
-        "Always available",
-        "Learn as you go"
-      ],
-      demo: (
-        <div className="feature-demo p-6">
-          <div className="demo-screen">
-            <div className="demo-header">
-              <div className="demo-dot bg-red-500"></div>
-              <div className="demo-dot bg-yellow-500"></div>
-              <div className="demo-dot bg-green-500"></div>
-            </div>
-            <div className="demo-content">
-              <div className="p-2 bg-gray-700 rounded mb-2">
-                <p className="text-sm text-gray-300">👤 &ldquo;What&apos;s the difference between an NDA and confidentiality agreement?&rdquo;</p>
-              </div>
-              <div className="p-2 bg-blue-400/20 border border-blue-400/30 rounded">
-                <Bot className="h-4 w-4 text-blue-400 inline mr-2" />
-                <p className="text-sm text-blue-200">NDAs are broader and cover all confidential info, while confidentiality agreements are more specific. Both are legally binding in your jurisdiction.</p>
-              </div>
-              <div className="p-2 bg-green-400/20 border border-green-400/30 rounded mt-2">
-                <Sparkles className="h-4 w-4 text-green-400 inline mr-2" />
-                <p className="text-sm text-green-200">💡 Tip: Use NDAs for general business relationships</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-  ];
-
-  const pricingPlans = [
-    {
-      name: "Pro",
-      price: "$20",
-      period: "per month",
-      yearlyPrice: "$510",
-      introPrice: "$20",
-      introPeriod: "first 3 months",
-      regularPrice: "$50",
-      features: [
-        "Unlimited document generations",
-        "Unlimited chatbot conversations with memory",
-        "Export to PDF, DOCX, Google Docs",
-        "AI summarizer & risk scanner",
-        "Smart document lookup",
-        "6-month encrypted storage"
-      ],
-      buttonText: "Start Pro Trial",
-      popular: true,
-      restrictions: ["7-day free trial", "First 3 months at $20", "Then $50/month", "Cancel anytime"]
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: "contact us",
-      features: [
-        "Everything in Pro",
-        "Bulk ZIP + CSV/JSON upload",
-        "Custom AI model tuning",
-        "API embedding (law firm systems)",
-        "Team access + shared folders",
-        "Unlimited encrypted storage"
-      ],
-      buttonText: "Contact Sales",
-      popular: false,
-      restrictions: ["Custom pricing", "Dedicated support", "SLA guarantees"]
-    }
-  ];
-
-  const howItWorks = [
-    {
-      step: "1",
-      title: "Enter your request + location",
-      description: "Simply describe what you need and select your state or province for jurisdiction-specific compliance.",
-      icon: <FileText className="h-6 w-6" />,
-      color: "from-gray-100 to-gray-200",
-      featureList: [
-        "Natural language input (e.g., 'NDA for freelancer in California')",
-        "Jurisdiction selection (State/Province)",
-        "Document type specification",
-        "Additional requirements input",
-        "Smart suggestions based on your needs",
-        "Instant compliance preview"
-      ],
-      benefits: [
-        "No legal jargon required",
-        "Intuitive interface",
-        "Quick setup (30 seconds)",
-        "Smart auto-completion"
-      ],
-      timeEstimate: "30 seconds",
-      demo: (
-        <div className="bg-gray-900 rounded-lg p-4 shadow-2xl">
-          <div className="flex items-center mb-3 space-x-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          </div>
-          <div className="bg-white rounded-lg p-4 min-h-[200px]">
-            <div className="space-y-3">
-              <div className="p-2 bg-blue-50 border border-blue-200 rounded">
-                <p className="text-sm text-blue-800">📝 User types: &ldquo;Generate NDA for freelancer in California&rdquo;</p>
-              </div>
-              <div className="p-2 bg-green-50 border border-green-200 rounded">
-                <p className="text-sm text-green-800">✓ Jurisdiction: California selected</p>
-              </div>
-              <div className="p-2 bg-purple-50 border border-purple-200 rounded">
-                <p className="text-sm text-purple-800">⚖️ Document type: Non-Disclosure Agreement</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      step: "2",
-      title: "AI generates compliant document",
-      description: "Our AI creates a legally compliant document tailored to your jurisdiction and requirements.",
-      icon: <Zap className="h-6 w-6" />,
-      color: "from-gray-200 to-gray-300",
-      featureList: [
-        "AI analyzes jurisdiction requirements",
-        "Generates compliant clauses",
-        "Applies current legal standards",
-        "Creates professional formatting",
-        "Includes jurisdiction-specific terms",
-        "Real-time compliance checking"
-      ],
-      benefits: [
-        "100% legally compliant",
-        "AI-powered generation",
-        "Real-time processing",
-        "Always up-to-date laws"
-      ],
-      timeEstimate: "2-3 minutes",
-      demo: (
-        <div className="bg-gray-900 rounded-lg p-4 shadow-2xl">
-          <div className="flex items-center mb-3 space-x-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          </div>
-          <div className="bg-white rounded-lg p-4 min-h-[200px]">
-            <div className="space-y-3">
-              <div className="p-2 bg-yellow-50 border border-yellow-200 rounded">
-                <p className="text-sm text-yellow-800">🤖 AI analyzing California legal requirements...</p>
-              </div>
-              <div className="p-2 bg-blue-50 border border-blue-200 rounded">
-                <p className="text-sm text-blue-800">⚖️ Generating compliant clauses...</p>
-              </div>
-              <div className="p-2 bg-green-50 border border-green-200 rounded">
-                <p className="text-sm text-green-800">✓ Document ready with CA-specific compliance</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      step: "3",
-      title: "Review, customize, download",
-      description: "Review the document, make any customizations, and download in your preferred format.",
-      icon: <Download className="h-6 w-6" />,
-      color: "from-gray-300 to-gray-400",
-      featureList: [
-        "Preview generated document",
-        "Edit specific clauses",
-        "Add custom terms",
-        "Export to PDF/Word/Google Docs",
-        "Instant formatting options",
-        "Professional document styling"
-      ],
-      benefits: [
-        "Easy editing interface",
-        "Multiple export formats",
-        "Professional output",
-        "Instant customization"
-      ],
-      timeEstimate: "1-2 minutes",
-      demo: (
-        <div className="bg-gray-900 rounded-lg p-4 shadow-2xl">
-          <div className="flex items-center mb-3 space-x-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          </div>
-          <div className="bg-white rounded-lg p-4 min-h-[200px]">
-            <div className="space-y-3">
-              <div className="p-2 bg-gray-50 border border-gray-200 rounded">
-                <p className="text-sm text-gray-800">📄 Document preview with editing tools</p>
-              </div>
-              <div className="p-2 bg-blue-50 border border-blue-200 rounded">
-                <p className="text-sm text-blue-800">✏️ Customize clauses and terms</p>
-              </div>
-              <div className="p-2 bg-green-50 border border-green-200 rounded">
-                <p className="text-sm text-green-800">💾 Download as PDF, Word, or Google Docs</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
     }
   ];
 

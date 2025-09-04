@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -13,15 +13,13 @@ import {
   Shield, 
   FileText, 
   Users, 
-  Clock, 
-  Download,
   ArrowRight,
   Star,
   Crown
 } from "lucide-react";
 
 export default function PricingPage() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   const [isYearly, setIsYearly] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

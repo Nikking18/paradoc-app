@@ -19,14 +19,6 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
   const screenRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
-  const startDemo = useCallback(() => {
-    setIsPlaying(true);
-    setCurrentStep(0);
-    setCurrentDemo(0);
-    setShowSuccess(false);
-    runDemo(0);
-  }, []);
-
   const demos = [
     {
       title: "AI Document Generation",
@@ -37,120 +29,69 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
         { 
           action: "User types: 'Generate NDA for California'", 
           delay: 1500,
-          details: "User enters specific requirements and jurisdiction",
-          icon: <FileText className="h-4 w-4" />
+          result: "AI analyzes California legal requirements"
         },
         { 
-          action: "AI analyzes jurisdiction requirements", 
+          action: "AI generates compliant clauses", 
           delay: 2000,
-          details: "AI processes California-specific legal requirements",
-          icon: <Globe className="h-4 w-4" />
+          result: "Document includes CA-specific terms"
         },
         { 
-          action: "Generating document with CA-specific clauses...", 
-          delay: 2500,
-          details: "AI creates compliant document structure",
-          icon: <Zap className="h-4 w-4" />
-        },
-        { 
-          action: "✓ Document ready! Includes compliance features", 
-          delay: 2000,
-          details: "Complete NDA with California legal standards",
-          icon: <CheckCircle className="h-4 w-4" />
+          action: "Review and customize", 
+          delay: 1500,
+          result: "Ready to download in multiple formats"
         }
       ]
     },
     {
-      title: "Smart Legal Lookup",
-      description: "See how our search finds jurisdiction-specific templates",
+      title: "Smart Document Lookup",
+      description: "See how our search finds the perfect template",
       icon: <Search className="h-6 w-6" />,
       color: "from-gray-200 to-gray-300",
       steps: [
         { 
-          action: "Search: 'employment contract Ontario'", 
+          action: "Search: 'Employment contract Ontario'", 
           delay: 1500,
-          details: "User searches for specific jurisdiction template",
-          icon: <Search className="h-4 w-4" />
+          result: "Found 12 Ontario-compliant templates"
         },
         { 
-          action: "Finding relevant templates...", 
-          delay: 2000,
-          details: "AI searches through legal database",
-          icon: <Zap className="h-4 w-4" />
+          action: "Filter by industry and type", 
+          delay: 1500,
+          result: "Narrowed to 3 perfect matches"
         },
         { 
-          action: "✓ Employment Agreement - Ontario", 
-          delay: 2000,
-          details: "Template found with Ontario-specific clauses",
-          icon: <CheckCircle className="h-4 w-4" />
-        },
-        { 
-          action: "✓ Includes Ontario Employment Standards", 
-          delay: 2000,
-          details: "Compliant with provincial regulations",
-          icon: <Shield className="h-4 w-4" />
+          action: "Preview and select", 
+          delay: 1500,
+          result: "Template ready for customization"
         }
       ]
     },
     {
-      title: "Risk Analysis & Scanning",
+      title: "Risk Scanner Analysis",
       description: "Watch our AI identify potential legal risks",
       icon: <Shield className="h-6 w-6" />,
       color: "from-gray-300 to-gray-400",
       steps: [
         { 
-          action: "Analyzing: Service Agreement.pdf", 
+          action: "Upload existing contract", 
           delay: 1500,
-          details: "AI processes uploaded document",
-          icon: <FileText className="h-4 w-4" />
+          result: "AI analyzes 47 clauses"
         },
         { 
-          action: "Scanning for compliance issues...", 
+          action: "Risk assessment in progress", 
           delay: 2000,
-          details: "AI reviews legal terms and conditions",
-          icon: <Search className="h-4 w-4" />
+          result: "Identified 3 medium-risk clauses"
         },
         { 
-          action: "✓ Standard terms - Low risk", 
-          delay: 2000,
-          details: "Most clauses are standard and safe",
-          icon: <CheckCircle2 className="h-4 w-4" />
-        },
-        { 
-          action: "⚠️ Unlimited liability clause - Medium risk", 
-          delay: 2000,
-          details: "Identified potential liability exposure",
-          icon: <AlertTriangle className="h-4 w-4" />
+          action: "Generate recommendations", 
+          delay: 1500,
+          result: "Actionable suggestions provided"
         }
       ]
     }
   ];
 
-  useEffect(() => {
-    if (isOpen) {
-      initializeDemo();
-      // Auto-start after a short delay
-      setTimeout(() => {
-        startDemo();
-      }, 1000);
-    }
-  }, [isOpen, startDemo]);
-
-  const initializeDemo = () => {
-    if (!containerRef.current || !screenRef.current) return;
-    
-    setCurrentStep(0);
-    setCurrentDemo(0);
-    setShowSuccess(false);
-    setTypingText("");
-    
-    // Reset progress bar
-    if (progressRef.current) {
-      progressRef.current.style.width = "0%";
-    }
-  };
-
-  const runDemo = (demoIndex: number) => {
+  const runDemo = useCallback((demoIndex: number) => {
     if (demoIndex >= demos.length) {
       setIsPlaying(false);
       setShowSuccess(true);
@@ -188,6 +129,38 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
     };
 
     runStep();
+  }, [demos.length]);
+
+  const startDemo = useCallback(() => {
+    setIsPlaying(true);
+    setCurrentStep(0);
+    setCurrentDemo(0);
+    setShowSuccess(false);
+    runDemo(0);
+  }, [runDemo]);
+
+  useEffect(() => {
+    if (isOpen) {
+      initializeDemo();
+      // Auto-start after a short delay
+      setTimeout(() => {
+        startDemo();
+      }, 1000);
+    }
+  }, [isOpen, startDemo]);
+
+  const initializeDemo = () => {
+    if (!containerRef.current || !screenRef.current) return;
+    
+    setCurrentStep(0);
+    setCurrentDemo(0);
+    setShowSuccess(false);
+    setTypingText("");
+    
+    // Reset progress bar
+    if (progressRef.current) {
+      progressRef.current.style.width = "0%";
+    }
   };
 
   const animateTyping = (text: string) => {

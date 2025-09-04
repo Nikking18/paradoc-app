@@ -13,10 +13,8 @@ import { Badge } from "@/components/ui/badge";
 import { 
   ArrowLeft, 
   FileText, 
-  Zap, 
   Clock, 
   CheckCircle, 
-  AlertCircle,
   Download,
   Eye,
   Copy,
