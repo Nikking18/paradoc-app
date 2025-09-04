@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Users, MessageCircle, Calendar, Award, BookOpen, UserGroup, Star, ArrowRight, Clock, Eye, Heart, Share2 } from "lucide-react";
+import { Users, MessageCircle, Calendar, Award, BookOpen, Star, ArrowRight, Clock, Eye, Heart, Share2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -146,7 +146,7 @@ export default function CommunityPage() {
             <Card className="border-gray-200 bg-white shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <UserGroup className="h-8 w-8 text-gray-700" />
+                  <Users className="h-8 w-8 text-gray-700" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Local Groups</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
@@ -472,7 +472,7 @@ export default function CommunityPage() {
             <Card className="border-gray-200 bg-white shadow-lg text-center hover:shadow-xl transition-shadow">
               <CardContent className="p-8">
                 <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <UserGroup className="h-8 w-8 text-gray-700" />
+                  <Users className="h-8 w-8 text-gray-700" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">User Groups</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
