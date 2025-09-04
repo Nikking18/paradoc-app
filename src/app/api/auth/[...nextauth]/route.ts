@@ -17,13 +17,13 @@ const handler = NextAuth({
     async session({ session, user }) {
       // Add user ID to session
       if (session.user && user) {
-        (session.user as any).id = user.id
+        (session.user as { id: string }).id = user.id
       }
       return session
     },
     async jwt({ token, user }) {
       if (user) {
-        (token as any).id = user.id
+        (token as { id: string }).id = user.id
       }
       return token
     },
