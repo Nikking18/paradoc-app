@@ -604,10 +604,33 @@ export default function Home() {
               <span className="text-xl font-bold text-gray-900">ParaDoc.app</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left">Features</a>
-              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" style={{ animationDelay: '0.1s' }}>How It Works</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" style={{ animationDelay: '0.2s' }}>Pricing</a>
-              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" style={{ animationDelay: '0.3s' }}>Contact</a>
+              <button 
+                onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left"
+              >
+                Features
+              </button>
+              <button 
+                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" 
+                style={{ animationDelay: '0.1s' }}
+              >
+                How It Works
+              </button>
+              <button 
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" 
+                style={{ animationDelay: '0.2s' }}
+              >
+                Pricing
+              </button>
+              <button 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" 
+                style={{ animationDelay: '0.3s' }}
+              >
+                Contact
+              </button>
             </div>
             <div className="flex items-center space-x-4 animate-slide-in-right">
               <Button 
@@ -662,7 +685,12 @@ export default function Home() {
                 >
                   Get Started Free
                 </Button>
-                <Button size="lg" variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover"
+                  onClick={() => setShowHowItWorks(true)}
+                >
                   <Play className="h-5 w-5 mr-2" />
                   See How It Works
                 </Button>
@@ -1339,11 +1367,20 @@ export default function Home() {
                     </div>
                   )}
                   
-                  <Button className={`w-full ${
-                    plan.popular 
-                      ? 'bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white' 
-                      : 'bg-gray-900 text-white hover:bg-black'
-                  } transition-all duration-200 transform hover:scale-105 button-hover`}>
+                  <Button 
+                    className={`w-full ${
+                      plan.popular 
+                        ? 'bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white' 
+                        : 'bg-gray-900 text-white hover:bg-black'
+                    } transition-all duration-200 transform hover:scale-105 button-hover`}
+                    onClick={() => {
+                      if (plan.name === "Enterprise") {
+                        window.open('mailto:sales@paradoc.app?subject=Enterprise Plan Inquiry', '_blank');
+                      } else {
+                        window.location.href = '/pricing';
+                      }
+                    }}
+                  >
                     {plan.buttonText}
                   </Button>
                 </CardContent>
@@ -1774,6 +1811,76 @@ export default function Home() {
                 <span>Cancel Anytime</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            Get in Touch
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            Have questions? We&apos;re here to help you get started with ParaDoc.app
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <MessageSquare className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">General Support</h3>
+              <p className="text-gray-600 mb-4">Get help with your account and documents</p>
+              <a 
+                href="mailto:support@paradoc.app"
+                className="text-gray-900 font-semibold hover:underline"
+              >
+                support@paradoc.app
+              </a>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <DollarSign className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Sales & Billing</h3>
+              <p className="text-gray-600 mb-4">Questions about plans and payments</p>
+              <a 
+                href="mailto:sales@paradoc.app"
+                className="text-gray-900 font-semibold hover:underline"
+              >
+                sales@paradoc.app
+              </a>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Legal & Compliance</h3>
+              <p className="text-gray-600 mb-4">Legal questions and compliance support</p>
+              <a 
+                href="mailto:legal@paradoc.app"
+                className="text-gray-900 font-semibold hover:underline"
+              >
+                legal@paradoc.app
+              </a>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-2xl p-8 border border-gray-200">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Get Started?</h3>
+            <p className="text-gray-600 mb-6">
+              Join thousands of professionals who trust ParaDoc.app for their legal documentation needs.
+            </p>
+            <Button 
+              onClick={() => window.location.href = '/auth/signup'}
+              className="bg-gray-900 text-white hover:bg-black px-8 py-4 text-lg font-semibold"
+            >
+              Start Your Free Trial
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </div>
       </section>
