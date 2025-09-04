@@ -1,7 +1,6 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import { SupabaseAdapter } from "@auth/supabase-adapter"
-import { supabase } from "@/lib/supabase"
 
 const handler = NextAuth({
   adapter: SupabaseAdapter({
@@ -17,7 +16,7 @@ const handler = NextAuth({
   callbacks: {
     async session({ session, user }) {
       // Add user ID to session
-      if (session.user) {
+      if (session.user && user) {
         session.user.id = user.id
       }
       return session
@@ -36,6 +35,7 @@ const handler = NextAuth({
   session: {
     strategy: 'database',
   },
+  secret: process.env.NEXTAUTH_SECRET,
 })
 
 export { handler as GET, handler as POST }
