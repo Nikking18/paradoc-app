@@ -1,5 +1,5 @@
 "use client";
-// Main landing page - Footer removed
+// Main landing page - Footer completely removed as requested
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
