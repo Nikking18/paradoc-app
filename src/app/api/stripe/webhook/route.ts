@@ -122,8 +122,8 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
 }
 
 async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
-  // Access subscription property safely using bracket notation
-  const subscriptionId = (invoice as any).subscription;
+  // Access subscription property safely - it exists at runtime but not in types
+  const subscriptionId = (invoice as Stripe.Invoice & { subscription?: string }).subscription;
   
   if (!subscriptionId) return;
 
@@ -148,8 +148,8 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
 }
 
 async function handlePaymentFailed(invoice: Stripe.Invoice) {
-  // Access subscription property safely using bracket notation
-  const subscriptionId = (invoice as any).subscription;
+  // Access subscription property safely - it exists at runtime but not in types
+  const subscriptionId = (invoice as Stripe.Invoice & { subscription?: string }).subscription;
   
   if (!subscriptionId) return;
 
