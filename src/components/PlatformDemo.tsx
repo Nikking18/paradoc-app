@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { X, Play, Pause, RotateCcw, FileText, Search, Shield, CheckCircle, Bot, Zap, Sparkles } from "lucide-react";
 
@@ -19,7 +19,7 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
   const screenRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
-  const demos = [
+  const demos = useMemo(() => [
     {
       title: "AI Document Generation",
       description: "Watch how our AI creates compliant legal documents",
@@ -107,7 +107,7 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
         }
       ]
     }
-  ];
+  ], []);
 
   const runDemo = useCallback((demoIndex: number) => {
     if (demoIndex >= demos.length) {
