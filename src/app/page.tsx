@@ -1309,7 +1309,7 @@ export default function Home() {
                       <li key={featureIndex} className="flex items-center text-gray-700">
                         <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
                         {feature}
-                      </li>
+          </li>
                     ))}
                   </ul>
                   
@@ -1322,7 +1322,7 @@ export default function Home() {
                           <li key={restrictionIndex} className="flex items-center text-xs text-gray-600">
                             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
                             {restriction}
-                          </li>
+          </li>
                         ))}
                       </ul>
                     </div>
@@ -1814,26 +1814,26 @@ export default function Home() {
               <div className="flex space-x-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <a 
                   href="https://twitter.com/paradocapp" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
                   className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100 hover:border-blue-200"
                   aria-label="Follow us on Twitter"
                 >
                   <Twitter className="h-6 w-6 text-gray-600 group-hover/social:text-blue-500 transition-all duration-300 group-hover/social:scale-110" />
-                </a>
-                <a 
+          </a>
+          <a
                   href="https://github.com/Nikking18/paradoc-app" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
                   className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100 hover:border-gray-300"
                   aria-label="View our GitHub repository"
-                >
+          >
                   <Github className="h-6 w-6 text-gray-600 group-hover/social:text-gray-900 transition-all duration-300 group-hover/social:scale-110" />
-                </a>
-                <a 
+          </a>
+        <a
                   href="https://linkedin.com/company/paradocapp" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
                   className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group/social hover:bg-gray-50 border border-gray-100 hover:border-blue-300"
                   aria-label="Connect with us on LinkedIn"
                 >
