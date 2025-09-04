@@ -610,10 +610,17 @@ export default function Home() {
               <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-105 transform animate-slide-in-left" style={{ animationDelay: '0.3s' }}>Contact</a>
             </div>
             <div className="flex items-center space-x-4 animate-slide-in-right">
-              <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 button-hover">
+              <Button 
+                variant="outline" 
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 button-hover"
+                onClick={() => window.location.href = '/auth/signin'}
+              >
                 Sign In
               </Button>
-              <Button className="bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white button-hover shadow-medium">
+              <Button 
+                className="bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white button-hover shadow-medium"
+                onClick={() => window.location.href = '/auth/signup'}
+              >
                 Get Started Free
               </Button>
             </div>
@@ -648,7 +655,11 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                <Button size="lg" className="bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white px-8 py-4 text-lg font-semibold shadow-strong button-hover">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-black to-gray-800 hover:from-gray-900 hover:to-black text-white px-8 py-4 text-lg font-semibold shadow-strong button-hover"
+                  onClick={() => window.location.href = '/auth/signup'}
+                >
                   Get Started Free
                 </Button>
                 <Button size="lg" variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 button-hover">
@@ -1680,7 +1691,11 @@ export default function Home() {
             
             {/* Enhanced CTA Button */}
             <div className="flex justify-center items-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-black button-hover animate-bounce-in group relative overflow-hidden">
+              <Button 
+                size="lg" 
+                className="bg-white text-black hover:bg-gray-100 px-10 py-4 text-lg font-semibold shadow-black button-hover animate-bounce-in group relative overflow-hidden"
+                onClick={() => window.location.href = '/auth/signup'}
+              >
                 <span className="relative z-10">Get Started Free Today</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Button>
