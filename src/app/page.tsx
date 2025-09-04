@@ -4,7 +4,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, CheckCircle, CheckCircle2, AlertCircle, Bot, Sparkles, ShieldCheck, BookOpen, CreditCard, Lock, X } from "lucide-react";
+import { FileText, Search, Zap, Shield, MessageSquare, Download, ArrowRight, Check, Globe, Clock, DollarSign, ChevronDown, ChevronUp, Star, Play, CheckCircle, CheckCircle2, Sparkles, ShieldCheck, BookOpen, CreditCard, Lock, X } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -43,7 +43,14 @@ export default function Home() {
         "Professional formatting",
         "Multiple document types",
         "Instant download"
-      ]
+      ],
+      benefits: [
+        "100% legally compliant",
+        "Save 90% of time",
+        "No lawyer fees",
+        "Always up-to-date laws"
+      ],
+      demo: null
     },
     {
       icon: <Search className="h-8 w-8" />,
@@ -59,7 +66,14 @@ export default function Home() {
         "Remediation suggestions",
         "Regulatory updates",
         "Audit trail"
-      ]
+      ],
+      benefits: [
+        "Identify risks instantly",
+        "Compliance assurance",
+        "Cost-effective analysis",
+        "Expert-level insights"
+      ],
+      demo: null
     },
     {
       icon: <Zap className="h-8 w-8" />,
@@ -75,7 +89,14 @@ export default function Home() {
         "Version control",
         "Template sharing",
         "Regular updates"
-      ]
+      ],
+      benefits: [
+        "Ready-to-use templates",
+        "Industry expertise",
+        "Time-saving solutions",
+        "Professional quality"
+      ],
+      demo: null
     },
     {
       icon: <Shield className="h-8 w-8" />,
@@ -91,7 +112,14 @@ export default function Home() {
         "Deadline tracking",
         "Audit reports",
         "Expert insights"
-      ]
+      ],
+      benefits: [
+        "Stay compliant always",
+        "Automated monitoring",
+        "Expert guidance",
+        "Risk mitigation"
+      ],
+      demo: null
     },
     {
       icon: <MessageSquare className="h-8 w-8" />,
@@ -107,7 +135,14 @@ export default function Home() {
         "Best practice recommendations",
         "Multi-language support",
         "Confidential consultations"
-      ]
+      ],
+      benefits: [
+        "Instant legal help",
+        "24/7 availability",
+        "Expert knowledge",
+        "Cost-effective advice"
+      ],
+      demo: null
     }
   ];
 
@@ -123,7 +158,21 @@ export default function Home() {
         "Jurisdiction selection",
         "Document type specification",
         "Custom requirements"
-      ]
+      ],
+      featureList: [
+        "Natural language input",
+        "Jurisdiction selection",
+        "Document type specification",
+        "Custom requirements"
+      ],
+      benefits: [
+        "No legal jargon required",
+        "Intuitive interface",
+        "Quick setup",
+        "Smart auto-completion"
+      ],
+      timeEstimate: "30 seconds",
+      demo: null
     },
     {
       step: "2", 
@@ -136,7 +185,21 @@ export default function Home() {
         "Compliance verification",
         "Template optimization",
         "Risk assessment"
-      ]
+      ],
+      featureList: [
+        "Legal research automation",
+        "Compliance verification",
+        "Template optimization",
+        "Risk assessment"
+      ],
+      benefits: [
+        "100% legally compliant",
+        "AI-powered generation",
+        "Real-time processing",
+        "Always up-to-date laws"
+      ],
+      timeEstimate: "2-3 minutes",
+      demo: null
     },
     {
       step: "3",
@@ -149,7 +212,21 @@ export default function Home() {
         "Real-time validation",
         "Custom clause insertion",
         "Format customization"
-      ]
+      ],
+      featureList: [
+        "Interactive editing",
+        "Real-time validation",
+        "Custom clause insertion",
+        "Format customization"
+      ],
+      benefits: [
+        "Easy editing interface",
+        "Real-time validation",
+        "Customization options",
+        "Professional output"
+      ],
+      timeEstimate: "1-2 minutes",
+      demo: null
     },
     {
       step: "4",
@@ -162,7 +239,60 @@ export default function Home() {
         "Digital signatures",
         "Version control",
         "Secure storage"
-      ]
+      ],
+      featureList: [
+        "Multiple export formats",
+        "Digital signatures",
+        "Version control",
+        "Secure storage"
+      ],
+      benefits: [
+        "Multiple formats",
+        "Professional delivery",
+        "Version control",
+        "Secure storage"
+      ],
+      timeEstimate: "30 seconds",
+      demo: null
+    }
+  ];
+
+  const pricingPlans = [
+    {
+      name: "Pro",
+      price: "$20",
+      period: "per month",
+      yearlyPrice: "$510",
+      introPrice: "$20",
+      introPeriod: "first 3 months",
+      regularPrice: "$50",
+      features: [
+        "Unlimited document generations",
+        "Unlimited chatbot conversations with memory",
+        "Export to PDF, DOCX, Google Docs",
+        "AI summarizer & risk scanner",
+        "Smart document lookup",
+        "6-month encrypted storage"
+      ],
+      buttonText: "Start Pro Trial",
+      popular: true,
+      restrictions: ["7-day free trial", "First 3 months at $20", "Then $50/month", "Cancel anytime"]
+    },
+    {
+      name: "Enterprise",
+      price: "Custom",
+      period: "contact us",
+      features: [
+        "Everything in Pro",
+        "Bulk ZIP + CSV/JSON upload",
+        "Custom AI model tuning",
+        "API embedding (law firm systems)",
+        "Team access + shared folders",
+        "Unlimited encrypted storage"
+      ],
+      buttonText: "Contact Sales",
+      popular: false,
+      restrictions: ["Custom pricing", "Dedicated support", "SLA guarantees"]
     }
   ];
 

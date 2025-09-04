@@ -81,7 +81,7 @@ export default function DashboardPage() {
     } catch (error) {
       console.error('Error fetching profile:', error);
     }
-  }, []);
+  }, [router]);
 
   const fetchDocuments = async () => {
     try {

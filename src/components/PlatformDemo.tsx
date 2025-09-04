@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { X, Play, Pause, RotateCcw, FileText, Search, Shield, CheckCircle, Bot, Zap, Globe, AlertTriangle, Sparkles, CheckCircle2 } from "lucide-react";
+import { X, Play, Pause, RotateCcw, FileText, Search, Shield, CheckCircle, Bot, Zap, Sparkles } from "lucide-react";
 
 interface PlatformDemoProps {
   isOpen: boolean;
@@ -29,17 +29,23 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
         { 
           action: "User types: 'Generate NDA for California'", 
           delay: 1500,
-          result: "AI analyzes California legal requirements"
+          result: "AI analyzes California legal requirements",
+          icon: <FileText className="h-4 w-4" />,
+          details: "User enters specific requirements and jurisdiction"
         },
         { 
           action: "AI generates compliant clauses", 
           delay: 2000,
-          result: "Document includes CA-specific terms"
+          result: "Document includes CA-specific terms",
+          icon: <Zap className="h-4 w-4" />,
+          details: "AI creates compliant document structure"
         },
         { 
           action: "Review and customize", 
           delay: 1500,
-          result: "Ready to download in multiple formats"
+          result: "Ready to download in multiple formats",
+          icon: <CheckCircle className="h-4 w-4" />,
+          details: "Complete document with customization options"
         }
       ]
     },
@@ -52,17 +58,23 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
         { 
           action: "Search: 'Employment contract Ontario'", 
           delay: 1500,
-          result: "Found 12 Ontario-compliant templates"
+          result: "Found 12 Ontario-compliant templates",
+          icon: <Search className="h-4 w-4" />,
+          details: "User searches for specific jurisdiction template"
         },
         { 
           action: "Filter by industry and type", 
           delay: 1500,
-          result: "Narrowed to 3 perfect matches"
+          result: "Narrowed to 3 perfect matches",
+          icon: <Zap className="h-4 w-4" />,
+          details: "AI filters results by relevance"
         },
         { 
           action: "Preview and select", 
           delay: 1500,
-          result: "Template ready for customization"
+          result: "Template ready for customization",
+          icon: <CheckCircle className="h-4 w-4" />,
+          details: "Template selected and ready for use"
         }
       ]
     },
@@ -75,17 +87,23 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
         { 
           action: "Upload existing contract", 
           delay: 1500,
-          result: "AI analyzes 47 clauses"
+          result: "AI analyzes 47 clauses",
+          icon: <FileText className="h-4 w-4" />,
+          details: "AI processes uploaded document"
         },
         { 
           action: "Risk assessment in progress", 
           delay: 2000,
-          result: "Identified 3 medium-risk clauses"
+          result: "Identified 3 medium-risk clauses",
+          icon: <Shield className="h-4 w-4" />,
+          details: "AI reviews legal terms and conditions"
         },
         { 
           action: "Generate recommendations", 
           delay: 1500,
-          result: "Actionable suggestions provided"
+          result: "Actionable suggestions provided",
+          icon: <CheckCircle className="h-4 w-4" />,
+          details: "AI provides remediation suggestions"
         }
       ]
     }
@@ -129,7 +147,7 @@ export default function PlatformDemo({ isOpen, onClose }: PlatformDemoProps) {
     };
 
     runStep();
-  }, [demos.length]);
+  }, [demos]);
 
   const startDemo = useCallback(() => {
     setIsPlaying(true);
