@@ -180,6 +180,15 @@ export default function SignInPage() {
               </Button>
             </form>
 
+            <div className="text-center">
+              <button
+                onClick={() => router.push('/auth/forgot-password')}
+                className="text-sm text-gray-600 hover:text-gray-900 hover:underline"
+              >
+                Forgot your password?
+              </button>
+            </div>
+
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t border-gray-300" />

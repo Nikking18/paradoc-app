@@ -81,20 +81,31 @@ export default function SignUpPage() {
     
     setIsLoading(true);
     try {
-      // For now, we'll use NextAuth credentials provider
-      // In a real app, you'd create the user account first
-      const result = await signIn('credentials', {
-        email: formData.email,
-        password: formData.password,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        redirect: false,
+      // Register the user
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+        }),
       });
-      
-      if (result?.error) {
-        setErrors({ general: "Account creation failed. Please try again." });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Registration successful, show success message
+        setErrors({ general: "Account created successfully! Please check your email to verify your account." });
+        // Optionally redirect to a success page or sign-in
+        setTimeout(() => {
+          router.push('/auth/signin');
+        }, 3000);
       } else {
-        router.push('/onboarding');
+        setErrors({ general: data.error || "Account creation failed. Please try again." });
       }
     } catch (error) {
       console.error('Sign up error:', error);
