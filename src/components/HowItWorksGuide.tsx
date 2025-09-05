@@ -27,7 +27,8 @@ export default function HowItWorksGuide({ isOpen, onClose }: HowItWorksGuideProp
         "Jurisdiction selection",
         "Document type specification",
         "Custom requirements"
-      ]
+      ],
+      timeEstimate: "1-2 minutes"
     },
     {
       title: "AI analyzes & generates",
@@ -39,7 +40,8 @@ export default function HowItWorksGuide({ isOpen, onClose }: HowItWorksGuideProp
         "Compliance verification",
         "Template optimization",
         "Risk assessment"
-      ]
+      ],
+      timeEstimate: "2-3 minutes"
     },
     {
       title: "Review & customize",
@@ -51,7 +53,8 @@ export default function HowItWorksGuide({ isOpen, onClose }: HowItWorksGuideProp
         "Real-time validation",
         "Custom clause insertion",
         "Format customization"
-      ]
+      ],
+      timeEstimate: "1-2 minutes"
     },
     {
       title: "Download & use",
@@ -63,7 +66,8 @@ export default function HowItWorksGuide({ isOpen, onClose }: HowItWorksGuideProp
         "Digital signatures",
         "Version control",
         "Secure storage"
-      ]
+      ],
+      timeEstimate: "30 seconds"
     }
   ];
 
@@ -205,16 +209,16 @@ export default function HowItWorksGuide({ isOpen, onClose }: HowItWorksGuideProp
 
                     {/* Benefits */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {step.benefits.map((benefit, benefitIndex) => (
+                      {step.details.map((detail, detailIndex) => (
                         <span 
-                          key={benefitIndex}
+                          key={detailIndex}
                           className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200 transition-all duration-500 ${
                             currentStep === index ? "opacity-100 scale-100" : "opacity-0 scale-95"
                           }`}
-                          style={{ transitionDelay: `${benefitIndex * 150}ms` }}
+                          style={{ transitionDelay: `${detailIndex * 150}ms` }}
                         >
                           <CheckCircle2 className="h-3 w-3 mr-1" />
-                          {benefit}
+                          {detail}
                         </span>
                       ))}
                     </div>
