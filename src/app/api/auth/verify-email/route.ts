@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyEmailToken, updateUserEmailVerification } from '@/lib/auth';
+import { verifyEmailToken } from '@/lib/auth';
 import { sendWelcomeEmail } from '@/lib/email';
 
 export async function POST(request: NextRequest) {

@@ -81,7 +81,7 @@ export default function ForgotPasswordPage() {
             </CardHeader>
             <CardContent className="text-center space-y-4">
               <p className="text-gray-600">
-                If an account with <strong>{email}</strong> exists, we've sent you a password reset link.
+                If an account with <strong>{email}</strong> exists, we&apos;ve sent you a password reset link.
               </p>
               <p className="text-sm text-gray-500">
                 The link will expire in 1 hour for security reasons.
@@ -137,7 +137,7 @@ export default function ForgotPasswordPage() {
               Forgot Password?
             </CardTitle>
             <p className="text-gray-600">
-              Enter your email address and we'll send you a link to reset your password.
+              Enter your email address and we&apos;ll send you a link to reset your password.
             </p>
           </CardHeader>
           <CardContent className="space-y-4">

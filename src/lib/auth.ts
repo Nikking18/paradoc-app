@@ -43,7 +43,7 @@ export interface CreateUserData {
 export const createUser = async (userData: CreateUserData): Promise<{ user: User | null; error: string | null }> => {
   try {
     // Check if user already exists
-    const { data: existingUser, error: checkError } = await supabaseAdmin
+    const { data: existingUser } = await supabaseAdmin
       .from('users')
       .select('id')
       .eq('email', userData.email)

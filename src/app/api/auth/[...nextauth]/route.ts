@@ -2,7 +2,7 @@
 import NextAuth from "next-auth/next"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { authenticateUser, getUserById } from "@/lib/auth"
+import { authenticateUser } from "@/lib/auth"
 
 const handler = NextAuth({
   providers: [
