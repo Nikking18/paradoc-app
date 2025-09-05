@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import NextAuth from "next-auth/next"
 import GoogleProvider from "next-auth/providers/google"
 
