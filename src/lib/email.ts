@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
 // Email configuration
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: parseInt(process.env.SMTP_PORT || '587'),
   secure: false, // true for 465, false for other ports
@@ -11,21 +11,17 @@ const transporter = nodemailer.createTransporter({
   },
 });
 
-export interface EmailOptions {
-  to: string;
-  subject: string;
-  html: string;
-  text?: string;
-}
+// Export the transporter as default
+export default transporter;
 
-export const sendEmail = async (options: EmailOptions): Promise<{ success: boolean; error: string | null }> => {
+// Utility function to send emails
+export const sendEmail = async (to: string, subject: string, html: string): Promise<{ success: boolean; error: string | null }> => {
   try {
     const mailOptions = {
       from: `"ParaDoc.app" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-      to: options.to,
-      subject: options.subject,
-      html: options.html,
-      text: options.text,
+      to,
+      subject,
+      html,
     };
 
     await transporter.sendMail(mailOptions);
@@ -101,12 +97,7 @@ export const sendVerificationEmail = async (email: string, firstName: string, ve
     © 2024 ParaDoc.app. All rights reserved.
   `;
 
-  return await sendEmail({
-    to: email,
-    subject: 'Verify Your Email - ParaDoc.app',
-    html,
-    text,
-  });
+  return await sendEmail(email, 'Verify Your Email - ParaDoc.app', html);
 };
 
 export const sendPasswordResetEmail = async (email: string, firstName: string, resetToken: string): Promise<{ success: boolean; error: string | null }> => {
@@ -184,12 +175,7 @@ export const sendPasswordResetEmail = async (email: string, firstName: string, r
     © 2024 ParaDoc.app. All rights reserved.
   `;
 
-  return await sendEmail({
-    to: email,
-    subject: 'Reset Your Password - ParaDoc.app',
-    html,
-    text,
-  });
+  return await sendEmail(email, 'Reset Your Password - ParaDoc.app', html);
 };
 
 export const sendWelcomeEmail = async (email: string, firstName: string): Promise<{ success: boolean; error: string | null }> => {
@@ -275,10 +261,5 @@ export const sendWelcomeEmail = async (email: string, firstName: string): Promis
     © 2024 ParaDoc.app. All rights reserved.
   `;
 
-  return await sendEmail({
-    to: email,
-    subject: 'Welcome to ParaDoc.app - Your Account is Ready!',
-    html,
-    text,
-  });
+  return await sendEmail(email, 'Welcome to ParaDoc.app - Your Account is Ready!', html);
 };
