@@ -54,18 +54,6 @@ export default function DashboardPage() {
   const [documents, setDocuments] = useState<Document[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/auth/signin");
-      return;
-    }
-
-    if (status === "authenticated") {
-      fetchUserProfile();
-      fetchDocuments();
-    }
-  }, [status, router, fetchUserProfile]);
-
   const fetchUserProfile = useCallback(async () => {
     try {
       const response = await fetch('/api/user/profile');
@@ -82,6 +70,18 @@ export default function DashboardPage() {
       console.error('Error fetching profile:', error);
     }
   }, [router]);
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/auth/signin");
+      return;
+    }
+
+    if (status === "authenticated") {
+      fetchUserProfile();
+      fetchDocuments();
+    }
+  }, [status, router, fetchUserProfile]);
 
   const fetchDocuments = async () => {
     try {
