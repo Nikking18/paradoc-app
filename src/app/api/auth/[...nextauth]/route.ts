@@ -1,12 +1,7 @@
 import NextAuth from "next-auth/next"
 import GoogleProvider from "next-auth/providers/google"
-import { SupabaseAdapter } from "@auth/supabase-adapter"
 
 const handler = NextAuth({
-  adapter: SupabaseAdapter({
-    url: process.env.SUPABASE_URL!,
-    secret: process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  }),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -14,14 +9,14 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async session({ session, user }) {
+    async session({ session, token }: { session: any; token: any }) {
       // Add user ID to session
-      if (session.user && user) {
-        (session.user as { id: string }).id = user.id
+      if (session.user && token) {
+        (session.user as { id: string }).id = token.id as string
       }
       return session
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user }: { token: any; user: any }) {
       if (user) {
         (token as { id: string }).id = user.id
       }
@@ -32,7 +27,7 @@ const handler = NextAuth({
     signIn: '/auth/signin',
   },
   session: {
-    strategy: 'database',
+    strategy: 'jwt',
   },
   secret: process.env.NEXTAUTH_SECRET,
 })
