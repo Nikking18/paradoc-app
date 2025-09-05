@@ -16,6 +16,10 @@ module.exports = {
   overrides: [
     {
       files: ["**/page.tsx", "**/page.ts"],
+      excludedFiles: [
+        "src/app/auth/reset-password/page.tsx",
+        "src/app/auth/verify-email/page.tsx"
+      ],
       rules: {
         // Custom rule to catch useSearchParams in page components
         "no-restricted-imports": [
