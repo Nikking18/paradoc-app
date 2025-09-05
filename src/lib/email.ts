@@ -83,20 +83,6 @@ export const sendVerificationEmail = async (email: string, firstName: string, ve
     </html>
   `;
 
-  const text = `
-    Welcome to ParaDoc.app, ${firstName}!
-    
-    Thank you for signing up. To complete your registration and start creating legal documents, please verify your email address by visiting this link:
-    
-    ${verificationUrl}
-    
-    This verification link will expire in 24 hours.
-    
-    If you didn't create an account with ParaDoc.app, you can safely ignore this email.
-    
-    © 2024 ParaDoc.app. All rights reserved.
-  `;
-
   return await sendEmail(email, 'Verify Your Email - ParaDoc.app', html);
 };
 
@@ -156,23 +142,6 @@ export const sendPasswordResetEmail = async (email: string, firstName: string, r
       </div>
     </body>
     </html>
-  `;
-
-  const text = `
-    Reset Your Password - ParaDoc.app
-    
-    Hello ${firstName},
-    
-    We received a request to reset your password for your ParaDoc.app account. Visit this link to create a new password:
-    
-    ${resetUrl}
-    
-    Important:
-    - This link will expire in 1 hour for security reasons
-    - If you didn't request this password reset, please ignore this email
-    - Your password will remain unchanged until you create a new one
-    
-    © 2024 ParaDoc.app. All rights reserved.
   `;
 
   return await sendEmail(email, 'Reset Your Password - ParaDoc.app', html);
@@ -241,24 +210,6 @@ export const sendWelcomeEmail = async (email: string, firstName: string): Promis
       </div>
     </body>
     </html>
-  `;
-
-  const text = `
-    Welcome to ParaDoc.app, ${firstName}!
-    
-    Your email has been verified and your account is now active. You're ready to start creating professional legal documents with AI assistance.
-    
-    Go to your dashboard: ${dashboardUrl}
-    
-    What you can do now:
-    - Generate Legal Documents: Create contracts, agreements, and other legal documents in minutes
-    - AI-Powered Analysis: Get intelligent insights and suggestions for your documents
-    - Secure Storage: All your documents are safely stored in the cloud
-    - Export Options: Download your documents as PDF, DOCX, or share via Google Docs
-    
-    If you have any questions, feel free to reach out to our support team.
-    
-    © 2024 ParaDoc.app. All rights reserved.
   `;
 
   return await sendEmail(email, 'Welcome to ParaDoc.app - Your Account is Ready!', html);
