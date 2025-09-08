@@ -72,7 +72,7 @@ Remember: You are an AI assistant and cannot provide formal legal advice. Always
 
     // Generate relevant sources and suggestions
     const sources = generateRelevantSources(message);
-    const suggestions = generateSuggestions(message, response);
+    const suggestions = generateSuggestions(message);
 
     return NextResponse.json({
       response,
@@ -134,7 +134,7 @@ function generateRelevantSources(message: string): string[] {
   return sources.slice(0, 3); // Return max 3 sources
 }
 
-function generateSuggestions(message: string, _response: string): string[] {
+function generateSuggestions(message: string): string[] {
   const suggestions: string[] = [];
   const lowerMessage = message.toLowerCase();
 
