@@ -42,7 +42,7 @@ Guidelines:
 Remember: You are an AI assistant and cannot provide formal legal advice. Always recommend consulting with qualified legal professionals for important legal matters.`;
 
     // Build conversation messages
-    const messages = [
+    const messages: Array<{ role: 'system' | 'user' | 'assistant'; content: string }> = [
       { role: 'system', content: systemPrompt }
     ];
 
@@ -63,7 +63,7 @@ Remember: You are an AI assistant and cannot provide formal legal advice. Always
     // Generate response
     const completion = await openrouter.chat.completions.create({
       model: "anthropic/claude-3.5-sonnet",
-      messages: messages as Array<{ role: string; content: string }>,
+      messages: messages,
       max_tokens: 2000,
       temperature: 0.3
     });
