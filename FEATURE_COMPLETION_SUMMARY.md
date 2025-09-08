@@ -112,7 +112,7 @@ Your ParaDoc.app is now a **complete, production-ready legal SaaS platform** wit
 
 ### **✅ Production Ready**
 - **GitHub Repository**: [https://github.com/Nikking18/paradoc-app.git](https://github.com/Nikking18/paradoc-app.git)
-- **Vercel Deployment**: **LIVE** at [https://paradoc-app-flame.vercel.app](https://paradoc-app-flame.vercel.app)
+- **Vercel Deployment**: **LIVE** at [https://paradoc.app](https://paradoc.app)
 - **Auto-deployment**: Configured on git push
 - **Environment Setup**: Complete with all required variables
 
