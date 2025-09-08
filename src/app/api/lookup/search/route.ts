@@ -63,7 +63,7 @@ Focus on providing accurate, relevant legal information with proper citations.`
     try {
       const parsedResponse = JSON.parse(response);
       return NextResponse.json(parsedResponse);
-    } catch (parseError) {
+    } catch (_parseError) {
       // Fallback to generating structured results
       const fallbackResults = generateFallbackResults(query, type, jurisdiction);
       return NextResponse.json({ results: fallbackResults });

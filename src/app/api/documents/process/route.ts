@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
 import { supabase } from '@/lib/supabase';
 import { openrouter } from '@/lib/openrouter';
-import { huggingface } from '@/lib/huggingface';
-import { readFile } from 'fs/promises';
+// import { huggingface } from '@/lib/huggingface';
+// import { readFile } from 'fs/promises';
 
 export async function POST(request: NextRequest) {
   try {
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function extractTextFromFile(filePath: string, fileType: string): Promise<string> {
+async function extractTextFromFile(_filePath: string, _fileType: string): Promise<string> {
   // Simplified text extraction - in production, use proper libraries like:
   // - pdf-parse for PDF files
   // - mammoth for DOCX files

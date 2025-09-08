@@ -15,9 +15,6 @@ import {
   FileText, 
   Search,
   Lightbulb,
-  AlertCircle,
-  CheckCircle,
-  Clock,
   ArrowLeft
 } from "lucide-react";
 
@@ -31,7 +28,7 @@ interface Message {
 }
 
 export default function AssistantPage() {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const router = useRouter();
   const [messages, setMessages] = useState<Message[]>([
     {

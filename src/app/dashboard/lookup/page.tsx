@@ -17,7 +17,6 @@ import {
   Filter,
   Download,
   ExternalLink,
-  Clock,
   MapPin,
   Calendar
 } from "lucide-react";
@@ -35,7 +34,7 @@ interface SearchResult {
 }
 
 export default function LookupPage() {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchType, setSearchType] = useState('all');

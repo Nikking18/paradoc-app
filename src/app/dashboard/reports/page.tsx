@@ -15,10 +15,6 @@ import {
   ArrowLeft,
   Eye,
   AlertTriangle,
-  CheckCircle,
-  Clock,
-  DollarSign,
-  Users,
   Activity
 } from "lucide-react";
 
@@ -40,7 +36,7 @@ interface DocumentStats {
 }
 
 export default function ReportsPage() {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const router = useRouter();
   const [reportData, setReportData] = useState<ReportData | null>(null);
   const [documentStats, setDocumentStats] = useState<DocumentStats[]>([]);
@@ -142,7 +138,7 @@ export default function ReportsPage() {
             <CardContent className="p-6">
               <div className="flex items-center">
                 <div className="p-2 bg-purple-100 rounded-lg">
-                  <Upload className="h-6 w-6 text-purple-600" />
+                  <FileText className="h-6 w-6 text-purple-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">Uploaded</p>

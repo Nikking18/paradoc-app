@@ -28,13 +28,13 @@ interface UploadedDocument {
   type: string;
   status: 'uploading' | 'processing' | 'completed' | 'failed';
   uploadedAt: string;
-  extractedData?: any;
+  extractedData?: Record<string, unknown>;
   riskScore?: number;
   summary?: string;
 }
 
 export default function UploadPage() {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const router = useRouter();
   const [uploadedFiles, setUploadedFiles] = useState<UploadedDocument[]>([]);
   const [isUploading, setIsUploading] = useState(false);
@@ -58,7 +58,7 @@ export default function UploadPage() {
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       handleFiles(e.dataTransfer.files);
     }
-  }, []);
+  }, [handleFiles]);
 
   const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -66,7 +66,7 @@ export default function UploadPage() {
     }
   };
 
-  const handleFiles = async (files: FileList) => {
+  const handleFiles = useCallback(async (files: FileList) => {
     setIsUploading(true);
     
     for (let i = 0; i < files.length; i++) {
@@ -125,7 +125,7 @@ export default function UploadPage() {
     }
     
     setIsUploading(false);
-  };
+  }, []);
 
   const processDocument = async (documentId: string) => {
     try {

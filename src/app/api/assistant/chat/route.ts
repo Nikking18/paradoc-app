@@ -48,7 +48,7 @@ Remember: You are an AI assistant and cannot provide formal legal advice. Always
 
     // Add conversation history
     if (conversationHistory && conversationHistory.length > 0) {
-      conversationHistory.forEach((msg: any) => {
+      conversationHistory.forEach((msg: { type: string; content: string }) => {
         if (msg.type === 'user') {
           messages.push({ role: 'user', content: msg.content });
         } else if (msg.type === 'assistant') {
@@ -63,7 +63,7 @@ Remember: You are an AI assistant and cannot provide formal legal advice. Always
     // Generate response
     const completion = await openrouter.chat.completions.create({
       model: "anthropic/claude-3.5-sonnet",
-      messages: messages as any,
+      messages: messages as Array<{ role: string; content: string }>,
       max_tokens: 2000,
       temperature: 0.3
     });
