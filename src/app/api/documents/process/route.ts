@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
 
     try {
       // Extract text from document (simplified - in production, use proper PDF/DOC parsers)
-      const extractedText = await extractTextFromFile(document.file_path, document.file_type);
+      const extractedText = await extractTextFromFile();
       
       // AI Analysis Pipeline
       const analysisResults = await performDocumentAnalysis(extractedText);
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function extractTextFromFile(_filePath: string, _fileType: string): Promise<string> {
+async function extractTextFromFile(): Promise<string> {
   // Simplified text extraction - in production, use proper libraries like:
   // - pdf-parse for PDF files
   // - mammoth for DOCX files

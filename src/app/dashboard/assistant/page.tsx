@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,7 +15,8 @@ import {
   FileText, 
   Search,
   Lightbulb,
-  ArrowLeft
+  ArrowLeft,
+  CheckCircle
 } from "lucide-react";
 
 interface Message {
