@@ -68,7 +68,7 @@ export async function GET() {
     const documentStats = Object.entries(documentTypes).map(([type, count]) => ({
       type: type.charAt(0).toUpperCase() + type.slice(1),
       count,
-      percentage: Math.round((count / totalDocuments) * 100)
+      percentage: Math.round((count as number / totalDocuments) * 100)
     }));
 
     const reportData = {
