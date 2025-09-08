@@ -20,7 +20,10 @@ import {
   Download,
   Eye,
   Trash2,
-  TrendingUp
+  TrendingUp,
+  Upload,
+  MessageSquare,
+  BarChart3
 } from "lucide-react";
 
 interface UserProfile {
@@ -301,17 +304,41 @@ export default function DashboardPage() {
                 <CardTitle className="text-lg">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Button variant="outline" className="w-full justify-start">
+                <Button 
+                  variant="outline" 
+                  className="w-full justify-start"
+                  onClick={() => router.push('/dashboard/upload')}
+                >
+                  <Upload className="h-4 w-4 mr-2" />
+                  Upload Documents
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full justify-start"
+                  onClick={() => router.push('/dashboard/assistant')}
+                >
+                  <MessageSquare className="h-4 w-4 mr-2" />
+                  AI Assistant
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full justify-start"
+                  onClick={() => router.push('/dashboard/lookup')}
+                >
                   <Search className="h-4 w-4 mr-2" />
-                  Search Documents
+                  Legal Lookup
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full justify-start"
+                  onClick={() => router.push('/dashboard/reports')}
+                >
+                  <BarChart3 className="h-4 w-4 mr-2" />
+                  Reports
                 </Button>
                 <Button variant="outline" className="w-full justify-start">
                   <Settings className="h-4 w-4 mr-2" />
-                  Account Settings
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <User className="h-4 w-4 mr-2" />
-                  Profile Settings
+                  Settings
                 </Button>
               </CardContent>
             </Card>
